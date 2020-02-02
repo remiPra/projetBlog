@@ -222,16 +222,29 @@ footer a {
 .footerColumn {
     padding: 20px 8px;
     margin:10px auto;
-    /* width:300px; */
+}
+/* stylisation de la bibliographie */
+.h3Bibliographie {
+    padding:20px;
+    text-align: center;
 }
 
+.listBibliographie {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.listBibliographie figure {
+    width:40%;
+    min-width:320px;
+    padding: 38px;
+}
 /* stylisation de la partie publication */
 
 #dernierChapitrePublie {
     background-color: url(images/fog-on-dark-waters-edge.mobile.jpg);
 }
-
-/* stylisation de la partie publication */
 
 
 .blocPublication {

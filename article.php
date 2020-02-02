@@ -52,7 +52,7 @@ if(!isset($_GET['id']) OR !is_numeric($_GET['id'])) {
 </section>
     <section id="chapitreContainer">
         <div id="billetContainer"class="row">
-            <div class="chapitretemplate col-md-8 col-lg-offset-2 ">
+            <div class="chapitretemplate col-md-8 col-md-offset-2 ">
       
               
             
