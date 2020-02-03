@@ -10,8 +10,10 @@ if(!isset($_GET['id']) OR !is_numeric($_GET['id'])) {
     extract($_GET);
     $id = strip_tags($id);
 
-    require_once('models/functions.php');
+    require_once('models/frontEnd/functions.php');
     $article = getArticle($id);
+
+    require_once 'views/frontEnd/articleView.php';
 }
 ?>
 

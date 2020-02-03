@@ -3,11 +3,11 @@
                 <div class="col-md-4 footerColumn">
                     <h3>Plan du site</h3>
                     <ul id="footerMenu">  
-                        <li><a href="index.html">Accueil</a></li>
-                        <li><a href="livre.html">Billet Simple</a></li>
-                        <li><a>Bibliographie</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="article.html">Administration</a></li>
+                        <li><a href="index.php">Accueil</a></li>
+                        <li><a href="livre.php">Billet Simple</a></li>
+                        <li><a href="bibliographie.php">Bibliographie</a></li>
+                        <li><a href="contact.php">Contact</a></li>
+                        <li><a href="administration.php">Administration</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4 footerColumn">

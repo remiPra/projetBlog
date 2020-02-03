@@ -1,16 +1,5 @@
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <?php include_once 'includes/head.php' ?>
-
-
-    <title>Document</title>
-</head>
-<body>
-    <?php include_once 'includes/header.php' ?>
+<?php $title = "Contact" ;?>
+<?php ob_start() ?>
     <section id="imageParrallaxBillet" >
         <picture>
 
@@ -33,20 +22,24 @@
 </section>
     <section id="administration">
         <form action="">
-            <label> Nom
+            <label> Nom : 
             </label>
             <input type="text" name="firstname">
-            <label> Email
+            <label> Titre : 
+            </label>    
+            <input type="text" name="titre">
+            <label> Email : 
             </label>    
             <input type="mail" name="email">
-            <label for=""> Message </label>
+            <label for=""> Message : </label>
             <textarea name="message" id="" cols="30" rows="10"></textarea>
             <input class="formButton" type="submit" value="Envoyer" name="btnContact">
         </form>
         
     </section>
-    <?php include_once 'includes/footer.php' ?>
+  
      
-    <script src="scroll.js"></script>
-</body>
-</html>
+    <script src="assets/js/scroll.js"></script>
+
+ <?php $content = ob_get_clean(); ?>
+<?php require_once 'template.php' ?>

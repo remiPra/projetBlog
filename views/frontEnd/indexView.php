@@ -1,14 +1,5 @@
-
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <?php include_once 'includes/head.php' ?>
-
-
-    <title>Document</title>
-</head>
-<body>
-    <?php include("includes/header.php") ?>
+<?php $title = "Bienvenue sur le site de Jean Forteroche" ;?>
+<?php ob_start() ?>
     <section id="main">
         <picture id="imageParrallax" >
             <source srcset="images/fog-on-dark-waters-edge.mobile.mobile.jpg" media="(max-width: 480px)">
@@ -62,7 +53,7 @@
                     <figcaption >
                         <h5 class="resume"> <?php echo $lastArticle->sentence ?> </h5>
                         <div>
-                        <a href='article.php?id=<?php echo $lastArticle->id ?>'class="btnS">Lire la suite</a>
+                        <a href='index.php?action=article&id=<?php echo $lastArticle->id ?>'class="btnS">Lire la suite</a>
                         </div>
                     </figcaption>
                 </figure>
@@ -73,9 +64,9 @@
             
     </section>
 
-    <?php include("includes/footer.php") ?>
+  
         
-    <script src="scroll.js"></script>
-        
-    </body>
-    </html>
+    <script src="assets/js/scroll.js"></script>
+
+    <?php $content = ob_get_clean(); ?>
+<?php require_once 'template.php' ?> 

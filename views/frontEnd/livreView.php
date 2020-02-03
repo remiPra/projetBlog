@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <?php include_once 'includes/head.php' ?>
-
-
-    <title>Document</title>
-</head>
-<body>
-    <?php include("includes/header.php") ?>
+<?php $title = "Liste des chapitres" ;?>
+<?php ob_start() ?>
         <section id="imageParrallaxBillet" >
             <picture>
 
@@ -46,19 +38,15 @@
                 <figcaption >
                     <h6 class="resume"><?php echo $article->sentence ?></h5>
                   <div class='lireLaSuite'>
-                  <a href='article.php?id=<?php echo $article->id ?>'class="btnS">Lire la suite</a>
+                  <a href='index.php?action=article&id=<?php echo $article->id ?>'class="btnS">Lire la suite</a>
                     </div> 
                 </figcaption>
             </figure>
         </div>
         <?php endforeach; ?>      
-
-     
     </section>
-    <?php include("includes/footer.php") ?>
-    <script src="scroll.js"></script>
+    <script src="assets/js/scroll.js"></script>
+  
+<?php $content = ob_get_clean(); ?>
+<?php require_once 'template.php' ?>
 
-
-
-</body>
-</html>

@@ -5,11 +5,11 @@
     <nav id="menu">
         <button id="toggle">Menu</button>
         <ul id="ulMenu">  
-            <li><a href="index.php">Accueil</a></li>
-            <li><a href="livre.php">Billet Simple</a></li>
+            <li><a href="index.php?action=index">Accueil</a></li>
+            <li><a href="index.php?action=livre">Billet Simple</a></li>
             <li><a href="bibliographie.php">Bibliographie</a></li>
-            <li><a href="contact.php">Contact</a></li>
-            <li><a href="administration.php">Administration</a></li>
+            <li><a href="index.php?action=contact">Contact</a></li>
+            <li><a href="index.php?action=livre">Administration</a></li>
         </ul>
     </nav>
 </header>

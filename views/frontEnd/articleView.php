@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <?php include_once 'includes/head.php' ?>
-    <title>Document</title>
-</head>
-<body>
-    <?php include("includes/header.php") ?>
+<?php $title = $article->title ;?>
+<?php ob_start() ?>
     <section id="imageParrallaxBillet" >
         <picture>
 
@@ -64,8 +58,6 @@
     </section>
 
     
-   <?php include("includes/footer.php") ?>
-    
-    <script src="scroll.js"></script>
-</body>
-</html>
+    <script src="assets/js/scroll.js"></script>
+    <?php $content = ob_get_clean(); ?>
+<?php require_once 'template.php' ?>
