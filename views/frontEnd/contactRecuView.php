@@ -15,28 +15,12 @@
             <h1>Billet simple pour l'Alaska</h1>
             <h2>Formulaire de contact</h2>
             <div id="paragrapheBillet">
-               <p>Veuillez remplir ce formulaire si vous désirez plus de renseignements </p>
+               <p>Votre message a bien été envoyé </p>
 
             </div>
         </div>
 </section>
-    <section id="administration">
-        <form action="index.php?action=contactRecu" method="POST">
-            <label> Nom : 
-            </label>
-            <input type="text" name="pseudo">
-            <label> Sujet : 
-            </label>    
-            <input type="text" name="sujet">
-            <label> Email : 
-            </label>    
-            <input type="mail" name="email">
-            <label for=""> Message : </label>
-            <textarea name="message" id="" cols="30" rows="10"></textarea>
-            <input class="formButton" type="submit" value="Envoyer" name="btnContact">
-        </form>
-        
-    </section>
+ 
   
      
     <script src="assets/js/scroll.js"></script>
