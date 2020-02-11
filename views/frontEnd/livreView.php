@@ -33,7 +33,7 @@
                 </div>
             </div>
             <figure>
-                <img src="<?php echo $article->imageChapitre ?>" alt="">
+                <img src="<?php echo $article->imageChapitre ?>" alt="<?php echo $lastArticle->imageAlt ?>">
                 <!-- <a href='article.php?id=<?php echo $article->id ?>' class="buttonChapitre">Decouvrir ce chapitre </a>     -->
                 <figcaption >
                     <h6 class="resume"><?php echo $article->sentence ?></h5>

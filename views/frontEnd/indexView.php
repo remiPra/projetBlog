@@ -49,7 +49,7 @@
                         <?php echo $lastArticle->title ?></h3>
                         <h4 class="Publication">Publié le : <?php echo $lastArticle->date ?></h4>
                     </div>
-                    <img src="<?php echo $lastArticle->imageChapitre ?>" alt="">    
+                    <img src="<?php echo $lastArticle->imageChapitre ?>" alt="<?php echo $lastArticle->imageAlt ?>">    
                     <figcaption >
                         <h5 class="resume"> <?php echo $lastArticle->sentence ?> </h5>
                         <div>

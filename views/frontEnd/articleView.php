@@ -26,6 +26,9 @@
               
             
                 <div class=contenuChapitre>
+                <figure>
+                    <img src="<?php echo $lastArticle->imageChapitre ?>" alt="<?php echo $lastArticle->imageAlt ?>">
+                </figure>
                 <p>
                    <?php echo $article->content ?>
                 </p>
