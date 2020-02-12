@@ -45,15 +45,16 @@
             <div class="chapitre row">
                 <figure class="col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
                     <div class=infoChapitre>
-                        <h3 class="titreChapitre"> Chapitre <?php echo $lastArticle->numeroChapitre ?> <br>
-                        <?php echo $lastArticle->title ?></h3>
-                        <h4 class="Publication">Publié le : <?php echo $lastArticle->date ?></h4>
+                        <?php echo'
+                        <h3 class="titreChapitre"> Chapitre '.$lastArticle['numeroChapitre'].'<br>
+                        '.$lastArticle['title'].'</h3>
+                        <h4 class="Publication">Publié le : '.$lastArticle['date'].'</h4>
                     </div>
-                    <img src="<?php echo $lastArticle->imageChapitre ?>" alt="<?php echo $lastArticle->imageAlt ?>">    
+                    <img src="'.$lastArticle['imageChapitre'].'" alt="'.$lastArticle['imageAlt'].'">    
                     <figcaption >
-                        <h5 class="resume"> <?php echo $lastArticle->sentence ?> </h5>
+                        <h5 class="resume"> '.$lastArticle['sentence'].' </h5>
                         <div>
-                        <a href='index.php?action=article&id=<?php echo $lastArticle->id ?>'class="btnS">Lire la suite</a>
+                        <a href="index.php?action=article&id='.$lastArticle['id'] ?>" class="btnS">Lire la suite</a>
                         </div>
                     </figcaption>
                 </figure>

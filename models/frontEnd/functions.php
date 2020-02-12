@@ -5,7 +5,7 @@ function getArticles()
     require('models/connect.php');
     $req = $bdd->prepare('SELECT * FROM chapitres');
     $req->execute();
-    $data = $req->fetchAll(PDO::FETCH_OBJ);
+    $data = $req->fetchAll();
     return $data;
     $req->cloreCursor();
 }
@@ -16,7 +16,7 @@ function getLastArticles()
     require('models/connect.php');
     $req = $bdd->prepare('SELECT * FROM chapitres ORDER BY id DESC LIMIT 0,1');
     $req->execute();
-    $data = $req->fetchAll(PDO::FETCH_OBJ);
+    $data = $req->fetchAll();
     return $data;
     $req->cloreCursor();
 }
@@ -29,7 +29,7 @@ function getArticle($id)
     $req->execute(array($id));
     //s'il y a une correspondance 
     if($req->rowCount() == 1) {
-        $data = $req->fetch(PDO::FETCH_OBJ);
+        $data = $req->fetch();
         return $data;
     }
     else {
@@ -66,11 +66,16 @@ if(!empty($_POST) && isset($_POST['btnContact'])){
         $error = "Une erreur s'est produite. Reessayez !";
     }
 }
+}
+
+function sendComments() {
+    require('models/connect.php');
+    $req = $bdd->prepare('INSERT INTO commentaires (numeroChapitre,pseudo, commentaire) VALUES(?,?, ?)');
+    $req->execute(array($_POST['numeroChapitre'],$_POST['pseudo'], $_POST['message']  ));
 
 
-
-
-
+    header('Location: index.php');
+    
 }
 
 

@@ -11,9 +11,9 @@
 
     <section id="mainBillet" class="row">
         <div id="mainBilletContainer" class="col-md-8 col-md-offset-2">
-
-            <h1>Billet simple pour l'Alaska</h1>
-            <h2>chapitre <?php echo $article->numeroChapitre ?> : <?php echo $article->title ?></h2>
+            <?php echo '
+            <h1>Billet simple pour l\'Alaska</h1>
+            <h2>chapitre '.$article['numeroChapitre'].' : '.$article['title'].' </h2>
             <div id="paragrapheBillet">
                
             </div>
@@ -26,14 +26,28 @@
               
             
                 <div class=contenuChapitre>
-                <figure class='row'>
-                    <img class='col-lg-8 col-lg-offset-2 colonne-centree' src="<?php echo $article->imageChapitre ?>" alt="<?php echo $article->imageAlt ?>">
+                <figure class="row">
+                    <img class="col-lg-8 col-lg-offset-2 colonne-centree" src="'.$article['imageChapitre'].' " 
+                    alt="'.$article['imageAlt'].'">
                 </figure>
                 <p>
-                   <?php echo $article->content ?>
-                </p>
+                   '.$article['content'] ?> 
+                </p> 
+                <div class="trait"></div>
                 </div>
                 
+                <form action="index.php?action=commentRecu">
+                   
+                    <h3>Laisser un commentaire</h3>
+                    <input type="text" name="numeroChapitre" value="<?php echo $article->numeroChapitre ?>" disabled="disabled">
+                    <label for="">Pseudo :</label>
+                    <input type="text" name="pseudo">                    
+                    <label for="">Message:</label>
+                    <textarea name="commentaire" id="" cols="30" rows="10"></textarea>                    
+                    <input type="submit" value="envoyer">
+                </form>
+
+
                 <div class="commentaire">
                     <div class="trait"></div>
                     <h3>Commentaires</h3>
@@ -48,14 +62,7 @@
 
                 <div>
 
-                <form action="">
-                    <h3>Laisser un commentaire</h3>
-                    <label for="">Pseudo :</label>
-                    <input type="text">                    
-                    <label for="">Message:</label>
-                    <textarea name="" id="" cols="30" rows="10"></textarea>                    
-                    <input type="submit">
-                </form>
+               
             </div>
         </div>
     </section>
