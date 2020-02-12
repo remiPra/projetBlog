@@ -21,13 +21,13 @@
 </section>
     <section id="chapitreContainer">
         <div id="billetContainer"class="row">
-            <div class="chapitretemplate col-md-8 col-lg-offset-2 ">
+            <div class="chapitretemplate col-md-8 col-md-offset-2 ">
       
               
             
                 <div class=contenuChapitre>
-                <figure>
-                    <img src="<?php echo $lastArticle->imageChapitre ?>" alt="<?php echo $lastArticle->imageAlt ?>">
+                <figure class='row'>
+                    <img class='col-lg-8 col-lg-offset-2 colonne-centree' src="<?php echo $article->imageChapitre ?>" alt="<?php echo $article->imageAlt ?>">
                 </figure>
                 <p>
                    <?php echo $article->content ?>

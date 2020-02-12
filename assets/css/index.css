@@ -427,6 +427,12 @@ form {
 .contenuChapitre {
     margin:50px 0;
 }
+
+.chapitre figure img ,.contenuChapitre img{
+    height:258px;
+    margin: 0px auto;
+}
+
 .sousChapitre {
     color: var(--secondary);
     text-align: center;
@@ -440,8 +446,8 @@ form {
 }
 
 .chapitretemplate p {
-    padding : 20px;
-    color:white
+    padding: 43px 12px;
+    color:white;
 }
 
 
