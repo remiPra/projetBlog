@@ -2,18 +2,58 @@
 // on verifie si l'id existe et si c'est bien un nombre
 if(!isset($_GET['id']) OR !is_numeric($_GET['id'])) {
     // redirection vers header
-    header('Location: index.php');
+    header('Location: index.php'); }
+
     
-} else
+
+ else
 {
+    
     // extraction de $_GET
+    if(!empty($_POST) && isset($_POST['btnComment']))
+    { 
+    require 'models/frontEnd/functions.php';
+  
     extract($_GET);
     $id = strip_tags($id);
 
-    require_once('models/frontEnd/functions.php');
+    
+    sendComment();
+    
+    
     $article = getArticle($id);
+    $comments = getComment($id);
+    require 'views/frontEnd/articleView.php';
+    }
+    if(!empty($_POST) && isset($_POST['btnComment']))
+    { 
+    require 'models/frontEnd/functions.php';
+  
+    extract($_GET);
+    $id = strip_tags($id);
 
-    require_once 'views/frontEnd/articleView.php';
+    
+    sendComment();
+    
+    
+    $article = getArticle($id);
+    $comments = getComment($id);
+    require 'views/frontEnd/articleView.php';
+    }
+    else 
+    {
+        require 'models/frontEnd/functions.php';
+  
+        extract($_GET);
+        $id = strip_tags($id);
+    
+       
+        
+        
+        $article = getArticle($id);
+        $comments = getComment($id);
+        require 'views/frontEnd/articleView.php';
+    } 
 }
 ?>
 
