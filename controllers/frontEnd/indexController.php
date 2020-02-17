@@ -1,8 +1,8 @@
 <?php 
-require_once('models/frontEnd/functions.php');
+require 'models/frontEnd/articleManager.php';
 
 $lastArticles = getLastArticles();
 
-require_once 'views/frontEnd/indexView.php';
+require 'views/frontEnd/indexView.php';
 ?>
 

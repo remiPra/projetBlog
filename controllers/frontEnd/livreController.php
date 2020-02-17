@@ -1,6 +1,6 @@
 <?php 
 
-require_once 'models/frontEnd/functions.php';
+require_once 'models/frontEnd/articleManager.php';
 
 $articles = getArticles();
 

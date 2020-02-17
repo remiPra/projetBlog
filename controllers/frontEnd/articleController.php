@@ -12,7 +12,8 @@ if(!isset($_GET['id']) OR !is_numeric($_GET['id'])) {
     // extraction de $_GET
     if(!empty($_POST) && isset($_POST['btnComment']))
     { 
-    require 'models/frontEnd/functions.php';
+        require 'models/frontEnd/articleManager.php';
+        require 'models/frontEnd/commentManager.php';
   
     extract($_GET);
     $id = strip_tags($id);
@@ -27,7 +28,8 @@ if(!isset($_GET['id']) OR !is_numeric($_GET['id'])) {
     }
     if(!empty($_POST) && isset($_POST['btnComment']))
     { 
-    require 'models/frontEnd/functions.php';
+        require 'models/frontEnd/articleManager.php';
+        require 'models/frontEnd/commentManager.php';
   
     extract($_GET);
     $id = strip_tags($id);
@@ -42,7 +44,8 @@ if(!isset($_GET['id']) OR !is_numeric($_GET['id'])) {
     }
     else 
     {
-        require 'models/frontEnd/functions.php';
+        require 'models/frontEnd/articleManager.php';
+        require 'models/frontEnd/commentManager.php';
   
         extract($_GET);
         $id = strip_tags($id);

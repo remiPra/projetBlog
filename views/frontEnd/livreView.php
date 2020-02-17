@@ -12,7 +12,7 @@
     <section id="mainBillet" class="row">
             <div id="mainBilletContainer" class="col-md-8 col-md-offset-2">
 
-                <h1>Billet simple pour l'Alaska</h1>
+                <h1 class="ghost">Billet simple pour l'Alaska</h1>
                 <h2>Liste des Chapitres </h2>
                 <div id="paragrapheBillet">
                    <p>Retrouvez la liste des chapitres écrites par jean Laroche sur les differentes vignettes </p>

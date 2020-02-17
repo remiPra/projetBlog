@@ -1,11 +1,29 @@
+/* animation */
+h1,h2 {
+    animation: ghost 20s infinite;
+}  
 
 
+
+@keyframes ghost {
+    0% {color:var(--primaryColor);}
+    50% {color:white;}
+    100% {color:var(--primaryColor);}
+  }
+
+
+/* Variable couleur  */
 :root {
     --primaryColor : #061319;
     --secondColor : #294444;
     --thirdColor : #8A9DA6;
     --quatriemeColor:#324951;
 
+}
+
+#bodyContainer {
+    max-width: 1800px; 
+    margin: 0px auto;
 }
 .col {
     margin: 0!important;
@@ -31,6 +49,9 @@ body,header,section,figure,img {
     padding:0;
     margin:0;
 }
+
+
+
 
 h3 {
     color:var(--thirdColor);
@@ -65,6 +86,7 @@ header {
     display:none;
     background-color: transparent;
     border: 2px solid transparent;
+    font-weight:bold;
 }
 #menu {
     padding-right: 3px;
@@ -151,7 +173,11 @@ li {
     margin: 0;
 }
 
-
+.icon {
+    text-align: center;
+    font-size: 71px;
+    color: var(--secondary);
+}
 /* stylisation de l'explication de livre en ligne */
 #conceptLivre {
     background-color: #465d65;
@@ -236,10 +262,26 @@ footer a {
 }
 
 .listBibliographie figure {
-    width:40%;
-    min-width:320px;
-    padding: 38px;
+    width: 25%;
+    min-width: 177px;
+    width: 220px;
+    padding: 13px;
+    text-align: center;
 }
+
+.listBibliographie figure img {
+    min-width:100px;
+    width: 130px;
+    margin: 1px auto;
+    display: block;
+}
+
+.listBibliographie figure figcaption {
+    color:white;
+    padding: 9px 0 30px 0;
+}
+
+
 /* stylisation de la partie publication */
 
 #dernierChapitrePublie {
@@ -271,6 +313,12 @@ footer a {
 
 
 /* Page des chapitres  */
+#listeChapitre {
+    max-width:1600px;
+    margin: 0px auto!important;
+}
+
+
 #mainBilletContainer {
     margin: 100px auto 12px auto;
     text-align: center;
@@ -446,7 +494,7 @@ form {
 }
 
 .chapitretemplate p {
-    padding: 43px 12px;
+    padding: 2px 12px;
     color:white;
 }
 

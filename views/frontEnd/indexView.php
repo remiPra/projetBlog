@@ -8,7 +8,7 @@
         </picture>       
             <div id="imageParrallaxText" class="row">
                 <div id="containerTitre" class="col-md-8 col-md-offset-2">
-                    <h1>Billet simple pour l'Alaska</h1>
+                <h1 class="ghost">Billet simple pour l'Alaska</h1>
                     <h2>Un livre de Jean Forteroche</h2>
                     <div id="boutonHomePage">
                         <button> <a href="#conceptLivre">
@@ -22,11 +22,16 @@
                     
             </div>
     </section>
+    <div id="bodyContainer">
     <section id="bienvenue">
         <h2>Bienvenue sur le site officiel De Jean Laroche : <br>
             Billet simple pour l'alaska. <br> </h2>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error temporibus quisquam doloribus velit fugiat perspiciatis, ipsa numquam maiores architecto cupiditate officiis aperiam vero facilis laborum nisi eum. Adipisci, cumque amet!</p>
-            
+            <div class="icon">
+                <i class="fas fa-book"></i>
+            </div>
+
+
+            <p>Ce site va vous permettre de lire en ligne le dernier roman de Jean Forteroche ,un livre fascinant et intrigant</p>
     </section>
     <section id="conceptLivre">
             <h2> Un concept de livre en ligne innovant</h2>
@@ -65,7 +70,7 @@
             
     </section>
 
-  
+    </div>
         
     <script src="assets/js/scroll.js"></script>
 

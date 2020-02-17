@@ -1,5 +1,5 @@
 <?php
-require 'models/frontEnd/functions.php';
+require 'models/frontEnd/commentManager.php';
 
 $idcomment = $_POST['idComment'];
 signalerComment($idcomment);

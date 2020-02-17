@@ -1,5 +1,5 @@
 <?php
-require_once('models/frontEnd/functions.php');
+require 'models/frontEnd/contactManager.php';
 
 contactForm();
 

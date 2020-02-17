@@ -3,9 +3,11 @@
 
 
 if(isset($_GET['action'])) {
+    //page d'accueil
     if ($_GET['action'] == 'index') {
         require 'controllers/frontEnd/indexController.php';
     }
+    //page du livre
     else if($_GET['action'] == 'livre') {
         require 'controllers/frontEnd/livreController.php';
     }
@@ -28,18 +30,12 @@ if(isset($_GET['action'])) {
         require 'controllers/frontEnd/signalementController.php';
     }
     
-
-
-
-
-
     else if($_GET['action'] == 'index') {
         require 'controllers/frontEnd/indexController.php';
     }
-    
+    //page de l'article sélectionné
     else if(($_GET['action'] == 'article') AND (isset($_GET['id']))) {
-        require 'controllers/frontEnd/articleController.php';
-         
+        require 'controllers/frontEnd/articleController.php';     
     }
 }
 

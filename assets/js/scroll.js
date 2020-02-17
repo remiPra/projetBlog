@@ -19,8 +19,7 @@ responsive() {
         this.toggle.style.display = "block";
         this.ul.style.display ="none";
     
-        //this.toogle.addEventListener("click", this.menuDeroulant.bind(this));
-        console.log("RESUS")
+
     }
     else {
         this.toggle.style.display = "none";

@@ -1,4 +1,5 @@
 <footer>
+           
             <div id="footerContainer" class="row">
                 <div class="col-md-4 footerColumn">
                     <h3>Plan du site</h3>
