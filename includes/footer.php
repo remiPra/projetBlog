@@ -1,14 +1,14 @@
 <footer>
-           
-            <div id="footerContainer" class="row">
+           <!-- section de la partie footer -->
+            <div id="footerConteneur" class="row">
                 <div class="col-md-4 footerColumn">
                     <h3>Plan du site</h3>
                     <ul id="footerMenu">  
-                        <li><a href="index.php">Accueil</a></li>
-                        <li><a href="livre.php">Billet Simple</a></li>
-                        <li><a href="bibliographie.php">Bibliographie</a></li>
-                        <li><a href="contact.php">Contact</a></li>
-                        <li><a href="administration.php">Administration</a></li>
+                    <li><a href="index.php?action=index">Accueil</a></li>
+            <li><a href="index.php?action=livre">Chapitres</a></li>
+            <li><a href="index.php?action=bibliographie">Bibliographie</a></li>
+            <li><a href="index.php?action=contact">Contact</a></li>
+            <li><a href="index.php?action=administration">Administration</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4 footerColumn">
@@ -21,7 +21,7 @@
                 </div>
                 <div class="col-md-4 footerColumn">
                     <h3>Administration</h3>
-                    <ul id="footerMenuReseaux">  
+                    <ul id="footerMenuAdministration">  
                         <li><a href="administration.html">Se connecter</a></li>
                        
                     </ul>

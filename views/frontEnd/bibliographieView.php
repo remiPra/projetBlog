@@ -10,7 +10,7 @@
         </section>       
     
     <section id="mainBillet" class="row">
-            <div id="mainBilletContainer" class="col-md-8 col-md-offset-2">
+            <div id="mainBilletConteneur" class="col-md-8 col-md-offset-2">
 
                 <h1>Bibliographie</h1>
                 <h2>Jean Forteroche : un ecrivain atypique </h2>
@@ -65,7 +65,7 @@ Il est révélé par les romans Extension du domaine de la lutte et, surtout, Le
         </div>     
     </section>
  
-    <script src="assets/js/scroll.js"></script>
+   
 
     <?php $content = ob_get_clean(); ?>
 <?php require_once 'template.php' ?>  

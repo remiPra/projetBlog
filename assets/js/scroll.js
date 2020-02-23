@@ -1,5 +1,6 @@
 class Toggle {
     constructor() {
+        //initiaisation des propriétés de classe
         this.toggle = document.getElementById('toggle');
         this.ul = document.getElementById('ulMenu');
         window.onresize= this.responsive.bind(this);
@@ -11,7 +12,7 @@ class Toggle {
         this.menu = document.querySelectorAll("#menu a");
         window.onscroll = this.scroll.bind(this);
     }
-
+//transformation du menu suivant la largeur de la fenetre
 responsive() {
     //si la fenetre reduit sa largeur
     if (window.innerWidth < 900) {
@@ -26,6 +27,7 @@ responsive() {
         this.ul.style.display = "flex";}
 }
 
+//methode pour afficher le menu deroulant du menu
 menuDeroulant() {
     if (window.innerWidth < 900) {
         this.header.style.color = "white";
@@ -37,26 +39,24 @@ menuDeroulant() {
 
             this.menu[i].style.color = "white";
         }
-      
-
     }
-    console.log(this.click)
-   this.click++
-    console.log(this.click)
+    
+    //on incremente le click
+    this.click++
+
     if (this.click == 1 ) {
         this.ul.style.display = "block";
         console.log(this.click);
    
-}
+    }
     else if (this.click == 2){
         this.ul.style.display = "none";
         this.click = 0;}
+    }
 
-}
-
-
+    //methode qui va changer la couleur du menu lors du scroll
     scroll(){
-        if (document.documentElement.scrollTop > 5  && window.innerWidth < 5000) {
+        if (document.documentElement.scrollTop > 1  && window.innerWidth < 5000) {
         this.header.style.color = "white";
         this.toggle.style.color = "white";
         this.toggle.style.backgroundColor = "#061319";
@@ -80,9 +80,7 @@ menuDeroulant() {
 
             this.menu[i].style.color = "#061319";
         }
-      
-      
-        console.log("ok");}
     }
+}
 }
 new Toggle();

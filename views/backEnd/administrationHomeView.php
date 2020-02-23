@@ -10,41 +10,37 @@
     </section>     
 
     <section id="mainBillet" class="row">
-        <div id="mainBilletContainer" class="col-md-8 col-md-offset-2">
+        <div id="mainBilletConteneur" class="col-md-8 col-md-offset-2">
 
             <h1>Billet simple pour l'Alaska</h1>
             <h2>Administration </h2>
             <div id="paragrapheBillet">
-               <p>Entrez votre nom et votre mot de passe </p>
+               <p>choisissez votre section </p>
 
             </div>
         </div>
     </section>
     <section>
     <div class="row justify-content-center">
-        <div class="col-md-3 d-flex justify-content-center">
-            <a class="boutonAlaska" href="tinyMCE/index.php">Nouveau Chapitre</a>
+        <div class="col-md-4 d-flex justify-content-center">
+            <a class="boutonAdministration" href="index.php?action=administrationChapitres">Acceder aux chapitres </a>
         </div>
        
-        <div class="col-md-3 d-flex justify-content-center">
-            <a class="boutonAlaska" href="">Modifier Chapitre</a>
+        <div class="col-md-4 d-flex justify-content-center">
+            <a class="boutonAdministration" href="index.php?action=administrationCommentaires">Acceder aux commentaires </a>
         </div>
        
-        <div class="col-md-3 d-flex justify-content-center">
-            <a class="boutonAlaska" href="">Effacer Chapitre</a>
+        <div class="col-md-4 d-flex justify-content-center">
+            <a class="boutonAdministration" href="">Acceder au message</a>
         </div>
-       
-        <div class="col-md-3 d-flex justify-content-center">
-            <a class="boutonAlaska" href="">Nouveau Chapitre</a>
-        </div>
-       
-      
-
-
 
     </div>
-
     </section>
+    <section>
+     
+    </section>
+
+
   
     <script src="scroll.js"></script>
 

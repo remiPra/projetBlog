@@ -7,22 +7,22 @@
             <img src="images/fog-on-dark-waters-edge.jpg" alt="">
         </picture>       
             <div id="imageParrallaxText" class="row">
-                <div id="containerTitre" class="col-md-8 col-md-offset-2">
+                <div id="conteneurTitre" class="col-md-8 col-md-offset-2">
                 <h1 class="ghost">Billet simple pour l'Alaska</h1>
                     <h2>Un livre de Jean Forteroche</h2>
                     <div id="boutonHomePage">
-                        <button> <a href="#conceptLivre">
-                        Decouvrez le projet</button>
+                         <a href="#conceptLivre">
+                        Decouvrez le projet
                         </a> 
-                        <button> <a href="livre.php">
-                        Acceder au chapitre</button>
+                        <a href="livre.php">
+                        Acceder aux chapitres
                         </a> 
                     </div>
                 </div>
                     
             </div>
     </section>
-    <div id="bodyContainer">
+    <div id="bodyConteneur">
     <section id="bienvenue">
         <h2>Bienvenue sur le site officiel De Jean Laroche : <br>
             Billet simple pour l'alaska. <br> </h2>
@@ -35,9 +35,9 @@
     </section>
     <section id="conceptLivre">
             <h2> Un concept de livre en ligne innovant</h2>
-            <div id="containerConcept">
+            <div id="conteneurConcept" class="col-lg-10">
                 <div id="explicationConcept" class="row">
-                    <p class="col-md-7">   Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error temporibus quisquam doloribus velit fugiat perspiciatis, ipsa numquam maiores architecto cupiditate officiis aperiam vero facilis laborum nisi eum. Adipisci, cumque amet!</p>
+                    <p class="col-md-7">   J'ai décidé de creer une relation spéciale avec mes lecteurs , pour la première fois vous allez pouvoir suivre la construction de mon nouveau roman grace à la publication en ligne de mes différents chapitres.</p>
                     <figure class="col-md-5">
                         <img src="images/denis-rouvre.jpg" alt="">
                     </figure>   
@@ -47,7 +47,7 @@
     <section id="dernierChapitrePublie">
         <?php foreach($lastArticles as $lastArticle): ?>
             <H2> Dernier Chapitre : </H2>
-            <div class="chapitre row">
+            <article class="chapitre row">
                 <figure class="col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
                     <div class=infoChapitre>
                         <?php echo'
@@ -63,7 +63,7 @@
                         </div>
                     </figcaption>
                 </figure>
-            </div>
+            </article>
         <?php endforeach; ?> 
   
             
@@ -72,7 +72,7 @@
 
     </div>
         
-    <script src="assets/js/scroll.js"></script>
+  
 
     <?php $content = ob_get_clean(); ?>
 <?php require_once 'template.php' ?> 

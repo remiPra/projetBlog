@@ -21,4 +21,19 @@ function signalerComment($idcomment)
  
 
  }
- ?>
+ 
+
+//fonction pour envoyer les commentaires
+function sendComment() {
+    require('models/connect.php');
+
+                $req = $bdd->prepare('INSERT INTO commentaires (pseudo, commentaire,numChapitre) 
+                VALUES(?, ?, ?)');
+                $req->execute(array(
+                    $_POST['pseudo'],
+                    $_POST['commentaire'], 
+                    $_POST['numChapitre']
+                ));   
+                $_GET['id'] =   $_POST['numChapitre'];
+                $_GET['action'] = 'article';
+            }

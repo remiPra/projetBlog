@@ -3,27 +3,28 @@
 if(!isset($_GET['id']) OR !is_numeric($_GET['id'])) {
     // redirection vers header
     header('Location: index.php'); }
-
-    
-
  else
 {
     
-    // extraction de $_GET
+// condition si un commentaire est envoyé sur l'article    
     if(!empty($_POST) && isset($_POST['btnComment']))
     { 
+            // recupération de l'article concerné par l'id
         require 'models/frontEnd/articleManager.php';
         require 'models/frontEnd/commentManager.php';
-  
+    // extraction de $_GET
     extract($_GET);
     $id = strip_tags($id);
 
-    
+    //fonction pour envoyer le commentaire
     sendComment();
     
-    
-    $article = getArticle($id);
+    //fonction pour recuperer l'article et le commentaire seulement le numéro de chapitre
+    $articles = new ArticlesManager();
+    $article = $articles->getArticle($id);
     $comments = getComment($id);
+
+    // Affichage de la view de l'article
     require 'views/frontEnd/articleView.php';
     }
     if(!empty($_POST) && isset($_POST['btnComment']))
@@ -38,7 +39,9 @@ if(!isset($_GET['id']) OR !is_numeric($_GET['id'])) {
     sendComment();
     
     
-    $article = getArticle($id);
+   
+    $articles = new ArticlesManager();
+    $article = $articles->getArticle($id);
     $comments = getComment($id);
     require 'views/frontEnd/articleView.php';
     }
@@ -53,7 +56,9 @@ if(!isset($_GET['id']) OR !is_numeric($_GET['id'])) {
        
         
         
-        $article = getArticle($id);
+       
+    $articles = new ArticlesManager();
+    $article = $articles->getArticle($id);
         $comments = getComment($id);
         require 'views/frontEnd/articleView.php';
     } 

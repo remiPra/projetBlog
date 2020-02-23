@@ -10,7 +10,7 @@
         </section>       
     
     <section id="mainBillet" class="row">
-            <div id="mainBilletContainer" class="col-md-8 col-md-offset-2">
+            <div id="mainBilletConteneur" class="col-md-8 col-md-offset-2">
 
                 <h1 class="ghost">Billet simple pour l'Alaska</h1>
                 <h2>Liste des Chapitres </h2>
@@ -24,7 +24,7 @@
     <?php 
         // boucle pour faire apparaitre nos données
          foreach($articles as $article): ?>   
-        <div class="chapitre col-lg-6 col-lg-offset-3 col-sm-8 col-sm-offset-2">
+        <article class="chapitre col-lg-6 col-lg-offset-3 col-sm-8 col-sm-offset-2">
             <div >
                 <?php echo '
                 <div class="infoChapitre" >
@@ -34,19 +34,19 @@
                 </div>
             </div>
             <figure>
-                <img src="'.$article['imageChapitre'].'" alt="'.$lastArticle['imageAlt'].'">
-                <!-- <a href="article.php?id='.$article->id.'" class="buttonChapitre">Decouvrir ce chapitre </a>     -->
+                <img src="'.$article['imageChapitre'].'" alt="'.$article['imageAlt'].'">
+               
                 <figcaption >
                     <h6 class="resume">'.$article['sentence'].'</h5>
                   <div class="lireLaSuite">
-                  <a href="index.php?action=article&id='.$article['id'].'" class="btnS">Lire la suite</a> '?>
+                  <a href="index.php?action=article&id='.$article['numeroChapitre'].'" class="btnS">Lire la suite</a> '?>
                     </div> 
                 </figcaption>
             </figure>
-        </div>
+        </article>
         <?php endforeach; ?>      
     </section>
-    <script src="assets/js/scroll.js"></script>
+  
   
 <?php $content = ob_get_clean(); ?>
 <?php require_once 'template.php' ?>

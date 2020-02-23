@@ -10,7 +10,7 @@
     </section>     
 
     <section id="mainBillet" class="row">
-        <div id="mainBilletContainer" class="col-md-8 col-md-offset-2">
+        <div id="mainBilletConteneur" class="col-md-8 col-md-offset-2">
 
             <h1>Billet simple pour l'Alaska</h1>
             <h2>Formulaire de contact</h2>
@@ -23,7 +23,7 @@
  
   
      
-    <script src="assets/js/scroll.js"></script>
+   
 
  <?php $content = ob_get_clean(); ?>
 <?php require_once 'template.php' ?>
