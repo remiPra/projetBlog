@@ -50,8 +50,11 @@ if(isset($_GET['action'])) {
     //////////////////////////////////////
 
     else if(($_SESSION['connect']!= null)) {
-    // redirection vers la page d'accueil d'administration Accueil
+         // redirection vers la page d'accueil d'administration Accueil
         if($_GET['action'] == 'administrationHome' & ($_SESSION['connect']!= null) ) {
+            require 'controllers/backEnd/administrationHomeController.php';
+        }
+        else if($_GET['action'] == 'administration') {
             require 'controllers/backEnd/administrationHomeController.php';
         }
         // redirection vers la page d'Administration Chapitres 
@@ -86,11 +89,23 @@ if(isset($_GET['action'])) {
         else if($_GET['action'] == 'administrationChapitreTransformerSupprimer' AND (isset($_GET['id']))) {
             require 'controllers/backEnd/administrationChapitreTransformerSupprimerController.php';
         }
-
+        
         // redirection vers la page d'accueil des commentaires
         else if($_GET['action'] == 'administrationCommentaires') {
             require 'controllers/backEnd/administrationCommentairesController.php';
         }    
+        
+        
+        
+        
+        //redirection vers la page des commentaires  après suppression definitive 
+        else if($_GET['action'] == 'AdministrationCommentairesTransformerSuppression' AND (isset($_GET['id']))) {
+            require 'controllers/backEnd/AdministrationCommentairesTransformerSuppressionController.php';
+        }
+        //redirection vers la page des commentaires  après supprimer 
+        else if($_GET['action'] == 'AdministrationCommentairesTransformerSupprimer' AND (isset($_GET['id']))) {
+            require 'controllers/backEnd/AdministrationCommentairesTransformerSupprimerController.php';
+        }
     }
     else  {
             $notification =  "vous n'etes pas connectés";
