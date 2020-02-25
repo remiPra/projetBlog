@@ -1,24 +1,27 @@
-
 /* Variable couleur  */
-:root {
-    --primaryColor : #061319;
-    --secondColor : #294444;
-    --thirdColor : #8A9DA6;
-    --quatriemeColor:#324951;
 
+:root {
+    --primaryColor: #061319;
+    --secondColor: #294444;
+    --thirdColor: #8A9DA6;
+    --quatriemeColor: #324951;
 }
 
 #bodyConteneur {
-    max-width: 1800px; 
+    max-width: 1800px;
     margin: 0px auto;
 }
+
 .col {
     margin: 0!important;
-    padding:0!important;
+    padding: 0!important;
 }
+
 a {
     font-size: 1.3em;
 }
+
+
 /*#opacity {
     width:100%;
     height: 781px;
@@ -29,45 +32,54 @@ a {
     opacity: 0.6;
 }
 */
+
 body {
     background-color: #061319;
-   
-
 }
-body,header,section,figure,img {
-    width:100%;
-    padding:0;
-    margin:0;
+
+body,
+header,
+section,
+figure,
+img {
+    width: 100%;
+    padding: 0;
+    margin: 0;
     font-family: 'Ramaraja', serif;
-
 }
 
-p,figcaption,label,input {
-     font-size: 1.3em!important;
+p,
+figcaption,
+label,
+input {
+    font-size: 1.3em!important;
 }
 
-h5,h6 {
+h5,
+h6 {
     font-size: 1em!important;
 }
 
 h3 {
-    color:var(--thirdColor);
+    color: var(--thirdColor);
 }
 
 p {
-    padding:0 5px;
-   
+    padding: 0 5px;
 }
 
-/* Stylisation de l'accueil*/ 
-#bienvenue h2,#conceptLivre h2,#dernierChapitrePublie h2 {
+
+/* Stylisation de l'accueil*/
+
+#bienvenue h2,
+#conceptLivre h2,
+#dernierChapitrePublie h2 {
     padding: 60px 10px 30px 10px;
     text-align: center;
     /* padding-bottom: 30px; */
     color: var(--thirdColor);
     font-size: 2.5em;
 }
-
 
 header {
     display: flex;
@@ -80,46 +92,55 @@ header {
     align-items: center;
     font-size: 18px;
 }
+
 #logo {
     padding-left: 20px;
 }
+
 #toggle {
-    display:none;
+    display: none;
     background-color: transparent;
     border: 2px solid transparent;
-    font-weight:bold;
+    font-weight: bold;
 }
+
 #menu {
     padding-right: 3px;
 }
+
 ul {
-    list-style-type:none;
+    list-style-type: none;
     /* on remet les element a gauche  */
-    padding-left:0px;
+    padding-left: 0px;
     color: var(--primaryColor);
     margin-bottom: 0px!important;
 }
+
 #menu ul {
-    display:flex;
-    list-style-type:none;
+    display: flex;
+    list-style-type: none;
     /* on remet les element a gauche  */
-    padding-left:0px;
+    padding-left: 0px;
     color: var(--primaryColor);
     margin-bottom: 0px!important;
 }
+
 #menu ul a {
     text-decoration: none!important;
     color: var(--primaryColor);
     font-size: 18px;
 }
+
+
 /*stylisation de la partie principale de l'accueil*/
+
 #main {
     /* width:100%; */
     POSITION: relative;
 }
 
 #imageParrallaxText {
-    position:absolute;
+    position: absolute;
     top: 21%;
     width: 100%;
     margin-left: -300px;
@@ -127,24 +148,25 @@ ul {
 }
 
 #conteneurTitre {
-    margin:0 auto;
+    margin: 0 auto;
 }
+
 .boutonAlaska {
-    color:var(--primaryColor);
-    border:2px solid var(--primaryColor);
-    padding:20px;
+    color: var(--primaryColor);
+    border: 2px solid var(--primaryColor);
+    padding: 20px;
     margin: 20px 0;
 }
 
 .boutonAlaska:hover {
-    color:var(--primaryColor);
+    color: var(--primaryColor);
 }
 
 #boutonHomePage {
-    margin:30px;
+    margin: 30px;
 }
 
-#main a{
+#main a {
     text-decoration: none;
     color: var(--primaryColor);
     padding: 5px;
@@ -152,21 +174,24 @@ ul {
 }
 
 #main a:hover {
-    color:white;
+    color: white;
     text-decoration: none;
 }
-
 
 .btnS:hover {
     background-color: var(--primaryColor);
-    color:white;
+    color: white;
     text-decoration: none;
     border: 2px solid white;
 }
+
 li {
-    padding : 2px 10px;
+    padding: 2px 10px;
 }
+
+
 /* stylisation du bloc de bienvenue */
+
 #bienvenue p {
     color: var(--secondary);
     text-align: center;
@@ -180,7 +205,9 @@ li {
     color: var(--secondary);
 }
 
+
 /* stylisation de l'explication de livre en ligne */
+
 #explicationConcept {
     margin: 0px auto;
 }
@@ -196,7 +223,7 @@ li {
 }
 
 #conteneurConcept {
-    margin:0px auto;
+    margin: 0px auto;
 }
 
 #conteneurConcept p {
@@ -220,39 +247,45 @@ li {
 #conceptLivre figure:after {
     position: absolute;
     top: 0px;
-    left:0px;
+    left: 0px;
     width: 100%;
     height: 100%;
     z-index: 55555;
-    content:" ";
+    content: " ";
     opacity: 0.5;
 }
 
-
 .row {
-    margin:0!important;
-    margin:0!important;
+    margin: 0!important;
+    margin: 0!important;
 }
+
+
 /* stylisation du footer*/
+
 footer {
     background-color: black;
     margin-top: 5%;
 }
 
 #footerConteneur {
-    padding : 20px 10px;
+    padding: 20px 10px;
 }
+
 footer a {
-    color:var(--secondary)
+    color: var(--secondary)
 }
 
 .footerColumn {
     padding: 20px 8px;
-    margin:10px auto;
+    margin: 10px auto;
 }
+
+
 /* stylisation de la bibliographie */
+
 .h3Bibliographie {
-    padding:20px;
+    padding: 20px;
     text-align: center;
 }
 
@@ -271,14 +304,14 @@ footer a {
 }
 
 .listBibliographie figure img {
-    min-width:100px;
+    min-width: 100px;
     width: 130px;
     margin: 1px auto;
     display: block;
 }
 
 .listBibliographie figure figcaption {
-    color:white;
+    color: white;
     padding: 9px 0 30px 0;
 }
 
@@ -290,11 +323,12 @@ footer a {
 }
 
 .blocPublication {
-    display : flex;
+    display: flex;
 }
 
-.blocPublication p,.dateDePublication {
-    text-align:center;
+.blocPublication p,
+.dateDePublication {
+    text-align: center;
 }
 
 .blocPublication figure {
@@ -306,33 +340,31 @@ footer a {
     width: 100%;
 }
 
-
 .blocPublication {
     padding-bottom: 75px;
 }
 
 
 /* stylisation de la Page des chapitres  */
+
 #listeChapitre {
-    max-width:1600px;
+    max-width: 1600px;
     margin: 0px auto!important;
 }
-
 
 #mainBilletConteneur {
     margin: 100px auto 12px auto;
     text-align: center;
 }
 
- 
 #paragrapheBillet {
     /* width:60%; */
-    color:white;
+    color: white;
     text-align: center;
 }
 
 #imageParrallaxBillet {
-    position:fixed;
+    position: fixed;
     top: 0px;
     z-index: -12;
 }
@@ -340,20 +372,22 @@ footer a {
 .chapitre {
     /* width: 560px; */
     padding: 0;
-    position:relative;
+    position: relative;
     margin: 0px auto;
     margin: 20px auto;
     /* display: flex; */
 }
+
 .chapitre .infoChapitre {
     /* position:absolute; */
     /* z-index:22; */
-    color:var(--secondary)!important;
+    color: var(--secondary)!important;
     /* width: 90%; */
-    text-align:center;
+    text-align: center;
 }
+
 .chapitre figure {
-    display:flex;
+    display: flex;
     flex-wrap: wrap;
     position: relative;
     padding: 0px !important;
@@ -371,28 +405,28 @@ footer a {
 
 .buttonChapitre {
     position: absolute;
-    bottom:40%;
-    color:white;
-    background-color:var(--secondColor);
-    border-radius:20px;
-    width:170px;
-    margin:2px auto;
-    left:50%;
-    margin-left:-90px;
+    bottom: 40%;
+    color: white;
+    background-color: var(--secondColor);
+    border-radius: 20px;
+    width: 170px;
+    margin: 2px auto;
+    left: 50%;
+    margin-left: -90px;
     text-align: center;
     padding: 2px;
 }
 
 .btnS {
-    color:white!important;
-    background-color:var(--secondColor);
-    border-radius:20px;
-    width:170px;
+    color: white!important;
+    background-color: var(--secondColor);
+    border-radius: 20px;
+    width: 170px;
     padding: 1px 10px;
     /* text-align: center; */
     font-size: 20px;
     margin: 0px auto;
-} 
+}
 
 .infoChapitre {
     position: absolute;
@@ -410,7 +444,12 @@ footer a {
     text-align: center;
     top: 2px;
 }
-.infoChapitre h4 {/* top: 139%; *//* width: 100%; */text-align: center;}
+
+.infoChapitre h4 {
+    /* top: 139%; */
+    /* width: 100%; */
+    text-align: center;
+}
 
 .resume {
     color: var(--secondary);
@@ -423,17 +462,20 @@ footer a {
     text-align: center;
 }
 
+
 /* stylisation des infos de connexion */
+
 form {
-    display:flex;
+    display: flex;
     flex-direction: column;
-    width:300px;
-    margin:20px auto;
-    text-align:center;
+    width: 300px;
+    margin: 20px auto;
+    text-align: center;
 }
 
 
 /* stylisation de la partie contact */
+
 label {
     padding: 20px 0 0px;
 }
@@ -443,43 +485,49 @@ input {
 }
 
 .inputNone {
-    display:none;
+    display: none;
     opacity: 0;
 }
 
+
 /* stylisation chapitre template */
+
 #billetConteneur {
-    margin-top:20px;
+    margin-top: 20px;
 }
+
 #billetConteneur figure {
-    position:relative;
+    position: relative;
     /* margin: 0; */
 }
+
 #figcaptionChapitre {
-    position:absolute;
+    position: absolute;
     top: 2px;
     width: 100%;
 }
 
 #figcaptionChapitreConteneur {
-    margin:20px auto;
+    margin: 20px auto;
     text-align: center;
-    color:white;
+    color: white;
 }
 
 #figcaptionChapitreConteneur h2 {
-    font-size:40px;
+    font-size: 40px;
 }
 
 #figcaptionChapitreConteneur p {
-    font-size:30px;
-}
-.contenuChapitre {
-    margin:50px 0;
+    font-size: 30px;
 }
 
-.chapitre figure img ,.contenuChapitre img{
-    height:258px;
+.contenuChapitre {
+    margin: 50px 0;
+}
+
+.chapitre figure img,
+.contenuChapitre img {
+    height: 258px;
     margin: 0px auto;
 }
 
@@ -489,7 +537,7 @@ input {
 }
 
 .chapitretemplate {
-    background-color:var(--primaryColor);
+    background-color: var(--primaryColor);
     margin: 91px auto;
     /* padding: 20px; */
     border: 2px solid var(--secondColor);
@@ -497,129 +545,136 @@ input {
 
 .chapitretemplate p {
     padding: 30px 12px;
-    color:white;
+    color: white;
 }
 
 .chapitretemplate label {
     color: var(--thirdColor);
 }
 
-
 .trait {
     width: 80%;
     content: " ";
     height: 2px;
-    background-color:  white;
+    background-color: white;
     margin: 65px auto;
     z-index: 3333333333;
 }
 
 .commentaire {
-    text-align:center;
+    text-align: center;
     padding: 10px 0;
-    position:  relative;
+    position: relative;
 }
 
-.commentaire h4,.commentaire h5 {
-    color:var(--secondary)
+.commentaire h4,
+.commentaire h5 {
+    color: var(--secondary)
 }
 
 .commentaire form {
-    display:flex;
+    display: flex;
     color: white;
     vertical-align: center;
 }
 
 
 /* stylisation de la page des chapitres administration */
+
 .sentenceTableau {
-    width:300px;
+    width: 300px;
 }
 
 .boutonAdministration {
     color: white;
-    background-color:var(--primaryColor);
+    background-color: var(--primaryColor);
     padding: 20px;
-    border-radius: 5px;;
+    border-radius: 5px;
+    ;
 }
 
+
 /* stylisation de la page administration accueil des chapitres  */
+
 table {
     color: white;
 }
+
+
 /*stylisation de la page des chapitres administration ecrire */
+
 .administrationChapitre {
     background-color: var(--primaryColor);
-    color:white;
+    color: white;
     margin: 60px 0;
-    padding:  60px 0;
-}
-.chapitreEnCours {
-    background-color: var(--secondColor);
-    color:white;
-     margin: 60px 0;
-    padding:  60px 0;
+    padding: 85px 0;
 }
 
-.administrationChapitre th,td {
-    border:white 2px solid;
+.chapitreEnCours {
+    background-color: var(--secondColor);
+    color: white;
+    /* margin: 85px 0; */
+    padding: 85px 0;
 }
+
+.administrationChapitre th,
+td {
+    border: white 2px solid;
+}
+
 #administrationChapitreEcrire {
-    min-width:60%!important;
+    min-width: 60%!important;
 }
 
 .actionTableau {
-    display:flex;
+    display: flex;
     flex-direction: column
 }
+
+
 /* animation */
-h1,h2 {
+
+h1,
+h2 {
     animation: ghost 20s infinite;
-}  
+}
 
 @keyframes ghost {
-    0% {color:var(--primaryColor);}
-    50% {color:white;}
-    100% {color:var(--primaryColor);}
-  }
-
-
-
-
-
+    0% {
+        color: var(--primaryColor);
+    }
+    50% {
+        color: white;
+    }
+    100% {
+        color: var(--primaryColor);
+    }
+}
 
 @media screen and (max-width: 640px) {
-
-#bienvenue p {
-    padding: 8px;
-    color: var(--secondary);
-    font-size: 21px;
-    margin-bottom: 17%;
+    #bienvenue p {
+        padding: 8px;
+        color: var(--secondary);
+        font-size: 21px;
+        margin-bottom: 17%;
     }
-
-#figcaptionChapitreConteneur h2 {
-    font-size: 33px;
-}
-
-#figcaptionChapitreConteneur p {
-    font-size: 22px;
-}
-
-
-.chapitretemplate {
-    padding-right: 0!important;
-    padding-left:0!important;
-}
-
-/* stylisation de la partie Administration chapitre mobile*/
-.administrationChapitre th {
-   display: none;
-}
-
-.administrationChapitre td {
-    display: flex;
-    text-align:center;
-    color: whitesmoke;
-}
-
+    #figcaptionChapitreConteneur h2 {
+        font-size: 33px;
+    }
+    #figcaptionChapitreConteneur p {
+        font-size: 22px;
+    }
+    .chapitretemplate {
+        padding-right: 0!important;
+        padding-left: 0!important;
+    }
+    /* stylisation de la partie Administration chapitre mobile*/
+    .administrationChapitre th {
+        display: none;
+    }
+    .administrationChapitre td {
+        display: flex;
+        text-align: center;
+        color: whitesmoke;
+    }
 }

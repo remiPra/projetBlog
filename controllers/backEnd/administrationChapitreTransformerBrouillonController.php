@@ -19,8 +19,7 @@ else
     $articles = $allArticles::getArticles();
     $articlesB = $allArticles::getArticlesBrouillon();
     $articlesS = $allArticles::getArticlesSupprimer();
-    var_dump($article);
-
+   
 require 'views/backEnd/administrationChapitresView.php';
 }
   

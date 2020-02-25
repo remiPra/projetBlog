@@ -17,9 +17,9 @@ else
     $articles = $allArticles::getArticles();
     $articlesB = $allArticles::getArticlesBrouillon();
     $articlesS = $allArticles::getArticlesSupprimer();
-    var_dump($article);
+   
 
-    $notification = "votre chapitre est dans la liste des chapitres modifier";
+    $notification = "votre chapitre est dans la liste des chapitres supprimer";
 require 'views/backEnd/administrationChapitresView.php';
 }
   

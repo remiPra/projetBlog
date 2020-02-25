@@ -30,9 +30,10 @@
                     <img class="col-lg-8 col-lg-offset-2 colonne-centree" src="'.$article['imageChapitre'].' " 
                     alt="'.$article['imageAlt'].'">
                 </figure>
-                <p>
+                <div>
                    '.$article['content'].'
-                </p> 
+            
+                </div> 
                 <div class="trait"></div>
                 </div>
                 

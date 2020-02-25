@@ -1,3 +1,5 @@
+
+
 <?php $title = "administration" ;?>
 <?php ob_start() ?> 
     <section id="imageParrallaxBillet" >
@@ -16,18 +18,19 @@
             <h2>Administration </h2>
             <div id="paragrapheBillet">
                <p>Entrez votre nom et votre mot de passe </p>
+               <?php echo $notification ?>
 
             </div>
         </div>
 </section>
     <section id="administration">
-        <form action="">
+        <form action="index.php?action=administrationConnexion" method='POST'>
             <label> Pseudo : 
             </label>
-            <input type="text">
+            <input name="name"type="text">
             <label> Mot de Passe
             </label>    
-            <input type="password">
+            <input name="password" type="password">
             <input type="submit" value="Se connecter">
         </form>
         
