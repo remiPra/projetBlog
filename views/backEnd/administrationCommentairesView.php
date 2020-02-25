@@ -24,23 +24,23 @@
 <section>
     <div class="row justify-content-center">
         <div class="col-md-4 d-flex justify-content-center">
-            <a class="boutonAdministration" href="#listesChapitres">Listes des commentaires publiés </a>
+            <a class="boutonAdministration" href="#listesCommentaires">Listes des commentaires publiés </a>
         </div>
 
         <div class="col-md-4 d-flex justify-content-center">
-            <a class="boutonAdministration" href="#listesCommentairesSignales">listes des commentaires signalés </a>
+            <a class="boutonAdministration" href="#listesCommentairesSignales">Listes des commentaires signalés </a>
         </div>
 
         <div class="col-md-4 d-flex justify-content-center">
-            <a class="boutonAdministration" href="index.php?action=administrationChapitresEcrire">Ecrire un nouveau chapitre</a>
+            <a class="boutonAdministration" href="#listesCommentairesEnCours">Liste des commentaires en cours de validation</a>
         </div>
     </div>
 </section>
 
-<section class="administrationChapitre">
+<section id="listesCommentairesEnCours" class="administrationChapitre">
     <div class="row justify-content-center ">
         <div>
-            <h3 id="listesCommentaires">Listes des commentaires en attente de publication</h3>
+            <h3 >Listes des commentaires en attente de publication</h3>
             <table>
                 <tr>
                     <th>Id </th>
@@ -58,11 +58,8 @@
                     echo $comment['commentaire'] ?><?php echo '</td>
                     <td >
                         <div class="actionTableau">
-                            <form action="" method="POST"> 
-                                <input class="inputNone" type="text" name="id" value="' . $comment['id'] . ' " /> 
-                                <input class="inputNone" type="text" name="valider" value="1" />
-                                <input type="submit" value="Valider">  
-                            </form>
+                            <a href="index.php?action=AdministrationCommentairesTransformerValider&id='.$comment['id'].'">
+                            Valider</a> 
                             
                             <a href="index.php?action=AdministrationCommentairesTransformerSupprimer&id='.$comment['id'].'">
                             Supprimer</a> 
@@ -80,10 +77,10 @@
     </div>
 </section>
 
-<section class="administrationChapitre">
+<section id="listesCommentaires" class="administrationChapitre">
     <div class="row justify-content-center ">
         <div>
-            <h3 id="listesCommentaires">Listes des commentaires publiés sur le site</h3>
+            <h3 >Listes des commentaires publiés sur le site</h3>
             <table>
                 <tr>
                     <th>Id </th>
@@ -101,11 +98,8 @@
                     echo $commentV['commentaire'] ?><?php echo '</td>
                     <td >
                         <div class="actionTableau">
-                            <form action="" method="POST"> 
-                                <input class="inputNone" type="text" name="id" value="' . $commentV['id'] . ' " /> 
-                                <input class="inputNone" type="text" name="valider" value="0" />
-                                <input type="submit" value="En attente">  
-                            </form>
+                            <a href="index.php?action=AdministrationCommentairesTransformerEnCours&id='.$commentV['id'].'">Passer en cours
+                            </a> 
                            
                                 
                             <a href="index.php?action=AdministrationCommentairesTransformerSupprimer&id='.$commentV['id'].'">
@@ -125,10 +119,10 @@
 </section>
 
 
-<section class="administrationChapitre">
+<section id="listesCommentairesSignales" class="administrationChapitre">
     <div class="row justify-content-center " id="listesChapitres">
         <div>
-            <h3 id="listesCommentairesSignales">Listes des commentaires signalés sur le site</h3>
+            <h3 >Listes des commentaires signalés sur le site</h3>
             <table>
                 <tr>
                     <th>Id </th>
@@ -145,7 +139,9 @@
                     <td class="sentenceTableau"> '.$commentS['commentaire'].' </td>
                     <td>
                         <div class="actionTableau">
-                        
+                            <a href="index.php?action=AdministrationCommentairesTransformerEnCours&id='.$commentS['id'].'">
+                            Passer en cours</a> 
+                       
                             <a href="index.php?action=AdministrationCommentairesTransformerSuppression&id='.$commentS['id'].'">
                             Suppression</a> 
                             

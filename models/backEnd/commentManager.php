@@ -34,13 +34,30 @@ class Commentaires
       $req->cloreCursor();
    }
 
-   public function changeCommentSignaler($id)
+
+   //fonction qui passe le commentaire a validé
+   public function changeCommentEnCours($id)
    {
       require('models/connect.php');
-      $req = $bdd->prepare('UPDATE commentaires SET signaler = 1  WHERE id = ?') or die(print_r($bdd->errorInfo()));
+      $req = $bdd->prepare('UPDATE commentaires SET valider = 0, signaler = 0  WHERE id = ?') or die(print_r($bdd->errorInfo()));
+      $req->execute(array($id));
+   }
+   //fonction qui passe le commentaire a validé
+   public function changeCommentValider($id)
+   {
+      require('models/connect.php');
+      $req = $bdd->prepare('UPDATE commentaires SET valider = 1, signaler = 0 WHERE id = ?') or die(print_r($bdd->errorInfo()));
       $req->execute(array($id));
    }
 
+   //fonction qui passe le commentaire a signaler 
+   public function changeCommentSignaler($id)
+   {
+      require('models/connect.php');
+      $req = $bdd->prepare('UPDATE commentaires SET signaler = 1, valider = 0 WHERE id = ?') or die(print_r($bdd->errorInfo()));
+      $req->execute(array($id));
+   }
+   //fonction qui supprime DEFINITIVEMENT le commentaire
    public function supressionFinal($id)
    {
       require('models/connect.php');

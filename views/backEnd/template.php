@@ -16,7 +16,7 @@
 
 <body>
 
-    <?php require_once 'includes/header.php'; ?>
+    <?php require_once 'includes/headerAdmin.php'; ?>
    
     <?php echo ($content) ?>
     <?php require_once 'includes/footer.php'; ?>

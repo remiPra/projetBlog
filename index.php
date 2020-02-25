@@ -98,6 +98,10 @@ if(isset($_GET['action'])) {
         
         
         
+        //redirection vers la page des commentaires  après transformer "en cours"  
+        else if($_GET['action'] == 'AdministrationCommentairesTransformerEnCours' AND (isset($_GET['id']))) {
+            require 'controllers/backEnd/AdministrationCommentairesTransformerEnCoursController.php';
+        }
         //redirection vers la page des commentaires  après suppression definitive 
         else if($_GET['action'] == 'AdministrationCommentairesTransformerSuppression' AND (isset($_GET['id']))) {
             require 'controllers/backEnd/AdministrationCommentairesTransformerSuppressionController.php';
@@ -105,6 +109,10 @@ if(isset($_GET['action'])) {
         //redirection vers la page des commentaires  après supprimer 
         else if($_GET['action'] == 'AdministrationCommentairesTransformerSupprimer' AND (isset($_GET['id']))) {
             require 'controllers/backEnd/AdministrationCommentairesTransformerSupprimerController.php';
+        }
+        //redirection vers la page des commentaires  après valider 
+        else if($_GET['action'] == 'AdministrationCommentairesTransformerValider' AND (isset($_GET['id']))) {
+            require 'controllers/backEnd/AdministrationCommentairesTransformerValiderController.php';
         }
     }
     else  {
