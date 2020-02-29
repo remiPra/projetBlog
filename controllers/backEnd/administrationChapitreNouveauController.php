@@ -1,17 +1,24 @@
 <?php
+require 'models/backEnd/contactManager.php';
+require 'models/backEnd/commentManager.php';
+
+$contactManager = new ContactManager();
+$nbMessages = $contactManager->countMessageNew();
+$commentaires = new Commentaires();
+$nbComments = $commentaires->countCommentsNew();
 
 //Envoie de l'article fini 
 require  'models/frontEnd/articleManager.php';
-$articleEnvoye = new ArticlesManager;
-$articleEnv = $articleEnvoye->envoyerArticleFini();
+$ArticlesManager = new ArticlesManager();
+$articleEnv = $ArticlesManager->envoyerArticleFini();
 
 
 //variable notification
 $notification = '<p> votre article a été envoyé </p>';
-$allArticles = new ArticlesManager();
-$articles = $allArticles::getArticles();
-$articlesB = $allArticles::getArticlesBrouillon();
-$articlesS = $allArticles::getArticlesSupprimer();
+
+$articles = $ArticlesManager::getArticles();
+$articlesB = $ArticlesManager::getArticlesBrouillon();
+$articlesS = $ArticlesManager::getArticlesSupprimer();
 
 
 

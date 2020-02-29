@@ -58,9 +58,9 @@
                             echo $article['sentence'] ?><?php echo '</td>
                     <td >
                         <div class="actionTableau">
-                            <a href="index.php?action=article&id=' . $article['id'] . '">Lire </a>
-                            <a href="index.php?action=administrationChapitresModifier&id=' . $article['id'] . '">Modifier </a>
-                            <a href="index.php?action=administrationChapitresSupprimer&id=' . $article['id'] . '"">Supprimer </a>
+                            <a class="lienAdministration" href="index.php?action=article&id=' . $article['id'] . '">Lire </a>
+                            <a class="lienAdministration" href="index.php?action=administrationChapitresModifier&id=' . $article['id'] . '">Modifier </a>
+                            <a class="lienAdministration" href="index.php?action=administrationChapitresSupprimer&id=' . $article['id'] . '"">Supprimer </a>
 
                         </div>
                     </td>
@@ -89,8 +89,8 @@
                     <td class="sentenceTableau">' . $articleB['content'] . '</td>
                     <td>
                         <div class="actionTableau">
-                            <a href="index.php?action=administrationChapitresModifier&id=' . $articleB['id'] . '">Modifier </a>
-                            <a href="index.php?action=administrationChapitresSupprimer&id=' . $articleB['id'] . '"">Supprimer </a>
+                            <a class="lienAdministration" href="index.php?action=administrationChapitresModifier&id=' . $articleB['id'] . '">Modifier </a>
+                            <a class="lienAdministration" href="index.php?action=administrationChapitresSupprimer&id=' . $articleB['id'] . '"">Supprimer </a>
                         </div>
                         </td>
                 </tr> ' ?>
@@ -125,8 +125,8 @@
                     <td >
                         <div class="actionTableau">
                            
-                            <a href="index.php?action=administrationChapitreTransformerBrouillon&id=' . $articleS['id'] . '">Passer en brouillon </a>
-                            <a href="index.php?action=administrationChapitreTransformerSupprimer&id=' . $articleS['id'] . '">Supprimer </a>
+                            <a class="lienAdministration" href="index.php?action=administrationChapitreTransformerBrouillon&id=' . $articleS['id'] . '">Passer en brouillon </a>
+                            <a class="lienAdministration" href="index.php?action=administrationChapitreTransformerSupprimer&id=' . $articleS['id'] . '">Supprimer </a>
                         </div>
                     </td>
                         </tr> ' ?>

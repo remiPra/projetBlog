@@ -7,6 +7,10 @@
     --quatriemeColor: #324951;
 }
 
+.administrationChapitre .message {
+    margin: 0px auto;
+}
+
 #bodyConteneur {
     max-width: 1800px;
     margin: 0px auto;
@@ -62,6 +66,7 @@ h6 {
 
 h3 {
     color: var(--thirdColor);
+    text-align: center;
 }
 
 p {
@@ -125,10 +130,16 @@ ul {
     margin-bottom: 0px!important;
 }
 
-#menu ul a {
+#menu ul a,
+#logo a {
     text-decoration: none!important;
     color: var(--primaryColor);
     font-size: 18px;
+}
+
+#menu ul a:hover {
+    text-decoration: none!important;
+    color: white;
 }
 
 
@@ -590,7 +601,18 @@ input {
     background-color: var(--primaryColor);
     padding: 20px;
     border-radius: 5px;
+    text-decoration: none!important;
+    width: 80%;
+    margin: 20px;
     text-align: center;
+    border: 2px solid transparent;
+}
+
+.boutonAdministration:hover {
+    color: var(--primaryColor);
+    background-color: var(--secondColor);
+    border: 2px solid var(--primaryColor);
+    text-decoration: none!important;
 }
 
 
@@ -598,6 +620,11 @@ input {
 
 table {
     color: white;
+}
+
+table tr:hover {
+    color: var(--primaryColor);
+    background-color: var(--secondColor);
 }
 
 
@@ -620,6 +647,7 @@ table {
 .administrationChapitre th,
 td {
     border: white 2px solid;
+    padding: 20px;
 }
 
 #administrationChapitreEcrire {
@@ -628,7 +656,20 @@ td {
 
 .actionTableau {
     display: flex;
-    flex-direction: column
+    flex-direction: column;
+    /* width: 161px; */
+}
+
+.lienAdministration {
+    text-decoration: none!important;
+    color: white;
+    /* background-color: var(--secondary); */
+    text-align: center;
+}
+
+.lienAdministration:hover {
+    color: var(--primaryColor);
+    background-color: var(--secondColor);
 }
 
 
@@ -676,5 +717,7 @@ h2 {
         display: flex;
         text-align: center;
         color: whitesmoke;
+        /* text-align: center; */
+        justify-content: center;
     }
 }

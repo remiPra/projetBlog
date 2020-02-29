@@ -28,6 +28,15 @@
 
         <form enctype="multipart/form-data" action="index.php?action=administrationChapitreModifierEnvoi" method="POST" id="administrationChapitreEcrire">
             <?php echo '
+               <label> Numéro de chapitre déja utilisé </label> 
+               <p> Vous avez deja utilisé les chapitres : '?> 
+               <?php foreach($chapitres as $chapitre) : ?>
+                   
+               <?php echo 'N°'.$chapitre['numeroChapitre'].' ';?> 
+   
+               <?php endforeach ; ?>    
+               </p> 
+            <?php echo '
             <label>Numero de chapitre : 
             </label>
             <input type="text" name="numeroChapitre" value="' . $article['numeroChapitre'] . '">
@@ -39,14 +48,14 @@
             <input type="text" name="sentence" value="' . $article['sentence'] . '">
             <input type="text" class="inputNone" name="id" value="' . $article['id'] . '">
             
-            <label> Envoyer une image </label>
-
+            <label> Renseigner le nom du fichier de l\'image avec extension :  </label>
+            <input name="imageChapitre" type="text" placeholder="image.jpg"/> 
             
        
            
 
             <label>Uploader le fichier image:</label>
-            <input name="imageBlob" type="file" /> 
+            <input name="avatar" type="file" /> 
 
             
 

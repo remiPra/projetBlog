@@ -69,8 +69,18 @@ class ArticlesManager
         $req = $bdd->prepare('SELECT * FROM chapitres WHERE id = ?');
         $req->execute(array($id));
         $data = $req->fetch();
-
+        
         return $data;
+    }
+    //fonction qui recuperer tous les numeros de chapitres 
+    public function numerosChapitre()
+    {
+        require('models/connect.php');
+        $req = $bdd->prepare('SELECT numeroChapitre FROM chapitres WHERE supprimer = 0 ORDER BY numeroChapitre');
+        $req->execute();
+        $data = $req->fetchAll();
+        return $data;
+       
     }
 
     // fonction pour enregistrer un nouvel article
@@ -78,20 +88,20 @@ class ArticlesManager
     {
         // traitement de l'image
         require('models/connect.php');
-        $imgData = addslashes(file_get_contents($_FILES['imageBlob']['tmp_name']));
-        $imageProperties = ($_FILES['imageBlob']['tmp_name']);
+        $imgData = basename($_FILES['imageChapitre']['name']);
+        
 
         // condition si l'utilisateur veut que ce soit un brouillon
         if ($_POST['brouillon'] == 1) {
             require('models/connect.php');
-            $req = $bdd->prepare('INSERT INTO chapitres (numeroChapitre,title,content,sentence,brouillon,imageBlob,imageBlobType) VALUES(?, ?, ?, ?, ?,?)');
-            $req->execute(array($_POST['numeroChapitre'], $_POST['title'], $_POST['content'], $_POST['sentence'], $_POST['brouillon'], $imgData, $imageProperties));
+            $req = $bdd->prepare('INSERT INTO chapitres (numeroChapitre,title,content,sentence,brouillon,imageChapitre) VALUES(?, ?, ?, ?, ?,?)');
+            $req->execute(array($_POST['numeroChapitre'], $_POST['title'], $_POST['content'], $_POST['sentence'], $_POST['brouillon'], $imgData));
         }
         //sinon il est publié
         else {
             require('models/connect.php');
-            $req = $bdd->prepare('INSERT INTO chapitres (numeroChapitre,title,content,sentence,imageBlob,imageBlobType) VALUES(?, ?, ?,?,?,?)');
-            $req->execute(array($_POST['numeroChapitre'], $_POST['title'], $_POST['content'], $_POST['sentence'], $imgData, $imageProperties));
+            $req = $bdd->prepare('INSERT INTO chapitres (numeroChapitre,title,content,sentence,imageChapitre) VALUES(?, ?, ?,?,?)');
+            $req->execute(array($_POST['numeroChapitre'], $_POST['title'], $_POST['content'], $_POST['sentence'], $imgData));
         }
     }
 

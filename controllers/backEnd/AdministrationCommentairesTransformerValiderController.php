@@ -3,7 +3,14 @@ extract($_GET);
 $id = strip_tags($id);
 // Recuperation de tous les commentaires publiés et signalés
 require 'models/backEnd/commentManager.php';
+require 'models/backEnd/contactManager.php';
+
+
+$contactManager = new ContactManager();
+$nbMessages = $contactManager->countMessageNew();
 $commentaires = new Commentaires();
+$nbComments = $commentaires->countCommentsNew();
+
 $commentsSuppression = $commentaires->changeCommentValider($id);
 $notification = 'le commentaire a été validé';
 $comments = $commentaires->getAllComments();

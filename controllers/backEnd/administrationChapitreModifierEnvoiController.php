@@ -1,4 +1,11 @@
 <?php
+require 'models/backEnd/contactManager.php';
+require 'models/backEnd/commentManager.php';
+
+$contactManager = new ContactManager();
+$nbMessages = $contactManager->countMessageNew();
+$commentaires = new Commentaires();
+$nbComments = $commentaires->countCommentsNew();
 
 //variable notification
 $notification = '<p> votre article a été envoyé </p>';

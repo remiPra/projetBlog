@@ -16,7 +16,16 @@
         <h2>Administration </h2>
         <div id="paragrapheBillet">
             <p>choisissez votre section </p>
-            <?php echo $_SESSION['connect'] ?>
+            <div> <a href="index.php?action=administrationChapitres#listesChapitres">
+                    <i class="fas fa-envelope-open-text"></i>
+                    <span><?php echo count($nbMessages); ?></span>
+                </a>
+                <a href="index.php?action=administrationContactHome#listesMessagesNonLu">
+                    <i class="far fa-comments"></i>
+                    <span><?php echo count($nbComments); ?></span>
+                </a>
+            </div>
+
 
         </div>
     </div>
@@ -32,7 +41,7 @@
         </div>
 
         <div class="col-md-4 d-flex justify-content-center">
-            <a class="boutonAdministration" href="">Acceder au message</a>
+            <a class="boutonAdministration" href="index.php?action=administrationContactHome">Acceder au message</a>
         </div>
 
     </div>

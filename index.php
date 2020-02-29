@@ -90,14 +90,13 @@ if(isset($_GET['action'])) {
             require 'controllers/backEnd/administrationChapitreTransformerSupprimerController.php';
         }
         
+
+
+
         // redirection vers la page d'accueil des commentaires
         else if($_GET['action'] == 'administrationCommentaires') {
             require 'controllers/backEnd/administrationCommentairesController.php';
         }    
-        
-        
-        
-        
         //redirection vers la page des commentaires  après transformer "en cours"  
         else if($_GET['action'] == 'AdministrationCommentairesTransformerEnCours' AND (isset($_GET['id']))) {
             require 'controllers/backEnd/AdministrationCommentairesTransformerEnCoursController.php';
@@ -114,6 +113,36 @@ if(isset($_GET['action'])) {
         else if($_GET['action'] == 'AdministrationCommentairesTransformerValider' AND (isset($_GET['id']))) {
             require 'controllers/backEnd/AdministrationCommentairesTransformerValiderController.php';
         }
+
+
+
+        
+        // redirection vers la page d'accueil des messages de contact
+        else if($_GET['action'] == 'administrationContactHome') {
+            require 'controllers/backEnd/administrationContactHomeController.php';
+        }
+        // redirection vers la page d'accueil des messages non lu
+        else if($_GET['action'] == 'administrationContactMessageNonLu' AND (isset($_GET['id']))) {
+            require 'controllers/backEnd/administrationContactMessageNonLuController.php';
+        }
+        // redirection vers la page de suppression de messsages de contact
+        else if($_GET['action'] == 'administrationContactTransformerSuppression' AND (isset($_GET['id']))) {
+            require 'controllers/backEnd/administrationContactTransformerSuppressionController.php';
+        }
+        // redirection vers la transformation messsages lu
+        else if($_GET['action'] == 'administrationContactTransformerLu' AND (isset($_GET['id']))) {
+            require 'controllers/backEnd/administrationContactTransformerLuController.php';
+        }
+        // redirection vers la transformation messsages lu
+        else if($_GET['action'] == 'administrationContactTransformerNonLu' AND (isset($_GET['id']))) {
+            require 'controllers/backEnd/administrationContactTransformerNonLuController.php';
+        }
+        // redirection vers la transformation messages liste supprimer
+        else if($_GET['action'] == 'administrationContactTransformerSupprimer' AND (isset($_GET['id']))) {
+            require 'controllers/backEnd/administrationContactTransformerSupprimerController.php';
+        }
+
+
     }
     else  {
             $notification =  "vous n'etes pas connectés";

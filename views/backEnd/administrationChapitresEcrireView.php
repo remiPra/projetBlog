@@ -25,8 +25,15 @@
     <div class="row justify-content-center">
 
         <form enctype="multipart/form-data" action="index.php?action=administrationChapitreNouveau" method="POST" id="administrationChapitreEcrire">
+            <label> Numéro de chapitre déja utilisé </label> 
+            <p> Vous avez deja utilisé les chapitres : 
+            <?php foreach($chapitres as $chapitre) : ?>
+                
+            <?php echo 'N°'.$chapitre['numeroChapitre'].' ';?> 
 
-            <label>Numero de chapitre :
+            <?php endforeach ; ?>    
+            </p>
+            <label> Numero de chapitre :
             </label>
             <input type="text" name="numeroChapitre">
             <label> Titre du chapitre :
@@ -36,8 +43,16 @@
             </label>
             <input type="text" name="sentence">
             <label> Envoyer une image </label>
+             
+            <label> Renseigner le nom du fichier de l\'image avec extension :  </label>
+            <input name="imageChapitre" type="text" placeholder="image.jpg"/> 
+            
+       
+           
+
             <label>Uploader le fichier image:</label>
-            <input name="imageBlob" type="file" />
+            <input name="avatar" type="file" /> 
+
 
 
 

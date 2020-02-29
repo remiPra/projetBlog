@@ -1,5 +1,14 @@
 <?php 
 if (($_POST['name']!= null) AND ($_POST['password'])!= null) {
+    require 'models/backEnd/contactManager.php';
+    require 'models/backEnd/commentManager.php';
+
+    $contactManager = new ContactManager();
+    $nbMessages = $contactManager->countMessageNew();
+    $commentaires = new Commentaires();
+    $nbComments = $commentaires->countCommentsNew();
+
+
     $pseudo = $_POST['name'];
     $password = $_POST['password'];
     require 'models/backEnd/administrationManager.php';

@@ -41,9 +41,11 @@
     <div class="row justify-content-center ">
         <div>
             <h3 >Listes des commentaires en attente de publication</h3>
+            <h4><?php echo count($nbComments); ?></h4>
             <table>
                 <tr>
                     <th>Id </th>
+                    <th>Numero chapitre</th>
                     <th>Pseudo</th>
                     <th>Commentaire</th>
                     <th>Action</th>
@@ -52,16 +54,17 @@
                 <?php foreach ($comments as $comment) : ?>
                     <?php echo '    <tr>
                     <td>' . $comment['id'] . '</td>
+                    <td>' . $comment['numChapitre'] . '</td>
                     <td>' . $comment['pseudo'] . '</td>
                     <td class="sentenceTableau">' ?>
                     <?php
                     echo $comment['commentaire'] ?><?php echo '</td>
                     <td >
                         <div class="actionTableau">
-                            <a href="index.php?action=AdministrationCommentairesTransformerValider&id='.$comment['id'].'">
+                            <a class="lienAdministration" href="index.php?action=AdministrationCommentairesTransformerValider&id='.$comment['id'].'">
                             Valider</a> 
                             
-                            <a href="index.php?action=AdministrationCommentairesTransformerSupprimer&id='.$comment['id'].'">
+                            <a class="lienAdministration" href="index.php?action=AdministrationCommentairesTransformerSupprimer&id='.$comment['id'].'">
                             Supprimer</a> 
                              
 
@@ -84,6 +87,7 @@
             <table>
                 <tr>
                     <th>Id </th>
+                    <th>Numero chapitre</th>   
                     <th>Pseudo</th>
                     <th>Commentaire</th>
                     <th>Action</th>
@@ -92,17 +96,18 @@
                 <?php foreach ($commentsV as $commentV) : ?>
                     <?php echo '    <tr>
                     <td>' . $commentV['id'] . '</td>
+                    <td>' . $commentV['numChapitre'] . '</td>
                     <td>' . $commentV['pseudo'] . '</td>
                     <td class="sentenceTableau">' ?>
                     <?php
                     echo $commentV['commentaire'] ?><?php echo '</td>
                     <td >
                         <div class="actionTableau">
-                            <a href="index.php?action=AdministrationCommentairesTransformerEnCours&id='.$commentV['id'].'">Passer en cours
+                            <a class="lienAdministration" href="index.php?action=AdministrationCommentairesTransformerEnCours&id='.$commentV['id'].'">Passer en cours
                             </a> 
                            
                                 
-                            <a href="index.php?action=AdministrationCommentairesTransformerSupprimer&id='.$commentV['id'].'">
+                            <a class="lienAdministration" href="index.php?action=AdministrationCommentairesTransformerSupprimer&id='.$commentV['id'].'">
                             Supprimer</a> 
                                
 
@@ -126,6 +131,7 @@
             <table>
                 <tr>
                     <th>Id </th>
+                    <th>Numero chapitre</th>
                     <th>Pseudo</th>
                     <th>Commentaire</th>
                     <th>Action</th>
@@ -135,14 +141,15 @@
                     <?php echo '    
                 <tr>
                     <td>' . $commentS['id'] . '</td>
+                    <td>' . $commentS['numChapitre'] . '</td>
                     <td>' . $commentS['pseudo'] . '</td>
                     <td class="sentenceTableau"> '.$commentS['commentaire'].' </td>
                     <td>
                         <div class="actionTableau">
-                            <a href="index.php?action=AdministrationCommentairesTransformerEnCours&id='.$commentS['id'].'">
+                            <a class="lienAdministration" href="index.php?action=AdministrationCommentairesTransformerEnCours&id='.$commentS['id'].'">
                             Passer en cours</a> 
                        
-                            <a href="index.php?action=AdministrationCommentairesTransformerSuppression&id='.$commentS['id'].'">
+                            <a class="lienAdministration" href="index.php?action=AdministrationCommentairesTransformerSuppression&id='.$commentS['id'].'">
                             Suppression</a> 
                             
                         </div>
