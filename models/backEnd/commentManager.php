@@ -1,14 +1,23 @@
 <?php
 class Commentaires
 {
+   
+   //nombres de commentaires nouveaux 
    public function countCommentsNew()
    {
       require('models/connect.php');
       $req = $bdd->prepare('SELECT COUNT(*) FROM commentaires WHERE valider = 0 AND signaler = 0 ');
       $req->execute(array($id));
       $data = $req->fetchAll();
-      return $data;
-      $req->cloreCursor();
+      return $data; 
+   }
+   public function countCommentsDanger()
+   {
+      require('models/connect.php');
+      $req = $bdd->prepare('SELECT COUNT(*) FROM commentaires WHERE valider = 0 AND signaler = 1 ');
+      $req->execute(array($id));
+      $data = $req->fetchAll();
+      return $data; 
    }
    
    
@@ -22,7 +31,7 @@ class Commentaires
       $req->execute(array($id));
       $data = $req->fetchAll();
       return $data;
-      $req->cloreCursor();
+    
    }
 
    //fonction pour recuperer tous les commentaires validés

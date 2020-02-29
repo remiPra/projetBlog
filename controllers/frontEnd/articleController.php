@@ -17,12 +17,14 @@ if(!isset($_GET['id']) OR !is_numeric($_GET['id'])) {
     $id = strip_tags($id);
 
     //fonction pour envoyer le commentaire
-    sendComment();
+    $CommentManagerF = new CommentManagerF();
+    $sendComment = $CommentManagerF->sendComment();
     
     //fonction pour recuperer l'article et le commentaire seulement le numéro de chapitre
     $articles = new ArticlesManager();
     $article = $articles->getArticle($id);
-    $comments = getComment($id);
+   
+    $comments = $CommentManagerF->getComment($id);
 
     // Affichage de la view de l'article
     require 'views/frontEnd/articleView.php';
@@ -35,14 +37,16 @@ if(!isset($_GET['id']) OR !is_numeric($_GET['id'])) {
     extract($_GET);
     $id = strip_tags($id);
 
-    
-    sendComment();
-    
+   
+    //fonction pour envoyer le commentaire
+    $CommentManagerF = new CommentManagerF();
+    $sendComment = $CommentManagerF->sendComment();
+    $comments = $CommentManagerF->getComment($id);
     
    
     $articles = new ArticlesManager();
     $article = $articles->getArticle($id);
-    $comments = getComment($id);
+    
     require 'views/frontEnd/articleView.php';
     }
     else 
@@ -59,7 +63,8 @@ if(!isset($_GET['id']) OR !is_numeric($_GET['id'])) {
        
     $articles = new ArticlesManager();
     $article = $articles->getArticle($id);
-        $comments = getComment($id);
+    $CommentManagerF = new CommentManagerF();
+    $comments = $CommentManagerF->getComment($id);
         require 'views/frontEnd/articleView.php';
     } 
 }

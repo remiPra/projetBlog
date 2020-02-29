@@ -17,7 +17,7 @@ if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {
     $nbMessages = $contactManager->countMessageNew();
     $commentaires = new Commentaires();
     $nbComments = $commentaires->countCommentsNew();
-
+    $nbCommentsDanger = $commentaires->countCommentsDanger();
 
 
 

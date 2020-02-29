@@ -1,18 +1,20 @@
 <?php
+
+Class CommentManagerF {
 //fonction pour recuperer les commentaires
-function getComment($id)
+public function getComment($id)
 {
     require('models/connect.php');
     $req = $bdd->prepare('SELECT * FROM commentaires WHERE numChapitre = ?');
     $req->execute(array($id));
     $data = $req->fetchAll();
     return $data;
-    $req->cloreCursor();
+   
 }
 
 
 //fonction pour signaler un commentaire
-function signalerComment($idcomment)
+public function signalerComment($idcomment)
 {
     require('models/connect.php');
     $req = $bdd->prepare('UPDATE commentaires SET signaler = ?  WHERE id = ?') or die(print_r($bdd->errorInfo()));
@@ -21,7 +23,7 @@ function signalerComment($idcomment)
 
 
 //fonction pour envoyer les commentaires
-function sendComment()
+public function sendComment()
 {
     require('models/connect.php');
 
@@ -34,4 +36,5 @@ function sendComment()
     ));
     $_GET['id'] =   $_POST['numChapitre'];
     $_GET['action'] = 'article';
+}
 }

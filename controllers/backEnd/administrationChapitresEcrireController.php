@@ -9,7 +9,7 @@ $contactManager = new ContactManager();
 $nbMessages = $contactManager->countMessageNew();
 $commentaires = new Commentaires();
 $nbComments = $commentaires->countCommentsNew();
-
+$nbCommentsDanger = $commentaires->countCommentsDanger();
 
 
 

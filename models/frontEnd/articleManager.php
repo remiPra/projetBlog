@@ -5,7 +5,7 @@ class ArticlesManager
     public function getArticles()
     {
         require('models/connect.php');
-        $req = $bdd->prepare('SELECT * FROM chapitres WHERE brouillon = 0 AND supprimer = 0');
+        $req = $bdd->prepare('SELECT * FROM chapitres WHERE brouillon = 0 AND supprimer = 0 ORDER BY numeroChapitre');
         $req->execute();
         $data = $req->fetchAll();
         return $data;
@@ -50,7 +50,7 @@ class ArticlesManager
     public function getArticle($id)
     {
         require('models/connect.php');
-        $req = $bdd->prepare('SELECT * FROM chapitres WHERE id = ? AND brouillon = 0');
+        $req = $bdd->prepare('SELECT * FROM chapitres WHERE numeroChapitre = ? AND brouillon = 0');
         $req->execute(array($id));
         //s'il y a une correspondance et une seule 
         if ($req->rowCount() == 1) {
@@ -88,8 +88,8 @@ class ArticlesManager
     {
         // traitement de l'image
         require('models/connect.php');
-        $imgData = basename($_FILES['imageChapitre']['name']);
-        
+        $imgData = basename($_FILES['avatar']['name']);
+        var_dump($_FILES['avatar']['name']);
 
         // condition si l'utilisateur veut que ce soit un brouillon
         if ($_POST['brouillon'] == 1) {

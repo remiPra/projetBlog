@@ -2,13 +2,17 @@
     <div id="logo">
         <a href="">Jean Forteroche</a>
         <div>
-            <a href="">
+            <a href="index.php?action=administrationContactHome">
                 <i class="fas fa-envelope-open-text"></i>
-                <span><?php echo count($nbMessages); ?></span>
+                <span><?php echo $nbMessages[0]['COUNT(*)']; ?></span>
             </a>
-            <a href="">
+            <a href="index.php?action=administrationCommentaires">
                 <i class="far fa-comments"></i>
-                <span><?php echo count($nbComments); ?></span>
+                <span><?php echo $nbComments[0]['COUNT(*)'] ; ?></span>
+            </a>
+            <a href="index.php?action=administrationCommentaires">
+                <i class="fas fa-comment-slash"></i>
+                <span><?php echo $nbCommentsDanger[0]['COUNT(*)'] ; ?></span>
             </a>
         </div>
 

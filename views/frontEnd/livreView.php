@@ -48,7 +48,7 @@
                 </div>
             </div>
             <figure>
-                <img src="' . $article['imageChapitre'] . '" alt="' . $article['imageAlt'] . '">
+                <img src="images/' . $article['imageChapitre'] . '" alt="' . $article['imageAlt'] . '">
                
                 <figcaption >
                     <h6 class="resume">' . $article['sentence'] . '</h5>

@@ -55,11 +55,11 @@
                         '.$lastArticle['title'].'</h3>
                         <h4 class="Publication">Publié le : '.$lastArticle['date'].'</h4>
                     </div>
-                    <img src="'.$lastArticle['imageChapitre'].'" alt="'.$lastArticle['imageAlt'].'">    
+                    <img src="images/'.$lastArticle['imageChapitre'].'" alt="'.$lastArticle['imageAlt'].'">    
                     <figcaption >
                         <h5 class="resume"> '.$lastArticle['sentence'].' </h5>
                         <div>
-                        <a href="index.php?action=article&id='.$lastArticle['id'] ?>" class="btnS">Lire la suite</a>
+                        <a href="index.php?action=article&id='.$lastArticle['numeroChapitre'] ?>" class="btnS">Lire la suite</a>
                         </div>
                     </figcaption>
                 </figure>

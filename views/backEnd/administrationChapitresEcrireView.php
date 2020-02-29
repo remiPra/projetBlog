@@ -44,8 +44,8 @@
             <input type="text" name="sentence">
             <label> Envoyer une image </label>
              
-            <label> Renseigner le nom du fichier de l\'image avec extension :  </label>
-            <input name="imageChapitre" type="text" placeholder="image.jpg"/> 
+            <!-- <label> Renseigner le nom du fichier de l\'image avec extension :  </label>
+            <input name="imageChapitre" type="text" placeholder="image.jpg"/>  -->
             
        
            

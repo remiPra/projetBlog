@@ -19,7 +19,7 @@ class ContactManager
     public function getContactMessages() {
         require('models/connect.php');
         var_dump("roinga");
-        $req = $bdd->prepare('SELECT * FROM contact WHERE messagelu = 0');
+        $req = $bdd->prepare('SELECT * FROM contact WHERE messagelu = 0 AND supprimer = 0');
         $req->execute();
         $data = $req->fetchAll();
         return $data;
@@ -31,7 +31,7 @@ class ContactManager
    public function getContactMessagesSupprimer()
    {
       require('models/connect.php');
-      $req = $bdd->prepare('SELECT * FROM contact WHERE supprimer = 1 AND messageLu = 1 ORDER BY id DESC');
+      $req = $bdd->prepare('SELECT * FROM contact WHERE supprimer = 1 ORDER BY id DESC');
       $req->execute(array($id));
       $data = $req->fetchAll();
       return $data;
@@ -64,14 +64,14 @@ class ContactManager
    public function changeContactLu($id)
    {
       require('models/connect.php');
-      $req = $bdd->prepare('UPDATE contact SET messageLu = 1 WHERE id = ? ') or die(print_r($bdd->errorInfo()));
+      $req = $bdd->prepare('UPDATE contact SET messageLu = 1 ,supprimer = 0 WHERE id = ? ') or die(print_r($bdd->errorInfo()));
       $req->execute(array($id));
    }
      //fonction qui transforme en message non lu
    public function changeContacNonLu($id)
    {
       require('models/connect.php');
-      $req = $bdd->prepare('UPDATE contact SET messageLu = 0 WHERE id = ? ') or die(print_r($bdd->errorInfo()));
+      $req = $bdd->prepare('UPDATE contact SET messageLu = 0,supprimer = 0 WHERE id = ? ') or die(print_r($bdd->errorInfo()));
       $req->execute(array($id));
    }
 

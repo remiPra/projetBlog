@@ -10,6 +10,8 @@ $contactManager = new ContactManager();
 $nbMessages = $contactManager->countMessageNew();
 $commentaires = new Commentaires();
 $nbComments = $commentaires->countCommentsNew();
+$nbCommentsDanger = $commentaires->countCommentsDanger();
+
 
 $commentsSuppression = $commentaires->supressionFinal($id);
 $notification = 'le commentaire a été supprimé';

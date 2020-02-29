@@ -27,7 +27,7 @@
             
                 <div class=contenuChapitre>
                 <figure class="row">
-                    <img class="col-lg-8 col-lg-offset-2 colonne-centree" src="'.$article['imageChapitre'].' " 
+                    <img class="col-lg-8 col-lg-offset-2 colonne-centree" src="images/'.$article['imageChapitre'].' " 
                     alt="'.$article['imageAlt'].'">
                 </figure>
                 <div>

@@ -28,11 +28,11 @@
         </div>
 
         <div class="col-md-4 d-flex justify-content-center">
-            <a class="boutonAdministration" href="#chapitresbrouillons">Messages répondus</a>
+            <a class="boutonAdministration" href="#listesMessagesLu">Messages répondus</a>
         </div>
 
         <div class="col-md-4 d-flex justify-content-center">
-            <a class="boutonAdministration" href="index.php?action=administrationChapitresEcrire">Messages supprimés</a>
+            <a class="boutonAdministration" href="#listesMessagesSupprimer">Messages supprimés</a>
         </div>
     </div>
     
@@ -71,7 +71,7 @@
     </section>
 
     <section class="administrationChapitre">
-        <div class="row justify-content-center " id="listesChapitres">
+        <div class="row justify-content-center " id="listesMessagesLu">
             <div>
                 <h3>Messages lu</h3>
                 <table>
@@ -104,7 +104,7 @@
     </section>
 
     <section class="administrationChapitre">
-        <div class="row justify-content-center " id="listesChapitres">
+        <div class="row justify-content-center " id="listesMessagesSupprimer">
             <div>
                 <h3>Messages supprimés</h3>
                 <table>
@@ -124,6 +124,7 @@
                     <td class="sentenceTableau">'.$messagesSup['message'].'</td>
                     <td >
                         <div class="actionTableau">
+                        <a class="lienAdministration" href="index.php?action=administrationContactMessageNonLu&id=' . $messagesSup['id'] . '">Voir le message </a>
                             <a class="lienAdministration" href="index.php?action=administrationContactTransformerSuppression&id=' . $messagesSup['id'] . '">Supprimer definitivement </a>
                         </div>
                     </td>

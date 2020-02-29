@@ -7,12 +7,12 @@ $contactManager = new ContactManager();
 $nbMessages = $contactManager->countMessageNew();
 $commentaires = new Commentaires();
 $nbComments = $commentaires->countCommentsNew();
+$nbCommentsDanger = $commentaires->countCommentsDanger();
 
 
+$contactChangeLu  = $contactManager->changeContactLu($id);
 
-$contactSuppression  = $contactManager->changeContactLu($id);
 $MessagesS = $contactManager->getContactMessages();
-
 $MessagesSLu = $contactManager->getContactMessagesLu();
 $MessagesSup = $contactManager->getContactMessagesSupprimer();
 require 'views/backEnd/administrationContactHomeView.php';
