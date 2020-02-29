@@ -57,6 +57,9 @@ if(isset($_GET['action'])) {
         else if($_GET['action'] == 'administration') {
             require 'controllers/backEnd/administrationHomeController.php';
         }
+        else if($_GET['action'] == 'deconnexion') {
+            require 'controllers/backEnd/deconnexionController.php';
+        }
         // redirection vers la page d'Administration Chapitres 
         else if($_GET['action'] == 'administrationChapitres' & ($_SESSION['connect']!= null)) {
             require 'controllers/backEnd/administrationChapitresController.php';
