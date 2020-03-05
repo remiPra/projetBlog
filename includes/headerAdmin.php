@@ -10,7 +10,7 @@
                 <i class="far fa-comments"></i>
                 <span><?php echo $nbComments[0]['COUNT(*)'] ; ?></span>
             </a>
-            <a href="index.php?action=administrationCommentaires">
+            <a href="index.php?action=administrationCommentaires#listesCommentairesSignales">
                 <i class="fas fa-comment-slash"></i>
                 <span><?php echo $nbCommentsDanger[0]['COUNT(*)'] ; ?></span>
             </a>

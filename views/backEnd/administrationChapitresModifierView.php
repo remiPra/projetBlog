@@ -1,13 +1,6 @@
 <?php $title = "administration"; ?>
 <?php ob_start() ?>
-<section id="imageParrallaxBillet">
-    <picture>
 
-        <source srcset="images/fog-on-dark-waters-edge.mobile.mobile.jpg" media="(max-width: 480px)">
-        <source srcset="images/fog-on-dark-waters-edge.mobile.jpg" media="(max-width: 900px)">
-        <img src="images/fog-on-dark-waters-edge.jpg" alt="">
-    </picture>
-</section>
 
 <section id="mainBillet" class="row">
     <div id="mainBilletConteneur" class="col-md-8 col-md-offset-2">
@@ -48,9 +41,10 @@
             <input type="text" name="sentence" value="' . $article['sentence'] . '">
             <input type="text" class="inputNone" name="id" value="' . $article['id'] . '">
             
-            <label> Renseigner le nom du fichier de l\'image avec extension :  </label>
-            <input name="imageChapitre" type="text" placeholder="image.jpg"/> 
-            
+
+            <img src="images/'.$article['imageChapitre'].' " 
+                    alt="'.$article['imageAlt'].'">
+
        
            
 

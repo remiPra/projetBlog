@@ -8,13 +8,16 @@ $commentaires = new Commentaires();
 $nbComments = $commentaires->countCommentsNew();
 $nbCommentsDanger = $commentaires->countCommentsDanger();
 
+
+
+
 //variable notification
 $notification = '<p> votre article a été envoyé </p>';
-
 
 require  'models/frontEnd/articleManager.php';
 $allArticles = new ArticlesManager();
 $articleEnv = $allArticles->modifierArticle();
+
 
 
 //variable notification
@@ -25,7 +28,7 @@ $articleEnv = $allArticles->modifierArticle();
 $articles = $allArticles::getArticles();
 $articlesB = $allArticles::getArticlesBrouillon();
 $articlesS = $allArticles::getArticlesSupprimer();
-// var_dump($article);
+
 
 
 require 'views/backEnd/administrationChapitresView.php';

@@ -15,15 +15,19 @@
 </head>
 
 <body>
-
-    <?php require_once 'includes/headerAdmin.php'; ?>
    
-    <?php echo ($content) ?>
-    <?php require_once 'includes/footer.php'; ?>
 
+        <?php require_once 'includes/headerAdmin.php'; ?>
+        <?php require 'includes/backgroundImage.php';?>
+        <div class="resizeBody">
+            <?php echo ($content) ?>
+        </div>
+        <?php require_once 'includes/footer.php'; ?>
+        
+        
+        <script src="https://kit.fontawesome.com/5a70a7892a.js"></script>
+        <script src="assets/js/scroll.js"></script>
 
-    <script src="https://kit.fontawesome.com/5a70a7892a.js"></script>
-    <script src="assets/js/scroll.js"></script>
 </body>
 
 </html>

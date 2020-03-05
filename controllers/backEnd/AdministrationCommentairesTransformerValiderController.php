@@ -7,14 +7,15 @@ require 'models/backEnd/contactManager.php';
 
 
 $contactManager = new ContactManager();
-$nbMessages = $contactManager->countMessageNew();
 $commentaires = new Commentaires();
+$commentsSuppression = $commentaires->changeCommentValider($id);
+
+$nbMessages = $contactManager->countMessageNew();
 $nbComments = $commentaires->countCommentsNew();
 $nbCommentsDanger = $commentaires->countCommentsDanger();
 
 
 
-$commentsSuppression = $commentaires->changeCommentValider($id);
 $notification = 'le commentaire a été validé';
 $comments = $commentaires->getAllComments();
 $commentsV = $commentaires->getAllCommentsValidate();

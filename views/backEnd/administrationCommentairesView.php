@@ -1,14 +1,6 @@
 <?php $title = "administration"; ?>
 <?php ob_start() ?>
-<section id="imageParrallaxBillet">
-    <picture>
 
-        <source srcset="images/fog-on-dark-waters-edge.mobile.mobile.jpg" media="(max-width: 480px)">
-        <source srcset="images/fog-on-dark-waters-edge.mobile.jpg" media="(max-width: 900px)">
-        <img src="images/fog-on-dark-waters-edge.jpg" alt="">
-    </picture>
-
-</section>
 
 <section id="mainBillet" class="row">
     <div id="mainBilletConteneur" class="col-md-8 col-md-offset-2">
@@ -41,7 +33,7 @@
     <div class="row justify-content-center ">
         <div>
             <h3 >Listes des commentaires en attente de publication</h3>
-            <h4><?php echo count($nbComments); ?></h4>
+           
             <table>
                 <tr>
                     <th>Id </th>
@@ -53,12 +45,12 @@
                 <!-- tableau des chapitres -->
                 <?php foreach ($comments as $comment) : ?>
                     <?php echo '    <tr>
-                    <td>' . $comment['id'] . '</td>
-                    <td>' . $comment['numChapitre'] . '</td>
-                    <td>' . $comment['pseudo'] . '</td>
+                    <td>' .htmlspecialchars($comment['id']) . '</td>
+                    <td>' .htmlspecialchars($comment['numChapitre']) . '</td>
+                    <td>' .htmlspecialchars($comment['pseudo']) . '</td>
                     <td class="sentenceTableau">' ?>
                     <?php
-                    echo $comment['commentaire'] ?><?php echo '</td>
+                    echo htmlspecialchars($comment['commentaire']) ?><?php echo '</td>
                     <td >
                         <div class="actionTableau">
                             <a class="lienAdministration" href="index.php?action=AdministrationCommentairesTransformerValider&id='.$comment['id'].'">
@@ -95,19 +87,19 @@
                 <!-- tableau des chapitres -->
                 <?php foreach ($commentsV as $commentV) : ?>
                     <?php echo '    <tr>
-                    <td>' . $commentV['id'] . '</td>
-                    <td>' . $commentV['numChapitre'] . '</td>
-                    <td>' . $commentV['pseudo'] . '</td>
+                    <td>' .htmlspecialchars($commentV['id']) . '</td>
+                    <td>' .htmlspecialchars($commentV['numChapitre']) . '</td>
+                    <td>' .htmlspecialchars($commentV['pseudo']) . '</td>
                     <td class="sentenceTableau">' ?>
                     <?php
-                    echo $commentV['commentaire'] ?><?php echo '</td>
+                    echo htmlspecialchars($commentV['commentaire']) ?><?php echo '</td>
                     <td >
                         <div class="actionTableau">
-                            <a class="lienAdministration" href="index.php?action=AdministrationCommentairesTransformerEnCours&id='.$commentV['id'].'">Passer en cours
+                            <a class="lienAdministration" href="index.php?action=AdministrationCommentairesTransformerEnCours&id='.htmlspecialchars($commentV['id']).'">Passer en cours
                             </a> 
                            
                                 
-                            <a class="lienAdministration" href="index.php?action=AdministrationCommentairesTransformerSupprimer&id='.$commentV['id'].'">
+                            <a class="lienAdministration" href="index.php?action=AdministrationCommentairesTransformerSupprimer&id='.htmlspecialchars($commentV['id']).'">
                             Supprimer</a> 
                                
 

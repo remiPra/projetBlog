@@ -1,13 +1,6 @@
 <?php $title = "administration"; ?>
 <?php ob_start() ?>
-<section id="imageParrallaxBillet">
-    <picture>
 
-        <source srcset="images/fog-on-dark-waters-edge.mobile.mobile.jpg" media="(max-width: 480px)">
-        <source srcset="images/fog-on-dark-waters-edge.mobile.jpg" media="(max-width: 900px)">
-        <img src="images/fog-on-dark-waters-edge.jpg" alt="">
-    </picture>
-</section>
 
 <section id="mainBillet" class="row">
     <div id="mainBilletConteneur" class="col-md-8 col-md-offset-2">
@@ -58,7 +51,7 @@
                             echo $article['sentence'] ?><?php echo '</td>
                     <td >
                         <div class="actionTableau">
-                            <a class="lienAdministration" href="index.php?action=article&id=' . $article['id'] . '">Lire </a>
+                            <a class="lienAdministration" href="index.php?action=article&id=' . $article['numeroChapitre'] . '">Lire </a>
                             <a class="lienAdministration" href="index.php?action=administrationChapitresModifier&id=' . $article['id'] . '">Modifier </a>
                             <a class="lienAdministration" href="index.php?action=administrationChapitresSupprimer&id=' . $article['id'] . '"">Supprimer </a>
 
@@ -86,7 +79,7 @@
                         <?php echo '    <tr>
                     <td>' . $articleB['numeroChapitre'] . '</td>
                     <td>' . $articleB['title'] . '</td>
-                    <td class="sentenceTableau">' . $articleB['content'] . '</td>
+                    <td class="sentenceTableau">' . $articleB['sentence'] . '</td>
                     <td>
                         <div class="actionTableau">
                             <a class="lienAdministration" href="index.php?action=administrationChapitresModifier&id=' . $articleB['id'] . '">Modifier </a>

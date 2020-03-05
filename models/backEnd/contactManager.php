@@ -18,7 +18,7 @@ class ContactManager
     //fonction qui affiche les messages non lues
     public function getContactMessages() {
         require('models/connect.php');
-        var_dump("roinga");
+       
         $req = $bdd->prepare('SELECT * FROM contact WHERE messagelu = 0 AND supprimer = 0');
         $req->execute();
         $data = $req->fetchAll();
@@ -51,12 +51,11 @@ class ContactManager
    
     public function getContactMessage($id) {
         require('models/connect.php');
-        var_dump("messageId");
-        var_dump($id);
+       
         $req = $bdd->prepare('SELECT * FROM contact WHERE id = ?');
         $req->execute(array($id));
         $data = $req->fetch();
-        var_dump($data);
+     
         return $data;
        
     }

@@ -33,11 +33,8 @@
                     <h5 class="Publication">Publié le : ' ?>
 
                 <?php 
-                $str = $article['date'];
-                list($date1,$date2) = explode(" ", $str);
-                list($y,$m,$d) = explode("-", $date1);
-                list($h,$min,$s) = explode("-", $date2);
-                echo 'le '.$d.'/'.$m.'/'.$y.' à '.$h.' : '.$min.' : '.$s.'';
+                $str = $allArticles::dateFormat($article['date']);
+              
 
                ?>
 

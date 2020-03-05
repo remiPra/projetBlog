@@ -7,15 +7,17 @@ require 'models/backEnd/contactManager.php';
 require 'models/backEnd/commentManager.php';
 
 $contactManager = new ContactManager();
-$nbMessages = $contactManager->countMessageNew();
 $commentaires = new Commentaires();
+$commentsEnCours = $commentaires->changeCommentEnCours($id);
+
+
+$nbMessages = $contactManager->countMessageNew();
 $nbComments = $commentaires->countCommentsNew();
 $nbCommentsDanger = $commentaires->countCommentsDanger();
 
 
 
 
-$commentsEnCours = $commentaires->changeCommentEnCours($id);
 $notification = 'le commentaire a été placé dans les commentaires en cours';
 $comments = $commentaires->getAllComments();
 $commentsV = $commentaires->getAllCommentsValidate();

@@ -5,7 +5,7 @@ if(isset($_FILES['avatar'])) {
 	
 	$dossier = 'images/';
 	$fichier = basename($_FILES['avatar']['name']);
-	var_dump($fichier);
+
 	$taille_max = 104857600;
 	$taille = filesize($_FILES['avatar']['tmp_name']);
 	

@@ -7,13 +7,14 @@ require 'models/backEnd/contactManager.php';
 require 'models/backEnd/commentManager.php';
 
 $contactManager = new ContactManager();
-$nbMessages = $contactManager->countMessageNew();
 $commentaires = new Commentaires();
+$commentsSuppression = $commentaires->supressionFinal($id);
+
 $nbComments = $commentaires->countCommentsNew();
+$nbMessages = $contactManager->countMessageNew();
 $nbCommentsDanger = $commentaires->countCommentsDanger();
 
 
-$commentsSuppression = $commentaires->supressionFinal($id);
 $notification = 'le commentaire a été supprimé';
 $comments = $commentaires->getAllComments();
 $commentsV = $commentaires->getAllCommentsValidate();

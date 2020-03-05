@@ -8,14 +8,15 @@ require 'models/backEnd/contactManager.php';
 
 
 $contactManager = new ContactManager();
-$nbMessages = $contactManager->countMessageNew();
 $commentaires = new Commentaires();
+$commentsSuppression = $commentaires->changeCommentSignaler($id);
+
+$nbMessages = $contactManager->countMessageNew();
 $nbComments = $commentaires->countCommentsNew();
 $nbCommentsDanger = $commentaires->countCommentsDanger();
 
 
 
-$commentsSuppression = $commentaires->changeCommentSignaler($id);
 $notification = 'le commentaire a été placé dans les commentares supprimés';
 $comments = $commentaires->getAllComments();
 $commentsV = $commentaires->getAllCommentsValidate();

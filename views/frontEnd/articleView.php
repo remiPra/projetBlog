@@ -30,7 +30,7 @@
                     <img class="col-lg-8 col-lg-offset-2 colonne-centree" src="images/'.$article['imageChapitre'].' " 
                     alt="'.$article['imageAlt'].'">
                 </figure>
-                <div>
+                <div id="tinymce">
                    '.$article['content'].'
             
                 </div> 
@@ -54,11 +54,13 @@
                 <?php foreach($comments as $comment): ?>   
                
                 <?php echo    '<div class="trait"></div>
-                    <h4>Pseudo : '.$comment['pseudo'].' </h4>
-                    <h5>Publié le :  '.$comment['date'].'</h5>
-                    <p> '.$comment['commentaire'].' </p>
+                    <h4>Pseudo : '.htmlspecialchars($comment['pseudo']).' </h4>
+                    <h5>Publié le :  '.
+                    
+                    ($comment['date']).'</h5>
+                    <p> '.htmlspecialchars($comment['commentaire']).' </p>
                     <form action="index.php?action=signalementRecu" method="POST">
-                        <input class="inputNone" type="text" name="idComment"value="'.$comment['id'].'">
+                        <input class="inputNone" type="text" name="idComment"value="'.htmlspecialchars($comment['id']).'">
                         <input class="inputNone" type="text" name="signaler" value="1">
                         <input type="submit" value="Signaler ce commentaire">
                     </form> '?>

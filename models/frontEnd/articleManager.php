@@ -89,7 +89,7 @@ class ArticlesManager
         // traitement de l'image
         require('models/connect.php');
         $imgData = basename($_FILES['avatar']['name']);
-        var_dump($_FILES['avatar']['name']);
+      
 
         // condition si l'utilisateur veut que ce soit un brouillon
         if ($_POST['brouillon'] == 1) {
@@ -109,11 +109,13 @@ class ArticlesManager
     {
         require('models/connect.php');
         // traitement de l'image
-        $file = $_FILES['imageBlob']['tmp_name'];
-        $image = addslashes(file_get_contents($file));
-        $imagetype = $_FILES['imageBlob']['type'];
+        // traitement de l'image
+        require('models/connect.php');
+        $imgData = basename($_FILES['avatar']['name']);
+        
 
-
+        if ($imgData == null) {
+        var_dump($imgData); 
         $req = $bdd->prepare('UPDATE chapitres SET numeroChapitre = :numeroChapitre, title = :title, content =:content, sentence =:sentence, brouillon= :brouillon WHERE id =:id ');
         $req->execute(array(
             'numeroChapitre' => $_POST['numeroChapitre'],
@@ -123,6 +125,26 @@ class ArticlesManager
             'brouillon' => $_POST['brouillon'],
             'id' => $_POST['id']
         ));
+        } else {
+        
+
+            $req = $bdd->prepare('UPDATE chapitres SET numeroChapitre = :numeroChapitre, title = :title, content =:content, sentence =:sentence, brouillon= :brouillon ,imageChapitre= :imageChapitre WHERE id =:id ');
+            $req->execute(array(
+                'numeroChapitre' => $_POST['numeroChapitre'],
+                'title' => $_POST['title'],
+                'content' => $_POST['content'],
+                'sentence' => $_POST['sentence'],
+                'brouillon' => $_POST['brouillon'],
+                'id' => $_POST['id'],
+                'imageChapitre' => $imgData
+            ));
+
+            require  'models/frontEnd/imageManager.php';
+
+        } 
+
+
+
     }
 
     //fonction pour passer le chapitre en liste supprimer 
@@ -146,5 +168,14 @@ class ArticlesManager
         require('models/connect.php');
         $req = $bdd->prepare('DELETE FROM chapitres WHERE id = ?') or die(print_r($bdd->errorInfo()));
         $req->execute(array($id));
+    }
+
+
+    public function dateFormat($str){
+        list($date1,$date2) = explode(" ", $str);
+                list($y,$m,$d) = explode("-", $date1);
+                list($h,$min,$s) = explode("-", $date2);
+                echo ''.$d.'/'.$m.'/'.$y.' 
+                à '.$h.''.$min.''.$s.'';
     }
 }

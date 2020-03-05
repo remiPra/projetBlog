@@ -11,7 +11,7 @@ $nbMessages = $contactManager->countMessageNew();
 $commentaires = new Commentaires();
 $nbComments = $commentaires->countCommentsNew();
 $nbCommentsDanger = $commentaires->countCommentsDanger();
-var_dump($nbComments);
+
 
 
 
