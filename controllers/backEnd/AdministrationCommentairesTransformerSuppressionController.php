@@ -6,8 +6,11 @@ $id = strip_tags($id);
 require 'models/backEnd/contactManager.php';
 require 'models/backEnd/commentManager.php';
 
+
 $contactManager = new ContactManager();
 $commentaires = new Commentaires();
+
+
 $commentsSuppression = $commentaires->supressionFinal($id);
 
 $nbComments = $commentaires->countCommentsNew();

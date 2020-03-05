@@ -14,7 +14,8 @@ $articleEnv = $ArticlesManager->envoyerArticleFini();
 
 
 require  'models/frontEnd/imageManager.php';
-
+$imagemanager =  new imageManager();
+$imageUpload = $imagemanager->uploadImage();
 
 
 //variable notification

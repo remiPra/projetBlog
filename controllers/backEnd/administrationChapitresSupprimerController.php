@@ -11,17 +11,20 @@ if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {
     // recupération de l'article concerné par l'id
     require 'models/backEnd/contactManager.php';
     require 'models/backEnd/commentManager.php';
+    require 'models/frontEnd/articleManager.php';
 
     $contactManager = new ContactManager();
-    $nbMessages = $contactManager->countMessageNew();
     $commentaires = new Commentaires();
-    $nbComments = $commentaires->countCommentsNew();
-    $nbCommentsDanger = $commentaires->countCommentsDanger();
-
-
-    require 'models/frontEnd/articleManager.php';
+    
     $allArticles = new ArticlesManager();
     $article = $allArticles::supprimerArticle($id);
+    
+    $nbMessages = $contactManager->countMessageNew();
+    $nbComments = $commentaires->countCommentsNew();
+    $nbCommentsDanger = $commentaires->countCommentsDanger();
+    
+    
+    
     $articles = $allArticles::getArticles();
     $articlesB = $allArticles::getArticlesBrouillon();
     $articlesS = $allArticles::getArticlesSupprimer();

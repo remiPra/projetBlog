@@ -12,13 +12,18 @@ if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {
 
     require 'models/backEnd/contactManager.php';
     require 'models/backEnd/commentManager.php';
+    require 'models/frontEnd/imageManager.php';
 
     $contactManager = new ContactManager();
     $nbMessages = $contactManager->countMessageNew();
     $commentaires = new Commentaires();
     $nbComments = $commentaires->countCommentsNew();
     $nbCommentsDanger = $commentaires->countCommentsDanger();
+    
+    
+    $imagemanager = new ImageManager();
 
+    $imageDelete = $imagemanager->deleteImageSrc($id);
 
 
     require 'models/frontEnd/articleManager.php';
