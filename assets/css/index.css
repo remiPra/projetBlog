@@ -25,18 +25,6 @@ a {
     font-size: 1.3em;
 }
 
-
-/*#opacity {
-    width:100%;
-    height: 781px;
-    position:absolute;
-    background-color: #061319;
-    content:" ";
-    top: 120%;
-    opacity: 0.6;
-}
-*/
-
 body {
     background-color: #061319;
 }
@@ -81,7 +69,6 @@ p {
 #dernierChapitrePublie h2 {
     padding: 60px 10px 30px 10px;
     text-align: center;
-    /* padding-bottom: 30px; */
     color: #8A9DA6;
     font-size: 2.5em;
 }
@@ -93,7 +80,6 @@ header {
     padding: 20px 35px;
     justify-content: space-between;
     z-index: 2222222;
-    /* vertical-align: middle; */
     align-items: center;
     font-size: 18px;
 }
@@ -630,6 +616,7 @@ input {
 
 table {
     color: white;
+    margin: 20px;
 }
 
 table tr:hover {
@@ -654,11 +641,13 @@ table tr:hover {
     padding: 85px 0;
 }
 
-.administrationChapitre th,
+th,
 td {
     border: white 2px solid;
     padding: 20px;
 }
+
+th {background-color:var(--secondary)}
 
 #administrationChapitreEcrire {
     min-width: 60%!important;
@@ -673,7 +662,6 @@ td {
 .lienAdministration {
     text-decoration: none!important;
     color: white;
-    /* background-color: var(--secondary); */
     text-align: center;
 }
 
@@ -720,14 +708,15 @@ h2 {
         padding-left: 0!important;
     }
     /* stylisation de la partie Administration chapitre mobile*/
-    .administrationChapitre th {
+    .administrationChapitre th,
+    .chapitreEnCours th {
         display: none;
     }
-    .administrationChapitre td {
+    .administrationChapitre td,
+    .chapitreEnCours td {
         display: flex;
         text-align: center;
         color: whitesmoke;
-        /* text-align: center; */
         justify-content: center;
     }
 }

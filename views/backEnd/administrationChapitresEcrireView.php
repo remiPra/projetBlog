@@ -18,49 +18,53 @@
     <div class="row justify-content-center">
 
         <form enctype="multipart/form-data" action="index.php?action=administrationChapitreNouveau" method="POST" id="administrationChapitreEcrire">
-            <label> Numéro de chapitre déja utilisé </label> 
-            <p> Vous avez deja utilisé les chapitres : 
-            <?php foreach($chapitres as $chapitre) : ?>
-                
-            <?php echo 'N°'.$chapitre['numeroChapitre'].' ';?> 
+            <label> Numéro de chapitre déja utilisé </label>
+            <p id="chapitreNumberUse"> Vous avez deja utilisé les chapitres :
+                <?php foreach ($chapitres as $chapitre) : ?>
 
-            <?php endforeach ; ?>    
+                    <?php echo 'N°' . $chapitre['numeroChapitre'] . ' '; ?>
+
+                <?php endforeach; ?>
             </p>
+
             <label> Numero de chapitre :
             </label>
-            <input type="text" name="numeroChapitre">
+            <input id="numberPossible" type="text" name="numeroChapitre">
             <label> Titre du chapitre :
             </label>
-            <input type="text" name="title">
+            <p id="demo" style="color:red;"></p>
+            <input id="chapitretitle" type="text" name="title">
             <label> Résumé du chapitre :
             </label>
-            <input type="text" name="sentence">
+            <input id="chapitreSentence" type="text" name="sentence">
             <label> Envoyer une image </label>
-             
+
             <!-- <label> Renseigner le nom du fichier de l\'image avec extension :  </label>
             <input name="imageChapitre" type="text" placeholder="image.jpg"/>  -->
-            
-       
-           
+
+
+
 
             <label>Uploader le fichier image:</label>
-            <input name="avatar" type="file" /> 
+            <input name="avatar" type="file" />
 
 
 
 
             <label for="content"> Contenu du chapitre : </label>
-            <textarea name="content" id="" cols="300" rows="10"></textarea>
+            <textarea id="chapitreContent" name="content" id="" cols="300" rows="10"></textarea>
             <label for="brouillon" id="brouillonForm"> Que voulez vous faire pour ce Chapitre : </label>
-            <select id="brouillon" name="brouillon">
+            <select id="chapitreBrouillon" name="brouillon">
                 <option value="0">Ce chapitre peut être publié</option>
                 <option value="1">Garder en brouillon</option>
             </select>
-            <input class="formButton" type="submit" value="envoyer" name="btnAdministrationEcrire">
+            <p id="validationPhrase"> Vous n'avez remplis tous les champs </p>
+            <input id="chapitreValidationBtn" class="formButton" type="button" value="envoyer" name="btnAdministrationEcrire">
         </form>
 </section>
 
 
+<script src="assets/js/validationChapitre.js"></script>
 
 
 <?php $content = ob_get_clean(); ?>

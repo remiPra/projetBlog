@@ -30,8 +30,8 @@ if (($_POST['name']!= null) AND ($_POST['password'])!= null) {
     }
 }
 else {
-   //echo "<script type='text/javascript'>document.location.replace('index.php?action=index');</script>";
-    header('location:index.php?action=index');
+    $notification = "veuillez rentrer vos identifiants svp";
+    echo "<script type='text/javascript'>document.location.replace('index.php?action=administration');</script>";
     Exit();}       
 
    

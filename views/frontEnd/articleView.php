@@ -58,7 +58,7 @@
                     <h5>Publié le :  '.
                     
                     ($comment['date']).'</h5>
-                    <p> '.htmlspecialchars($comment['commentaire']).' </p>
+                    <p>" '.htmlspecialchars($comment['commentaire']).' "</p>
                     <form action="index.php?action=signalementRecu" method="POST">
                         <input class="inputNone" type="text" name="idComment"value="'.htmlspecialchars($comment['id']).'">
                         <input class="inputNone" type="text" name="signaler" value="1">
