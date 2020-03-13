@@ -231,11 +231,10 @@ function administrationChapitres()
     $commentaires = new Commentaires();
     //  global $nbComments;
     $nbComments = $commentaires->countCommentsNew();
-
+    
     $nbCommentsDanger = $commentaires->countCommentsDanger();
-    require 'models/frontEnd/articleManager.php';
+    require 'models/backEnd/articleManager.php';
     $allArticles = new ArticlesManager();
-
     $articlesS = $allArticles->getArticlesSupprimer();
     $articles = $allArticles->getArticles();
     $articlesB = $allArticles->getArticlesBrouillon();
@@ -257,7 +256,7 @@ function administrationChapitresEcrire()
     $nbComments = $commentaires->countCommentsNew();
 
     $nbCommentsDanger = $commentaires->countCommentsDanger();
-    require 'models/frontEnd/articleManager.php';
+    require 'models/backEnd/articleManager.php';
     $articlesManager = new ArticlesManager();
     $chapitres = $articlesManager->numerosChapitre();
     $images = $articlesManager->getImages();
@@ -294,7 +293,7 @@ function administrationChapitresModifier()
         extract($_GET);
         $id = strip_tags($id);
 
-        require 'models/frontEnd/articleManager.php';
+        require 'models/backEnd/articleManager.php';
 
         //recuperaton des articles pour les modifier 
         $articlesManager = new ArticlesManager();
@@ -321,7 +320,7 @@ function administrationChapitresEnvoiModifier()
     //variable notification
     $notification = '<p> votre article a été envoyé </p>';
 
-    require  'models/frontEnd/articleManager.php';
+    require  'models/backEnd/articleManager.php';
     $allArticles = new ArticlesManager();
     $articleEnv = $allArticles->modifierArticle();
 
@@ -349,7 +348,7 @@ function administrationChapitreNouveau()
 
     $nbCommentsDanger = $commentaires->countCommentsDanger();
     //Envoie de l'article fini 
-    require  'models/frontEnd/articleManager.php';
+    require  'models/backEnd/articleManager.php';
     $allArticles = new ArticlesManager();
     $articleEnv = $allArticles->envoyerArticleFini();
 
@@ -395,7 +394,7 @@ function administrationChapitresSupprimer()
         $id = strip_tags($id);
         // recupération de l'article concerné par l'id
 
-        require 'models/frontEnd/articleManager.php';
+        require 'models/backEnd/articleManager.php';
 
 
 
@@ -440,7 +439,7 @@ function administrationChapitreTransformerBrouillon()
         extract($_GET);
         $id = strip_tags($id);
         // recupération de l'article concerné par l'id
-        require 'models/frontEnd/articleManager.php';
+        require 'models/backEnd/articleManager.php';
         $allArticles = new ArticlesManager();
         $articleBrouillon = $allArticles->brouillonArticle($id);
 
@@ -488,7 +487,7 @@ function administrationChapitreTransformerSupprimer()
         $imageDelete = $imagemanager->deleteImageSrc($id);
 
 
-        require 'models/frontEnd/articleManager.php';
+        require 'models/backEnd/articleManager.php';
         $allArticles = new ArticlesManager();
         $articlesuppression = $allArticles->supressionFinal($id);
         $notification = "<Votre chapitre a été completement supprimé";

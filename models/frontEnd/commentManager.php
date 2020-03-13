@@ -12,7 +12,7 @@ public function getComment($id)
    
 }
 
-
+  
 //fonction pour signaler un commentaire
 public function signalerComment($idcomment)
 {
