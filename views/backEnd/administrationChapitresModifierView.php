@@ -1,3 +1,7 @@
+<?php $raccourci = [['lien' =>'administrationHome','name'=>'Administration'],
+['lien'=>'administrationChapitres','name'=>'Chapitres'],
+['lien'=>'administrationChapitresModifier','name'=>'Modifier Chapitre']];?>
+
 <?php $title = "administration"; ?>
 <?php ob_start() ?>
 
@@ -8,7 +12,7 @@
         <h1>Billet simple pour l'Alaska</h1>
         <h2>Administration </h2>
         <div id="paragrapheBillet">
-            <p>Section Chapitres </p>
+            <p>Voici votre chapitre a modifié</p>
 
 
         </div>
@@ -30,15 +34,15 @@
                <?php endforeach ; ?>    
                </p> 
             <?php echo '
-            <label>Numero de chapitre : 
+            <label for="numeroChapitre">Numero de chapitre : 
             </label>
-            <input type="text" name="numeroChapitre" value="' . $article['numeroChapitre'] . '">
-            <label> Titre du chapitre : 
+            <input id="numeroChapitre"type="text" name="numeroChapitre" value="' . $article['numeroChapitre'] . '">
+            <label for="title"> Titre du chapitre : 
             </label>    
-            <input type="text" name="title" value="' . $article['title'] . '">
-            <label> Résumé du chapitre : 
+            <input id="title" type="text" name="title" value="' . $article['title'] . '">
+            <label for="sentence"> Résumé du chapitre : 
             </label>    
-            <input type="text" name="sentence" value="' . $article['sentence'] . '">
+            <input id="sentence"type="text" name="sentence" value="' . $article['sentence'] . '">
             <input type="text" class="inputNone" name="id" value="' . $article['id'] . '">
             
 
@@ -53,7 +57,7 @@
 
             
 
-            <label for="content"> Contenu du chapitre  : </label>
+            <label for="texteeditor"> Contenu du chapitre  : </label>
            
             <textarea name="content" class="tinymce" id="texteditor" cols="300" rows="10" >  <div> '.$article['content'].'</div></textarea>
             <label for="brouillon" id="brouillonForm"> Que voulez vous faire pour ce Chapitre : </label>
@@ -70,4 +74,4 @@
 
 
 <?php $content = ob_get_clean(); ?>
-<?php require_once 'template.php' ?>
+<?php require 'template.php' ?>

@@ -1,17 +1,20 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <?php require_once 'includes/head.php'; ?>
     <title> <?php echo ($title) ?></title>
+    <?php require_once 'includes/head.php'; ?>
 
 </head>
 
 <body>
 
     <?php require_once 'includes/header.php'; ?>
+    <?php if($_GET['action'] != 'index' ) 
+    {require 'includes/backgroundImage.php';}
+    
+    
+    ?>
     <?php echo ($content) ?>
     <?php require_once 'includes/footer.php'; ?>
 

@@ -1,20 +1,31 @@
 <header id="mainHeader">
     <div id="logo">
         <a href="">Jean Forteroche</a>
-        <div>
+        <nav>
             <a href="index.php?action=administrationContactHome">
                 <i class="fas fa-envelope-open-text"></i>
-                <span><?php echo $nbMessages[0]['COUNT(*)']; ?></span>
+                <?php echo $nbMessages[0]['COUNT(*)']; ?>
             </a>
             <a href="index.php?action=administrationCommentaires">
                 <i class="far fa-comments"></i>
-                <span><?php echo $nbComments[0]['COUNT(*)'] ; ?></span>
+                <?php echo $nbComments[0]['COUNT(*)']; ?>
             </a>
             <a href="index.php?action=administrationCommentaires#listesCommentairesSignales">
                 <i class="fas fa-comment-slash"></i>
-                <span><?php echo $nbCommentsDanger[0]['COUNT(*)'] ; ?></span>
+                <?php echo $nbCommentsDanger[0]['COUNT(*)']; ?>
             </a>
-        </div>
+        </nav>
+        <nav>
+            <ul id="raccourciLien">
+                <?php if (isset($raccourci[1]['lien'])) {
+                    foreach ($raccourci as $element) :
+                        echo ' <li> <a href="index.php?action=' . $element['lien'] . '"> ' . $element['name'] . '/ </a> </li>';
+                    endforeach;
+                } else {
+                        echo ' <li> <a href="index.php?action=' . $raccourci['lien'] . '"> ' . $raccourci['name'] . '/ </a> </li>';
+                } ?>
+            </ul>
+        </nav>
 
     </div>
     <!-- mise en place du menu -->

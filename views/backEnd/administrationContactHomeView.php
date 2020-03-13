@@ -1,3 +1,5 @@
+<?php $raccourci = [['lien' =>'administrationHome','name'=>'Administration'],['lien'=>'administrationContactHome','name'=>'Contact']];?>
+
 <?php $title = "administration"; ?>
 <?php ob_start() ?>
 
@@ -8,8 +10,8 @@
         <h1>Billet simple pour l'Alaska</h1>
         <h2>Administration </h2>
         <div id="paragrapheBillet">
-            <p>Section Chapitres </p>
-            <p><?php echo $notification ?></p>
+            <p>Voici la liste de vos messages</p>
+            <p><?php if(isset($notification)) {echo $notification;} ?></p>
 
         </div>
     </div>
@@ -136,4 +138,4 @@
     <script src="scroll.js"></script>
 
     <?php $content = ob_get_clean(); ?>
-    <?php require_once 'template.php' ?>
+    <?php require 'template.php' ?>

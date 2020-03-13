@@ -1,6 +1,6 @@
 <?php $title = "Bienvenue sur le site de Jean Forteroche" ;?>
 <?php ob_start() ?>
-    <section id="main">
+    <div id="main">
         <picture id="imageParrallax" >
             <source srcset="images/fog-on-dark-waters-edge.mobile.mobile.jpg" media="(max-width: 480px)">
             <source srcset="images/fog-on-dark-waters-edge.mobile.jpg" media="(max-width: 900px)">
@@ -21,7 +21,7 @@
                 </div>
                     
             </div>
-    </section>
+    </div>
     <div id="bodyConteneur">
     <section id="bienvenue">
         <h2>Bienvenue sur le site officiel De Jean Laroche : <br>

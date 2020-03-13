@@ -53,7 +53,7 @@ class imageManager
 	// fonction pour supprimer l'image uploader
 	public function deleteImageSrc($id)
 	{
-		require('models/connect.php');
+		 $bdd = $this->connect();
 		$req = $bdd->prepare('SELECT imageChapitre FROM chapitres  WHERE id = ?');
 		$req->execute(array($id));
 		$data = $req->fetch();
@@ -64,4 +64,22 @@ class imageManager
 		var_dump("coucoucoucouc");
 
 	}
+
+	public function connect(){
+        $host_name = 'db5000267422.hosting-data.io';
+        $database = 'dbs260968';
+         $user_name = 'dbu246755';
+         $password = "Tfctfc3131@";
+         
+     
+         try {
+          
+           $bdd = new PDO("mysql:host=$host_name; dbname=$database;", $user_name, $password);
+            return $bdd; 
+        } catch (PDOException $e) {
+           echo "Erreur!: " . $e->getMessage() . "<br/>";
+           die();
+       }
+    }
+   
 }

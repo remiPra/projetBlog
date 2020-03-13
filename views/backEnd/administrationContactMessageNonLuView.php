@@ -1,3 +1,6 @@
+<?php $raccourci = [['lien' =>'administrationHome','name'=>'Administration'],['lien'=>'administrationContactHome','name'=>'Contact'],
+['lien'=>'administrationContactMessageNonLu','name'=>'Message']];?>
+
 <?php $title = "Contact" ;?>
 <?php ob_start() ?>
   
@@ -6,7 +9,7 @@
         <div id="mainBilletConteneur" class="col-md-8 col-md-offset-2">
 
             <h1>Billet simple pour l'Alaska</h1>
-            <h2>Formulaire de contact</h2>
+            <h2>Message </h2>
             <div id="paragrapheBillet">
                     <p> Message de <?php echo $messageNonLu['pseudo'] ?> </p>
 
@@ -46,4 +49,4 @@
   
 
  <?php $content = ob_get_clean(); ?>
-<?php require_once 'template.php' ?>
+<?php require 'template.php' ?>

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <?php require_once 'includes/head.php'; ?>
+    <?php require 'includes/head.php'; ?>
     <title> <?php echo ($title) ?></title>
     <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
@@ -17,9 +17,11 @@
 <body>
    
 
-        <?php require_once 'includes/headerAdmin.php'; ?>
+        <?php require 'includes/headerAdmin.php'; ?>
         <?php require 'includes/backgroundImage.php';?>
-        <div class="resizeBody">
+        <div class="resizeBody" 
+       
+        >
             <?php echo ($content) ?>
         </div>
         <?php require_once 'includes/footer.php'; ?>

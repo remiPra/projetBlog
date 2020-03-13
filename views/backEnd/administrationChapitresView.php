@@ -1,16 +1,20 @@
-<?php $title = "administration"; ?>
+    <?php $raccourci = [['lien' =>'administrationHome','name'=>'Administration'],['lien'=>'administrationChapitres','name'=>'Chapitres']];?>
+<?php $title = "administrationChapitre"; ?>
 <?php ob_start() ?>
 
 
 <section id="mainBillet" class="row">
+    
     <div id="mainBilletConteneur" class="col-md-8 col-md-offset-2">
-
+       
+        
         <h1>Billet simple pour l'Alaska</h1>
         <h2>Administration </h2>
         <div id="paragrapheBillet">
-            <p>Section Chapitres </p>
-            <p><?php echo $notification ?></p>
-
+            <p>Voici la liste des chapitres </p>
+            
+            <p><?php if(isset($notification)) echo $notification ;?></p>
+ 
         </div>
     </div>
 </section>
@@ -135,4 +139,4 @@
     <script src="scroll.js"></script>
 
     <?php $content = ob_get_clean(); ?>
-    <?php require_once 'template.php' ?>
+    <?php require 'template.php' ?>

@@ -13,21 +13,17 @@ if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {
     require 'models/backEnd/commentManager.php';
     require 'models/frontEnd/articleManager.php';
 
-    $contactManager = new ContactManager();
-    $commentaires = new Commentaires();
+   
     
     $allArticles = new ArticlesManager();
-    $article = $allArticles::supprimerArticle($id);
+    $article = $allArticle->supprimerArticle($id);
     
-    $nbMessages = $contactManager->countMessageNew();
-    $nbComments = $commentaires->countCommentsNew();
-    $nbCommentsDanger = $commentaires->countCommentsDanger();
+   
     
     
-    
-    $articles = $allArticles::getArticles();
-    $articlesB = $allArticles::getArticlesBrouillon();
-    $articlesS = $allArticles::getArticlesSupprimer();
+    $articles = $allArticles->getArticles();
+    $articlesB = $allArticles->getArticlesBrouillon();
+    $articlesS = $allArticles->getArticlesSupprimer();
 
 
     $notification = "votre chapitre est dans la liste des chapitres supprimer";

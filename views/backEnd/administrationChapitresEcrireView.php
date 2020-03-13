@@ -1,3 +1,9 @@
+<?php $raccourci = [
+    ['lien' => 'administrationHome', 'name' => 'Administration'],
+    ['lien' => 'administrationChapitres', 'name' => 'Chapitres'],
+    ['lien' => 'administrationChapitresEcrire', 'name' => 'Nouveau Chapitre']
+]; ?>
+
 <?php $title = "administration"; ?>
 <?php ob_start() ?>
 
@@ -8,7 +14,8 @@
         <h1>Billet simple pour l'Alaska</h1>
         <h2>Administration </h2>
         <div id="paragrapheBillet">
-            <p>Section Chapitres </p>
+            <p>vous pouvez creer votre nouveau chapitre <br>
+        Attention a bien utiliser un chapitre avec un numero de chapitre non utilisé. </p>
 
         </div>
     </div>
@@ -27,20 +34,18 @@
                 <?php endforeach; ?>
             </p>
 
-            <label> Numero de chapitre :
+            <label for="numeroChapitre"> Numero de chapitre :
             </label>
             <input id="numberPossible" type="text" name="numeroChapitre">
-            <label> Titre du chapitre :
-            </label>
             <p id="demo" style="color:red;"></p>
+            <label for="title"> Titre du chapitre :</label>
             <input id="chapitretitle" type="text" name="title">
             <label> Résumé du chapitre :
             </label>
             <input id="chapitreSentence" type="text" name="sentence">
             <label> Envoyer une image </label>
 
-            <!-- <label> Renseigner le nom du fichier de l\'image avec extension :  </label>
-            <input name="imageChapitre" type="text" placeholder="image.jpg"/>  -->
+
 
 
 
@@ -49,7 +54,12 @@
             <input name="avatar" type="file" />
 
 
+            <p id="listImages">
+                <?php foreach ($images as $image) : ?>
+                    <?php echo $image['imageChapitre']; ?>
+                <?php endforeach; ?>
 
+            </p>
 
             <label for="content"> Contenu du chapitre : </label>
             <textarea id="chapitreContent" name="content" id="" cols="300" rows="10"></textarea>
@@ -68,4 +78,4 @@
 
 
 <?php $content = ob_get_clean(); ?>
-<?php require_once 'template.php' ?>
+<?php require 'template.php' ?>

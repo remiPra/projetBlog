@@ -1,13 +1,6 @@
 <?php $title = "Liste des chapitres"; ?>
 <?php ob_start() ?>
-<section id="imageParrallaxBillet">
-    <picture>
 
-        <source srcset="images/fog-on-dark-waters-edge.mobile.jpg" media="(max-width: 480px)">
-        <source srcset="images/fog-on-dark-waters-edge.mobile.jpg" media="(max-width: 1000px)">
-        <img src="images/fog-on-dark-waters-edge.jpg" alt="">
-    </picture>
-</section>
 
 <section id="mainBillet" class="row">
     <div id="mainBilletConteneur" class="col-md-8 col-md-offset-2">
@@ -33,7 +26,8 @@
                     <h5 class="Publication">Publié le : ' ?>
 
                 <?php 
-                $str = $allArticles::dateFormat($article['date']);
+               var_dump($article['date']);
+               //$allArticles->dateFormat($str);
               
 
                ?>

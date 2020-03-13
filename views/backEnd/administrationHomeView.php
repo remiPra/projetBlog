@@ -1,3 +1,5 @@
+<?php $raccourci = ['lien' =>'administrationHome','name'=>'Administration'];?>
+
 <?php $title = "administration"; ?>
 <?php ob_start() ?>
 
@@ -9,6 +11,7 @@
         <h1>Billet simple pour l'Alaska</h1>
         <h2>Administration </h2>
         <div id="paragrapheBillet">
+            <p id="success"> Vous êtes connecté </p>
             <p>Choisissez votre section </p>
            
 
@@ -17,7 +20,7 @@
     </div>
 </section>
 <section>
-    <div class="row justify-content-center">
+    <div class="row justify-content-center" id="administrationHomeMarginBottom">
         <div class="col-md-4 d-flex justify-content-center">
             <a class="boutonAdministration" href="index.php?action=administrationChapitres">Acceder aux chapitres </a>
         </div>
@@ -39,4 +42,4 @@
 
 
 <?php $content = ob_get_clean(); ?>
-<?php require_once 'template.php' ?>
+<?php require 'template.php' ?>

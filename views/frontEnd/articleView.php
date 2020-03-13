@@ -1,13 +1,6 @@
-<?php $title = $article->title ;?>
+<?php $title = $article['title'] ;?>
 <?php ob_start() ?>
-    <section id="imageParrallaxBillet" >
-        <picture>
-
-            <source srcset="images/fog-on-dark-waters-edge.mobile.jpg" media="(max-width: 480px)">
-            <source srcset="images/fog-on-dark-waters-edge.mobile.jpg" media="(max-width: 1000px)">       
-            <img src="images/fog-on-dark-waters-edge.jpg" alt="">
-        </picture>
-    </section>     
+    
 
     <section id="mainBillet" class="row">
         <div id="mainBilletConteneur" class="col-md-8 col-md-offset-2">
@@ -37,7 +30,7 @@
                 <div class="trait"></div>
                 </div>
                 
-                <form action="index.php?action=article&id='.$article['id'].'" method="POST"> '?> 
+                <form action="index.php?action=article&id='.$article['numeroChapitre'].'" method="POST"> '?> 
                    
                     <h3>Laisser un commentaire</h3>
                     <input type="text" name="numChapitre" class="inputNone" style="display:none" value="<?php echo $article['numeroChapitre'] ?>" disbable="disabled">

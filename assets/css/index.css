@@ -7,6 +7,17 @@
     --quatriemeColor: #324951;
 }
 
+#erreur {
+    animation: erreur 10s infinite;
+    color: red!important;
+}
+
+#success {
+    animation: success 10s infinite;
+    color : green!important;
+}
+
+
 .administrationChapitre .message {
     margin: 0px auto;
 }
@@ -85,7 +96,7 @@ header {
 }
 
 #logo {
-    padding-left: 20px;
+    /* padding-left: 20px; */
 }
 
 #toggle {
@@ -237,9 +248,6 @@ li {
     margin: 0 auto;
 }
 
-#conceptLivre figure {
-    /* width: 100%; */
-}
 
 #conceptLivre figure:after {
     position: absolute;
@@ -315,10 +323,6 @@ footer a {
 
 /* stylisation de la partie publication */
 
-#dernierChapitrePublie {
-    /* background: url(images/fog-on-dark-waters-edge.mobile.jpg); */
-}
-
 .blocPublication {
     display: flex;
 }
@@ -350,7 +354,7 @@ footer a {
 }
 
 #mainBilletConteneur {
-    margin: 100px auto 12px auto;
+    margin: 130px auto 12px auto;
     text-align: center;
 }
 
@@ -592,6 +596,12 @@ input {
     width: 300px;
 }
 
+#administrationHomeMarginBottom {
+    margin-bottom: 300px;
+}
+
+
+
 .boutonAdministration {
     color: white;
     background-color: #061319;
@@ -616,7 +626,8 @@ input {
 
 table {
     color: white;
-    margin: 20px;
+    margin: 20px auto;
+    /* margin: auto; */
 }
 
 table tr:hover {
@@ -670,6 +681,11 @@ th {background-color:var(--secondary)}
     background-color: #294444;
 }
 
+#listImages {
+    opacity: 0;
+    font-size:1px!important;
+}
+
 
 /* animation */
 
@@ -689,8 +705,49 @@ h2 {
         color: #061319;
     }
 }
+@keyframes success {
+    0% {
+        color: green;
+    }
+    50% {
+        color: white;
+    }
+    100% {
+        color: green;
+    }
+}
+
+@keyframes erreur {
+    0% {
+        color: red;
+    }
+    50% {
+        color: white;
+    }
+    100% {
+        color:red;
+    }
+}
+
+
+@media screen and (min-width: 1800px) {
+    #administrationHomeMarginBottom{
+        margin-bottom: 555px!important;
+        margin-top: 230px!important;
+    }
+}
+
+
 
 @media screen and (max-width: 640px) {
+    header {
+        padding: 20px 20px;
+    }
+
+    #mainBilletConteneur {
+        padding :60px 
+    }
+
     #bienvenue p {
         padding: 8px;
         color: var(--secondary);
@@ -718,5 +775,8 @@ h2 {
         text-align: center;
         color: whitesmoke;
         justify-content: center;
+    }
+    tbody tr:nth-child(even) {
+        background-color:var(--thirdColor)!important;
     }
 }

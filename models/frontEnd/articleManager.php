@@ -1,55 +1,66 @@
 <?php
 class ArticlesManager
 {
+    public $dbh;
     //fonction pour recuperer les articles publiés
     public function getArticles()
     {
-        require('models/connect.php');
+         $bdd = $this->connect();
         $req = $bdd->prepare('SELECT * FROM chapitres WHERE brouillon = 0 AND supprimer = 0 ORDER BY numeroChapitre');
         $req->execute();
         $data = $req->fetchAll();
         return $data;
-        $req->cloreCursor();
+       
+    }
+    
+    public function getImages()
+    {
+         $bdd = $this->connect();
+        $req = $bdd->prepare('SELECT imageChapitre FROM chapitres');
+        $req->execute();
+        $data = $req->fetchAll();
+        return $data;
+      
     }
 
     //fonction qui va recuperer les chapitres brouillons 
     public function getArticlesBrouillon()
     {
-        require('models/connect.php');
+         $bdd = $this->connect();
         $req = $bdd->prepare('SELECT * FROM chapitres WHERE brouillon = 1 AND supprimer = 0');
         $req->execute();
         $data = $req->fetchAll();
         return $data;
-        $req->cloreCursor();
+     
     }
 
     //fonction qui va recuperer les chapitres supprimés 
     public function getArticlesSupprimer()
     {
-        require('models/connect.php');
+         $bdd = $this->connect();
         $req = $bdd->prepare('SELECT * FROM chapitres WHERE supprimer = 1');
         $req->execute();
         $data = $req->fetchAll();
         return $data;
-        $req->cloreCursor();
+      
     }
 
 
     //function pour obtenir le dernier article qui a été publié 
     public function getLastArticles()
     {
-        require('models/connect.php');
+        $bdd = $this->connect();
         $req = $bdd->prepare('SELECT * FROM chapitres WHERE brouillon = 0 AND supprimer = 0 ORDER BY id DESC LIMIT 0,1');
         $req->execute();
         $data = $req->fetchAll();
         return $data;
-        $req->cloreCursor();
+      
     }
 
     //function pour obtenir l'article
     public function getArticle($id)
     {
-        require('models/connect.php');
+         $bdd = $this->connect();
         $req = $bdd->prepare('SELECT * FROM chapitres WHERE numeroChapitre = ? AND brouillon = 0');
         $req->execute(array($id));
         //s'il y a une correspondance et une seule 
@@ -65,7 +76,7 @@ class ArticlesManager
     //function pour obtenir l'article que l'on veut modifier
     public function getArticleBrouillon($id)
     {
-        require('models/connect.php');
+         $bdd = $this->connect();
         $req = $bdd->prepare('SELECT * FROM chapitres WHERE id = ?');
         $req->execute(array($id));
         $data = $req->fetch();
@@ -75,7 +86,7 @@ class ArticlesManager
     //fonction qui recuperer tous les numeros de chapitres 
     public function numerosChapitre()
     {
-        require('models/connect.php');
+         $bdd = $this->connect();
         $req = $bdd->prepare('SELECT numeroChapitre FROM chapitres WHERE supprimer = 0 ORDER BY numeroChapitre');
         $req->execute();
         $data = $req->fetchAll();
@@ -87,30 +98,32 @@ class ArticlesManager
     public function envoyerArticleFini()
     {
         // traitement de l'image
-        require('models/connect.php');
-        $imgData = basename($_FILES['avatar']['name']);
+         $bdd = $this->connect();
       
-
+        $imgData = basename($_FILES['avatar']['name']);
+        var_dump(array($_POST['numeroChapitre'], $_POST['title'], $_POST['content'], $_POST['sentence'], $_POST['brouillon'], $imgData));
         // condition si l'utilisateur veut que ce soit un brouillon
         if ($_POST['brouillon'] == 1) {
-            require('models/connect.php');
-            $req = $bdd->prepare('INSERT INTO chapitres (numeroChapitre,title,content,sentence,brouillon,imageChapitre) VALUES(?, ?, ?, ?, ?,?)');
-            $req->execute(array($_POST['numeroChapitre'], $_POST['title'], $_POST['content'], $_POST['sentence'], $_POST['brouillon'], $imgData));
+             $bdd = $this->connect();
+            $req = $bdd->prepare('INSERT INTO chapitres (numeroChapitre,title,content,sentence,brouillon) VALUES(:numeroChapitre,:title,:content,:sentence,:brouillon)');
+            var_dump($req);
+            $req->execute(array($_POST['numeroChapitre'], $_POST['title'], $_POST['content'], $_POST['sentence'], $_POST['brouillon']));
         }
         //sinon il est publié
         else {
-            require('models/connect.php');
-            $req = $bdd->prepare('INSERT INTO chapitres (numeroChapitre,title,content,sentence,imageChapitre) VALUES(?, ?, ?,?,?)');
+             $bdd = $this->connect();
+            $req = $bdd->prepare('INSERT INTO chapitres (numeroChapitre,title,content,sentence,imageChapitre) VALUES(?, ?, ?, ?, ?)');
             $req->execute(array($_POST['numeroChapitre'], $_POST['title'], $_POST['content'], $_POST['sentence'], $imgData));
+            var_dump($req);
         }
     }
 
     public function modifierArticle()
     {
-        require('models/connect.php');
+         $bdd = $this->connect();
         // traitement de l'image
         // traitement de l'image
-        require('models/connect.php');
+         $bdd = $this->connect();
         $imgData = basename($_FILES['avatar']['name']);
         
 
@@ -150,7 +163,7 @@ class ArticlesManager
     //fonction pour passer le chapitre en liste supprimer 
     public function supprimerArticle($id)
     {
-        require('models/connect.php');
+         $bdd = $this->connect();
         $req = $bdd->prepare('UPDATE chapitres SET supprimer = 1  WHERE id = ?') or die(print_r($bdd->errorInfo()));
         $req->execute(array($id));
     }
@@ -158,24 +171,42 @@ class ArticlesManager
     //fonction pour passer le chapitre en brouillon
     public function brouillonArticle($id)
     {
-        require('models/connect.php');
+         $bdd = $this->connect();
         $req = $bdd->prepare('UPDATE chapitres SET supprimer = 0,brouillon = 1  WHERE id = ?') or die(print_r($bdd->errorInfo()));
         $req->execute(array($id));
     }
     //fonction pour supprimer definitivement l'article 
     public function supressionFinal($id)
     {
-        require('models/connect.php');
+         $bdd = $this->connect();
         $req = $bdd->prepare('DELETE FROM chapitres WHERE id = ?') or die(print_r($bdd->errorInfo()));
         $req->execute(array($id));
     }
 
 
-    public function dateFormat($str){
+    public function dateFormat($str)
+    {
         list($date1,$date2) = explode(" ", $str);
-                list($y,$m,$d) = explode("-", $date1);
-                list($h,$min,$s) = explode("-", $date2);
-                echo ''.$d.'/'.$m.'/'.$y.' 
-                à '.$h.''.$min.''.$s.'';
+        list($y,$m,$d) = explode("-", $date1);
+        list($h,$min,$s) = explode("-", $date2);
+        echo ''.$d.'/'.$m.'/'.$y.' à '.$h.''.$min.''.$s.'';
     }
+
+    public function connect(){
+        $host_name = 'db5000267422.hosting-data.io';
+        $database = 'dbs260968';
+         $user_name = 'dbu246755';
+         $password = "Tfctfc3131@";
+         
+     
+         try {
+          
+           $bdd = new PDO("mysql:host=$host_name; dbname=$database;", $user_name, $password);
+            return $bdd; 
+        } catch (PDOException $e) {
+           echo "Erreur!: " . $e->getMessage() . "<br/>";
+           die();
+       }
+    }
+   
 }
