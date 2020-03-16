@@ -15,7 +15,9 @@ class ContactManager
         $firstname = $_POST['pseudo'];
         $message = $_POST['message'];
 
-        $message .= ' - email envoyé par: ' . $firstname . ' : ' . $email;
+        $message .= '<h1>Jean forteroche </h1>
+        <p> Mon tres cher amis vous a recu un email envoyé par: ' . $firstname . ' <p>
+        <p> Voici son mail : <br/> ' . $email.' </>';
         // ENVOYER UN EMAIL
         mail('remipradere@gmail.com', 'On me contact sur mon site', $message);
     }
