@@ -23,12 +23,12 @@ VII Media queries
 
 
 /* Variable couleur  */
-:root {
+/* :root {
     --primaryColor: #061319;
     --secondColor: #294444;
     --thirdColor: #8A9DA6;
     --quatriemeColor: #324951;
-}
+} */
 
 #erreur {
     animation: erreur 10s infinite;
@@ -220,7 +220,7 @@ li {
 /* stylisation du bloc de bienvenue */
 
 #bienvenue p {
-    color: var(--secondary);
+    color: #6c757d;
     text-align: center;
     padding: 60px 117px;
     margin: 0;
@@ -229,7 +229,7 @@ li {
 .icon {
     text-align: center;
     font-size: 71px;
-    color: var(--secondary);
+    color: #6c757d;
 }
 
 
@@ -245,7 +245,7 @@ footer {
 }
 
 footer a {
-    color: var(--secondary)
+    color: #6c757d
 }
 
 .footerColumn {
@@ -275,7 +275,7 @@ footer a {
 }
 
 #conteneurConcept p {
-    color: var(--light);
+    color:#f8f9fa;
     font-family: 'Sriracha', cursive;
 }
 
@@ -399,7 +399,7 @@ footer a {
 
 .chapitre .infoChapitre {
   
-    color: var(--secondary)!important;
+    color: #6c757d!important;
   
     text-align: center;
 }
@@ -467,7 +467,7 @@ footer a {
 }
 
 .resume {
-    color: var(--secondary);
+    color: #6c757d;
     padding: 3px 5px;
     font-family: 'Playfair Display', serif;
 }
@@ -555,7 +555,7 @@ input {
 }
 
 .sousChapitre {
-    color: var(--secondary);
+    color: #6c757d;
     text-align: center;
 }
 
@@ -591,7 +591,7 @@ input {
 
 .commentaire h4,
 .commentaire h5 {
-    color: var(--secondary)
+    color: #6c757d
 }
 
 .commentaire form {
@@ -664,7 +664,7 @@ td {
     padding: 20px;
 }
 
-th {background-color:var(--secondary)}
+th {background-color:#6c757d}
 
 #administrationChapitreEcrire {
     min-width: 60%!important;
@@ -756,7 +756,7 @@ h2 {
 
     #bienvenue p {
         padding: 8px;
-        color: var(--secondary);
+        color: #6c757d;
         font-size: 21px;
         margin-bottom: 17%;
     }
@@ -783,6 +783,6 @@ h2 {
         justify-content: center;
     }
     tbody tr:nth-child(even) {
-        background-color:var(--thirdColor)!important;
+        background-color:#8A9DA6!important;
     }
 }
