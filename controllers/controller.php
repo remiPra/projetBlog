@@ -33,6 +33,9 @@ function index()
     require 'models/frontEnd/articleManager.php';
     $articles = new ArticlesManager();
     $lastArticles = $articles->getLastArticles();
+    // condition pour afficher le background
+    global $index;
+    $index = 1;
 
     // affichage de la page d'accueil
     require 'views/frontEnd/indexView.php';

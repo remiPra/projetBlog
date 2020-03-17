@@ -2,7 +2,7 @@
 session_start();
 require 'controllers/controller.php';
 
-if (isset($_GET['action']) and ($_SESSION['connect'] == null)) {
+if ($_SESSION['connect'] == null) {
     ////////////////////////////////////////////////////
     ///////////Partie Frond-end///////////////////////
     //////////////////////////////////////////////////
@@ -45,6 +45,30 @@ if (isset($_GET['action']) and ($_SESSION['connect'] == null)) {
             break;
         case 'administrationConnexionErreurVide':
             administrationConnexionErreurVide();
+            break;
+
+        case 'administrationHome':
+        case 'administrationChapitres':
+        case 'administrationChapitresEcrire':
+        case 'administrationChapitresModifier':
+        case 'administrationChapitreModifierEnvoi':
+        case 'administrationChapitreNouveau':
+        case 'administrationChapitresSupprimer':
+        case 'administrationChapitreTransformerBrouillon':
+        case 'administrationChapitreTransformerSupprimer':
+        case 'administrationCommentaires':
+        case 'AdministrationCommentairesTransformerEnCours':
+        case 'AdministrationCommentairesTransformerSuppression':
+        case 'AdministrationCommentairesTransformerSupprimer':
+        case 'AdministrationCommentairesTransformerValider':
+        case 'administrationContactHome':
+        case 'administrationContactHome':
+        case 'administrationContactMessageNonLu':
+        case 'administrationContactTransformerLu':
+        case 'administrationContactTransformerNonLu':
+        case 'administrationContactTransformerSuppression':
+        case 'administrationContactTransformerSupprimer':
+            index(); 
             break;
         default:
             index();
@@ -175,10 +199,8 @@ if (isset($_GET['action']) and ($_SESSION['connect'] == null)) {
             administrationContactTransformerSuppression();
             break;
         case 'administrationContactTransformerSupprimer':
-
             administrationContactTransformerSupprimer();
             break;
-
         case 'deconnexion':
             deconnexion();
             break;

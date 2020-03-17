@@ -12,7 +12,7 @@
     <?php require_once 'includes/header.php'; ?>
 
     <!-- Condition pour eviter de mettre l'image fixe sur l'index -->
-    <?php if($_GET['action'] != 'index' AND isset($_GET['action'])) 
+    <?php if(isset($index) != 1)  
     {require 'includes/backgroundImage.php';}
     
     
