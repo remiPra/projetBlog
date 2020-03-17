@@ -1,6 +1,7 @@
 <?php
+class ConnectManager {
 
-   
+ public function connect() {  
     $host_name = 'db5000267422.hosting-data.io';
    $database = 'dbs260968';
     $user_name = 'dbu246755';
@@ -14,8 +15,9 @@
       echo "Erreur!: " . $e->getMessage() . "<br/>";
       die();
   }
- 
-?>  
+ }
+} 
+
       
  
 

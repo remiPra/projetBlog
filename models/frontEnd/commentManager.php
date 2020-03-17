@@ -4,7 +4,7 @@ Class CommentManagerF {
 //fonction pour recuperer les commentaires
 public function getComment($id)
 {
-     $bdd = $this->connect();
+     global $bdd;
     $req = $bdd->prepare('SELECT * FROM commentaires WHERE numChapitre = ?');
     $req->execute(array($id));
     $data = $req->fetchAll();
@@ -16,7 +16,7 @@ public function getComment($id)
 //fonction pour signaler un commentaire
 public function signalerComment($idcomment)
 {
-     $bdd = $this->connect();
+     global $bdd;
     $req = $bdd->prepare('UPDATE commentaires SET signaler = ?  WHERE id = ?') or die(print_r($bdd->errorInfo()));
     $req->execute(array($_POST['signaler'], $idcomment));
 }
@@ -25,7 +25,7 @@ public function signalerComment($idcomment)
 //fonction pour envoyer les commentaires
 public function sendComment()
 {
-     $bdd = $this->connect();
+     global $bdd;
 
     $req = $bdd->prepare('INSERT INTO commentaires (pseudo, commentaire,numChapitre) 
                 VALUES(?, ?, ?)');

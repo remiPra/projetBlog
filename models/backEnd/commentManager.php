@@ -5,7 +5,7 @@ class Commentaires
    //nombres de commentaires nouveaux 
    public function countCommentsNew()
    {
-       $bdd = $this->connect();
+       global $bdd;
       $req = $bdd->prepare('SELECT COUNT(*) FROM commentaires WHERE valider = 0 AND signaler = 0 ');
       $req->execute();
       $data = $req->fetchAll();
@@ -13,7 +13,7 @@ class Commentaires
    }
    public function countCommentsDanger()
    {
-       $bdd = $this->connect();
+       global $bdd;
       $req = $bdd->prepare('SELECT COUNT(*) FROM commentaires WHERE valider = 0 AND signaler = 1 ');
       $req->execute();
       $data = $req->fetchAll();
@@ -26,7 +26,7 @@ class Commentaires
    //fonction pour recuperer les commentaires non valider 
    public function getAllComments()
    {
-       $bdd = $this->connect();
+       global $bdd;
       $req = $bdd->prepare('SELECT * FROM commentaires WHERE valider = 0 AND signaler = 0 ORDER BY id DESC');
       $req->execute();
       $data = $req->fetchAll();
@@ -37,7 +37,7 @@ class Commentaires
    //fonction pour recuperer tous les commentaires validés
    public function getAllCommentsValidate()
    {
-       $bdd = $this->connect();
+       global $bdd;
       $req = $bdd->prepare('SELECT * FROM commentaires WHERE signaler = 0 AND valider = 1 ORDER BY id DESC');
       $req->execute();
       $data = $req->fetchAll();
@@ -48,7 +48,7 @@ class Commentaires
    // fonction pour recuperer les articles signalés
    public function getAllCommentsSignaler()
    {
-       $bdd = $this->connect();
+       global $bdd;
       $req = $bdd->prepare('SELECT * FROM commentaires WHERE signaler = 1 ORDER BY id DESC');
       $req->execute();
       $data = $req->fetchAll();
@@ -60,14 +60,14 @@ class Commentaires
    //fonction qui passe le commentaire a validé
    public function changeCommentEnCours($id)
    {
-       $bdd = $this->connect();
+       global $bdd;
       $req = $bdd->prepare('UPDATE commentaires SET valider = 0, signaler = 0  WHERE id = ? ' ) or die(print_r($bdd->errorInfo()));
       $req->execute(array($id));
    }
    //fonction qui passe le commentaire a validé
    public function changeCommentValider($id)
    {
-       $bdd = $this->connect();
+       global $bdd;
       $req = $bdd->prepare('UPDATE commentaires SET valider = 1, signaler = 0 WHERE id = ? ') or die(print_r($bdd->errorInfo()));
       $req->execute(array($id));
    }
@@ -75,14 +75,14 @@ class Commentaires
    //fonction qui passe le commentaire a signaler 
    public function changeCommentSignaler($id)
    {
-       $bdd = $this->connect();
+       global $bdd;
       $req = $bdd->prepare('UPDATE commentaires SET signaler = 1, valider = 0 WHERE id = ? ') or die(print_r($bdd->errorInfo()));
       $req->execute(array($id));
    }
    //fonction qui supprime DEFINITIVEMENT le commentaire
    public function supressionFinal($id)
    {
-       $bdd = $this->connect();
+       global $bdd;
       $req = $bdd->prepare('DELETE FROM commentaires WHERE id = ?') or die(print_r($bdd->errorInfo()));
       $req->execute(array($id));
    }

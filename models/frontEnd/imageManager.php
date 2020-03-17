@@ -53,7 +53,7 @@ class imageManager
 	// fonction pour supprimer l'image uploader
 	public function deleteImageSrc($id)
 	{
-		 $bdd = $this->connect();
+		 global $bdd;
 		$req = $bdd->prepare('SELECT imageChapitre FROM chapitres  WHERE id = ?');
 		$req->execute(array($id));
 		$data = $req->fetch();

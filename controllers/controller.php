@@ -1,12 +1,35 @@
 <?php
+// Sommaire 
+///////////////////////Front END/////////////////////////////
+// Controller de la page d'accueil
+// Controller de la page des chapitres du livre 
+// Controller de la page des d'un article sélectionné
+// Controller de la page de la bibliographie
+// Controller de la page des contacts 
+// Controlleur de la page de l'envoie d'un message contact si envoyé
+// Controlleur lorsqu'un signalement a été actionné sur le site
+// Controlleur de la page d'accueil de connexion a l'administration
+// Controlleur de l'execution de connexion a la partie administration
+// Controlleur de redirection en cas d'une erreur de connexion
+// Controlleur de redirection en cas d'une erreur de connexion du aux champs vides
+//////////////////////Partie Administration////////////////////////////////
+// Controller de l'execution de deconnexion
+// Controller de notifications sous le logo en page administration
+// Controlleur de l'accueil de la page administration 
+// Controlleur de l'accueil de l'administration des chapitres
+// Controlleur de la page pour ecrire un nouveau chapitre 
+// Controlleur de la page pour modifier un chapitre
+// Controlleur de la page pour envoyer la modification d'un chapitre
+// Controlleur de la page pour envoyer un nouveau chapitre
 
-
+require 'models/connect.php';
+$connectManager =  new ConnectManager();
+$bdds = $connectManager->connect();
 
 // controller de la page d'accueil
 ////////////////////////
 function index()
-{
-   
+{ 
     require 'models/frontEnd/articleManager.php';
     $articles = new ArticlesManager();
     $lastArticles = $articles->getLastArticles();
@@ -14,7 +37,7 @@ function index()
     // affichage de la page d'accueil
     require 'views/frontEnd/indexView.php';
 }
-// Controller de la page livre
+// Controller de la page des chapitres du livre 
 //////////////////////////:
 function livre()
 {
@@ -28,7 +51,7 @@ function livre()
 }
 
 
-// controller de la page des articles
+// controller de la page des d'un article sélectionné
 ////////////////////////////////
 function post()
 {
@@ -74,18 +97,19 @@ function post()
         }
     }
 }
-
+// Controller de la page de la bibliographie
 function bibliographie()
 {
     require 'views/frontEnd/bibliographieView.php';
 }
 
+// Controller de la page des contacts 
 function contact()
 {
     // affichage de la page contact
     require 'views/frontEnd/contactView.php';
 }
-
+// Controlleur de la page de l'envoie d'un message contact si envoyé
 function contactRecu()
 {
     if (($_POST['pseudo'] != null) and ($_POST['email'] != null)
@@ -106,6 +130,7 @@ function contactRecu()
     }
 }
 
+// Controlleur lorsqu'un signalement a été actionné sur le site
 function signalementRecu()
 {
     //fonction pour signaler le commentaire selon le numero de chapitre
@@ -121,7 +146,7 @@ function signalementRecu()
 }
 
 
-
+// Controlleur de la page d'accueil de connexion a l'administration
 function administration()
 {
 
@@ -130,7 +155,7 @@ function administration()
 }
 
 
-
+// Controlleur de l'execution de connexion a la partie administration
 function administrationConnexion()
 {
 
@@ -160,18 +185,21 @@ function administrationConnexion()
     }
 }
 
+// Controlleur de redirection en cas d'une erreur de connexion
 function administrationConnexionErreur()
 {
     $notification = '<p id="erreur">Erreur dans vos identifiants</p>';
     require 'views/frontEnd/administrationView.php';
 }
 
+// Controlleur de redirection en cas d'une erreur de connexion du aux champs vides
 function administrationConnexionErreurVide()
 {
     $notification = '<p id="erreur">Remplissez les différents champs svp</p>';
     require 'views/frontEnd/administrationView.php';
 }
 
+// Controller de l'execution de deconnexion
 function deconnexion()
 {
     session_destroy();
@@ -180,7 +208,7 @@ function deconnexion()
     exit();
 }
 
-
+// Controller de notifications sous le logo en page administration
 function notifications()
 {
 
@@ -197,7 +225,7 @@ function notifications()
     $nbCommentsDanger = $commentaires->countCommentsDanger();
 }
 
-
+// Controlleur de l'accueil de la page administration 
 function administrationHome()
 {
     require 'models/backEnd/commentManager.php';
@@ -216,10 +244,7 @@ function administrationHome()
     require 'views/backEnd/administrationHomeView.php';
 }
 
-
-
-
-
+// Controlleur de l'accueil de l'administration des chapitres
 function administrationChapitres()
 {
     require 'models/backEnd/commentManager.php';
@@ -242,7 +267,7 @@ function administrationChapitres()
     //affichage des chapitres dans l'administration
     require 'views/backEnd/administrationChapitresView.php';
 }
-
+// Controlleur de la page pour ecrire un nouveau chapitre 
 function administrationChapitresEcrire()
 {
     require 'models/backEnd/commentManager.php';
@@ -264,7 +289,7 @@ function administrationChapitresEcrire()
     //Affichage du l'administration pour ecrire un nouveau chapitre
     require 'views/backEnd/administrationChapitresEcrireView.php';
 }
-
+// Controlleur de la page pour modifier un chapitre
 function administrationChapitresModifier()
 {
     require 'models/backEnd/commentManager.php';
@@ -286,10 +311,6 @@ function administrationChapitresModifier()
     } else {
         // recupération de l'article concerné par l'id 
         // extraction de $_GET
-
-
-
-
         extract($_GET);
         $id = strip_tags($id);
 
@@ -303,7 +324,7 @@ function administrationChapitresModifier()
         require 'views/backEnd/administrationChapitresModifierView.php';
     }
 }
-
+// Controlleur de la page pour envoyer la modification d'un chapitre
 function administrationChapitresEnvoiModifier()
 {
     require 'models/backEnd/commentManager.php';
@@ -332,7 +353,7 @@ function administrationChapitresEnvoiModifier()
 
     require 'views/backEnd/administrationChapitresView.php';
 }
-
+// Controlleur de la page pour envoyer un nouveau chapitre
 function administrationChapitreNouveau()
 {
 

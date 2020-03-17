@@ -4,7 +4,7 @@ class ContactManager
 {
     public function countMessageNew()
     {
-        $bdd = $this->connect();
+        global $bdd;
        $req = $bdd->prepare('SELECT COUNT(*) FROM contact WHERE messageLu = 0 ');
        $req->execute();
        $data = $req->fetchAll();
@@ -17,7 +17,7 @@ class ContactManager
     
     //fonction qui affiche les messages non lues
     public function getContactMessages() {
-         $bdd = $this->connect();
+         global $bdd;
        
         $req = $bdd->prepare('SELECT * FROM contact WHERE messagelu = 0 AND supprimer = 0');
         $req->execute();
@@ -30,7 +30,7 @@ class ContactManager
    //fonction pour recuperer tous les commentaires validés
    public function getContactMessagesSupprimer()
    {
-       $bdd = $this->connect();
+       global $bdd;
       $req = $bdd->prepare('SELECT * FROM contact WHERE supprimer = 1 ORDER BY id DESC');
       $req->execute();
       $data = $req->fetchAll();
@@ -40,7 +40,7 @@ class ContactManager
    //fonction pour recuperer tous les commentaires validés
    public function getContactMessagesLu()
    {
-       $bdd = $this->connect();
+       global $bdd;
       $req = $bdd->prepare('SELECT * FROM contact WHERE supprimer = 0 AND messageLu = 1 ORDER BY id DESC');
       $req->execute();
       $data = $req->fetchAll();
@@ -50,7 +50,7 @@ class ContactManager
 
    
     public function getContactMessage($id) {
-         $bdd = $this->connect();
+         global $bdd;
        
         $req = $bdd->prepare('SELECT * FROM contact WHERE id = ?');
         $req->execute(array($id));
@@ -62,14 +62,14 @@ class ContactManager
      //fonction qui transforme en message lu
    public function changeContactLu($id)
    {
-       $bdd = $this->connect();
+       global $bdd;
       $req = $bdd->prepare('UPDATE contact SET messageLu = 1 ,supprimer = 0 WHERE id = ? ') or die(print_r($bdd->errorInfo()));
       $req->execute(array($id));
    }
      //fonction qui transforme en message non lu
    public function changeContacNonLu($id)
    {
-       $bdd = $this->connect();
+       global $bdd;
       $req = $bdd->prepare('UPDATE contact SET messageLu = 0,supprimer = 0 WHERE id = ? ') or die(print_r($bdd->errorInfo()));
       $req->execute(array($id));
    }
@@ -77,7 +77,7 @@ class ContactManager
     //fonction qui supprime DEFINITIVEMENT le commentaire
    public function changeContactSupprimer($id)
    {
-       $bdd = $this->connect();
+       global $bdd;
       $req = $bdd->prepare('UPDATE contact SET supprimer = 1 WHERE id = ? ') or die(print_r($bdd->errorInfo()));
       $req->execute(array($id));
    }
@@ -85,7 +85,7 @@ class ContactManager
     //fonction qui supprime DEFINITIVEMENT le commentaire
    public function supressionFinal($id)
    {
-       $bdd = $this->connect();
+       global $bdd;
       $req = $bdd->prepare('DELETE FROM contact WHERE id = ?') or die(print_r($bdd->errorInfo()));
       $req->execute(array($id));
    }

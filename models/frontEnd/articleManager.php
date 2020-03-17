@@ -1,11 +1,10 @@
 <?php
 class ArticlesManager
 {
-    public $dbh;
     //function pour obtenir le dernier article qui a été publié 
     public function getLastArticles()
     {
-        $bdd = $this->connect();
+        global $bdd;
         $req = $bdd->prepare('SELECT * FROM chapitres WHERE brouillon = 0 AND supprimer = 0 ORDER BY id DESC LIMIT 0,1');
         $req->execute();
         $data = $req->fetchAll();
@@ -16,7 +15,7 @@ class ArticlesManager
     //function pour obtenir l'article
     public function getArticle($id)
     {
-         $bdd = $this->connect();
+        global $bdd;
         $req = $bdd->prepare('SELECT * FROM chapitres WHERE numeroChapitre = ? AND brouillon = 0');
         $req->execute(array($id));
         //s'il y a une correspondance et une seule 
@@ -32,7 +31,7 @@ class ArticlesManager
     //fonction pour recuperer les articles publiés
     public function getArticles()
     {
-         $bdd = $this->connect();
+        global $bdd;
         $req = $bdd->prepare('SELECT * FROM chapitres WHERE brouillon = 0 AND supprimer = 0 ORDER BY numeroChapitre');
         $req->execute();
         $data = $req->fetchAll();
@@ -48,21 +47,6 @@ class ArticlesManager
         echo ''.$d.'/'.$m.'/'.$y.' à '.$h.''.$min.''.$s.'';
     }
 
-    public function connect(){
-        $host_name = 'db5000267422.hosting-data.io';
-        $database = 'dbs260968';
-         $user_name = 'dbu246755';
-         $password = "Tfctfc3131@";
-         
-     
-         try {
-          
-           $bdd = new PDO("mysql:host=$host_name; dbname=$database;", $user_name, $password);
-            return $bdd; 
-        } catch (PDOException $e) {
-           echo "Erreur!: " . $e->getMessage() . "<br/>";
-           die();
-       }
-    }
+   
    
 }

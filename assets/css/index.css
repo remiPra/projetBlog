@@ -1,5 +1,28 @@
-/* Variable couleur  */
 
+/*   
+Regles generales 
+I Stylisation de la page d'accueil
+       Stylisation  de l' header de l'accueil 
+       stylisation du bloc de bienvenue 
+II  Stylisation de l'explication de livre en ligne 
+III stylisation de la bibliographie
+IV stylisation de la partie publication
+V Stylisation de la Page des chapitres
+VI Stylisation des infos de connexion
+VII Stylisation de la partie contact 
+VIII Stylisation  Accueil administration 
+IX Stylisation de la page administration des chapitres 
+X Stylisation de la page des chapitres administration ecrire
+XI animation
+VII Media queries
+
+*/
+
+
+
+
+
+/* Variable couleur  */
 :root {
     --primaryColor: #061319;
     --secondColor: #294444;
@@ -74,7 +97,7 @@ p {
 
 
 /* Stylisation de l'accueil*/
-
+    /* header de l'accueil */
 #bienvenue h2,
 #conceptLivre h2,
 #dernierChapitrePublie h2 {
@@ -93,10 +116,6 @@ header {
     z-index: 2222222;
     align-items: center;
     font-size: 18px;
-}
-
-#logo {
-    /* padding-left: 20px; */
 }
 
 #toggle {
@@ -140,7 +159,7 @@ ul {
 }
 
 
-/*stylisation de la partie principale de l'accueil*/
+    /*stylisation de la partie principale de l'accueil*/
 
 #main {
     /* width:100%; */
@@ -214,6 +233,27 @@ li {
 }
 
 
+/* stylisation du footer*/
+
+footer {
+    background-color: black;
+    margin-top: 5%;
+}
+
+#footerConteneur {
+    padding: 20px 10px;
+}
+
+footer a {
+    color: var(--secondary)
+}
+
+.footerColumn {
+    padding: 20px 8px;
+    margin: 10px auto;
+}
+
+
 /* stylisation de l'explication de livre en ligne */
 
 #explicationConcept {
@@ -236,7 +276,6 @@ li {
 
 #conteneurConcept p {
     color: var(--light);
-    /* padding: 9px 27px; */
     font-family: 'Sriracha', cursive;
 }
 
@@ -265,26 +304,6 @@ li {
     margin: 0!important;
 }
 
-
-/* stylisation du footer*/
-
-footer {
-    background-color: black;
-    margin-top: 5%;
-}
-
-#footerConteneur {
-    padding: 20px 10px;
-}
-
-footer a {
-    color: var(--secondary)
-}
-
-.footerColumn {
-    padding: 20px 8px;
-    margin: 10px auto;
-}
 
 
 /* stylisation de la bibliographie */
@@ -346,7 +365,7 @@ footer a {
 }
 
 
-/* stylisation de la Page des chapitres  */
+/* Stylisation de la Page des chapitres  */
 
 #listeChapitre {
     max-width: 1600px;
@@ -359,7 +378,6 @@ footer a {
 }
 
 #paragrapheBillet {
-    /* width:60%; */
     color: white;
     text-align: center;
 }
@@ -371,19 +389,18 @@ footer a {
 }
 
 .chapitre {
-    /* width: 560px; */
+    
     padding: 0;
     position: relative;
     margin: 0px auto;
     margin: 20px auto;
-    /* display: flex; */
+   
 }
 
 .chapitre .infoChapitre {
-    /* position:absolute; */
-    /* z-index:22; */
+  
     color: var(--secondary)!important;
-    /* width: 90%; */
+  
     text-align: center;
 }
 
@@ -398,10 +415,10 @@ footer a {
 
 .chapitre figcaption {
     background-color: #061319;
-    /* bottom: 21%; */
+   
     padding: 13px 12px;
     text-align: center;
-    /* flex-direction: column; */
+   
 }
 
 .buttonChapitre {
@@ -424,7 +441,7 @@ footer a {
     border-radius: 20px;
     width: 170px;
     padding: 1px 10px;
-    /* text-align: center; */
+  
     font-size: 20px;
     margin: 0px auto;
 }
@@ -440,22 +457,18 @@ footer a {
 }
 
 .infoChapitre h3 {
-    /* width: 100%; */
     margin: 1px auto;
     text-align: center;
     top: 2px;
 }
 
 .infoChapitre h4 {
-    /* top: 139%; */
-    /* width: 100%; */
     text-align: center;
 }
 
 .resume {
     color: var(--secondary);
     padding: 3px 5px;
-    /* font-family: 'Roboto Slab', serif; */
     font-family: 'Playfair Display', serif;
 }
 
@@ -464,7 +477,7 @@ footer a {
 }
 
 
-/* stylisation des infos de connexion */
+/* Stylisation des infos de connexion */
 
 form {
     display: flex;
@@ -496,7 +509,7 @@ input {
 }
 
 
-/* stylisation chapitre template */
+/* Stylisation de la page administration des chapitres  */
 
 .resizeBody {
     max-width: 1400px;
@@ -509,7 +522,6 @@ input {
 
 #billetConteneur figure {
     position: relative;
-    /* margin: 0; */
 }
 
 #figcaptionChapitre {
@@ -550,7 +562,6 @@ input {
 .chapitretemplate {
     background-color: #061319;
     margin: 91px auto;
-    /* padding: 20px; */
     border: 2px solid #294444;
 }
 
@@ -590,8 +601,6 @@ input {
 }
 
 
-/* stylisation de la page des chapitres administration */
-
 .sentenceTableau {
     width: 300px;
 }
@@ -622,12 +631,9 @@ input {
 }
 
 
-/* stylisation de la page administration accueil des chapitres  */
-
 table {
     color: white;
     margin: 20px auto;
-    /* margin: auto; */
 }
 
 table tr:hover {
@@ -636,7 +642,7 @@ table tr:hover {
 }
 
 
-/*stylisation de la page des chapitres administration ecrire */
+/* stylisation de la page des chapitres administration ecrire */
 
 .administrationChapitre {
     background-color: #061319;
@@ -737,7 +743,7 @@ h2 {
     }
 }
 
-
+/* Media queries */
 
 @media screen and (max-width: 640px) {
     header {
