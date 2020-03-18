@@ -1,5 +1,5 @@
 <?php
-//fonction pour signaler le commentaire selon le numero de chapitre
+//fonction pour signaler le commentaire selon le Number de Chapter
 require 'models/frontEnd/commentManager.php';
 $idcomment = $_POST['idComment'];
 $CommentManagerF = new CommentManagerF();

@@ -6,7 +6,7 @@
   
 
     <section id="mainBillet" class="row">
-        <div id="mainBilletConteneur" class="col-md-8 col-md-offset-2">
+        <div id="mainBilletContainer" class="col-md-8 col-md-offset-2">
 
             <h1>Billet simple pour l'Alaska</h1>
             <h2>Message </h2>
@@ -16,7 +16,7 @@
             </div>
         </div>
 </section>
-<section class="administrationChapitre row">
+<section class="administrationChapter row">
         <div class="col-md-8 col-md-offset-2 message">
        <?php echo'
         <h4> Nom : '.$messageNonLu['pseudo'].'

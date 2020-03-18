@@ -26,6 +26,6 @@ if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {
     $articlesS = $allArticles->getArticlesSupprimer();
 
 
-    $notification = "votre chapitre est dans la liste des chapitres supprimer";
-    require 'views/backEnd/administrationChapitresView.php';
+    $notification = "votre Chapter est dans la liste des Chapters supprimer";
+    require 'views/backEnd/administrationChaptersView.php';
 }

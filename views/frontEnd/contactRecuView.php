@@ -3,7 +3,7 @@
      
 
     <section id="mainBillet" class="row">
-        <div id="mainBilletConteneur" class="col-md-8 col-md-offset-2">
+        <div id="mainBilletContainer" class="col-md-8 col-md-offset-2">
 
             <h1>Billet simple pour l'Alaska</h1>
             <h2>Formulaire de contact</h2>

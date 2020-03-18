@@ -3,29 +3,29 @@ class ArticlesManager{
     public function getImages()
     {
          global $bdd;
-        $req = $bdd->prepare('SELECT imageChapitre FROM chapitres');
+        $req = $bdd->prepare('SELECT imageChapter FROM Chapters');
         $req->execute();
         $data = $req->fetchAll();
         return $data;
       
     }  
 
-    //fonction qui va recuperer les chapitres brouillons 
+    //fonction qui va recuperer les Chapters brouillons 
     public function getArticlesBrouillon()
     {
          global $bdd;
-        $req = $bdd->prepare('SELECT * FROM chapitres WHERE brouillon = 1 AND supprimer = 0');
+        $req = $bdd->prepare('SELECT * FROM Chapters WHERE brouillon = 1 AND supprimer = 0');
         $req->execute();
         $data = $req->fetchAll();
         return $data;
      
     }
 
-    //fonction qui va recuperer les chapitres supprimés 
+    //fonction qui va recuperer les Chapters supprimés 
     public function getArticlesSupprimer()
     {
          global $bdd;
-        $req = $bdd->prepare('SELECT * FROM chapitres WHERE supprimer = 1');
+        $req = $bdd->prepare('SELECT * FROM Chapters WHERE supprimer = 1');
         $req->execute();
         $data = $req->fetchAll();
         return $data;
@@ -35,7 +35,7 @@ class ArticlesManager{
     public function getArticles()
     {
          global $bdd;
-        $req = $bdd->prepare('SELECT * FROM chapitres WHERE brouillon = 0 AND supprimer = 0 ORDER BY numeroChapitre');
+        $req = $bdd->prepare('SELECT * FROM Chapters WHERE brouillon = 0 AND supprimer = 0 ORDER BY NumberChapter');
         $req->execute();
         $data = $req->fetchAll();
         return $data;
@@ -46,17 +46,17 @@ class ArticlesManager{
     public function getArticleBrouillon($id)
     {
          global $bdd;
-        $req = $bdd->prepare('SELECT * FROM chapitres WHERE id = ?');
+        $req = $bdd->prepare('SELECT * FROM Chapters WHERE id = ?');
         $req->execute(array($id));
         $data = $req->fetch();
         
         return $data;
     }
-    //fonction qui recuperer tous les numeros de chapitres 
-    public function numerosChapitre()
+    //fonction qui recuperer tous les Numbers de Chapters 
+    public function NumbersChapter()
     {
          global $bdd;
-        $req = $bdd->prepare('SELECT numeroChapitre FROM chapitres WHERE supprimer = 0 ORDER BY numeroChapitre');
+        $req = $bdd->prepare('SELECT NumberChapter FROM Chapters WHERE supprimer = 0 ORDER BY NumberChapter');
         $req->execute();
         $data = $req->fetchAll();
         return $data;
@@ -70,19 +70,19 @@ class ArticlesManager{
          global $bdd;
       
         $imgData = basename($_FILES['avatar']['name']);
-        var_dump(array($_POST['numeroChapitre'], $_POST['title'], $_POST['content'], $_POST['sentence'], $_POST['brouillon'], $imgData));
+        var_dump(array($_POST['NumberChapter'], $_POST['title'], $_POST['content'], $_POST['sentence'], $_POST['brouillon'], $imgData));
         // condition si l'utilisateur veut que ce soit un brouillon
         if ($_POST['brouillon'] == 1) {
              global $bdd;
-            $req = $bdd->prepare('INSERT INTO chapitres (numeroChapitre,title,content,sentence,brouillon) VALUES(:numeroChapitre,:title,:content,:sentence,:brouillon)');
+            $req = $bdd->prepare('INSERT INTO Chapters (NumberChapter,title,content,sentence,brouillon) VALUES(:NumberChapter,:title,:content,:sentence,:brouillon)');
             var_dump($req);
-            $req->execute(array($_POST['numeroChapitre'], $_POST['title'], $_POST['content'], $_POST['sentence'], $_POST['brouillon']));
+            $req->execute(array($_POST['NumberChapter'], $_POST['title'], $_POST['content'], $_POST['sentence'], $_POST['brouillon']));
         }
         //sinon il est publié
         else {
              global $bdd;
-            $req = $bdd->prepare('INSERT INTO chapitres (numeroChapitre,title,content,sentence,imageChapitre) VALUES(?, ?, ?, ?, ?)');
-            $req->execute(array($_POST['numeroChapitre'], $_POST['title'], $_POST['content'], $_POST['sentence'], $imgData));
+            $req = $bdd->prepare('INSERT INTO Chapters (NumberChapter,title,content,sentence,imageChapter) VALUES(?, ?, ?, ?, ?)');
+            $req->execute(array($_POST['NumberChapter'], $_POST['title'], $_POST['content'], $_POST['sentence'], $imgData));
             var_dump($req);
         }
     }
@@ -98,9 +98,9 @@ class ArticlesManager{
 
         if ($imgData == null) {
         var_dump($imgData); 
-        $req = $bdd->prepare('UPDATE chapitres SET numeroChapitre = :numeroChapitre, title = :title, content =:content, sentence =:sentence, brouillon= :brouillon WHERE id =:id ');
+        $req = $bdd->prepare('UPDATE Chapters SET NumberChapter = :NumberChapter, title = :title, content =:content, sentence =:sentence, brouillon= :brouillon WHERE id =:id ');
         $req->execute(array(
-            'numeroChapitre' => $_POST['numeroChapitre'],
+            'NumberChapter' => $_POST['NumberChapter'],
             'title' => $_POST['title'],
             'content' => $_POST['content'],
             'sentence' => $_POST['sentence'],
@@ -110,15 +110,15 @@ class ArticlesManager{
         } else {
         
 
-            $req = $bdd->prepare('UPDATE chapitres SET numeroChapitre = :numeroChapitre, title = :title, content =:content, sentence =:sentence, brouillon= :brouillon ,imageChapitre= :imageChapitre WHERE id =:id ');
+            $req = $bdd->prepare('UPDATE Chapters SET NumberChapter = :NumberChapter, title = :title, content =:content, sentence =:sentence, brouillon= :brouillon ,imageChapter= :imageChapter WHERE id =:id ');
             $req->execute(array(
-                'numeroChapitre' => $_POST['numeroChapitre'],
+                'NumberChapter' => $_POST['NumberChapter'],
                 'title' => $_POST['title'],
                 'content' => $_POST['content'],
                 'sentence' => $_POST['sentence'],
                 'brouillon' => $_POST['brouillon'],
                 'id' => $_POST['id'],
-                'imageChapitre' => $imgData
+                'imageChapter' => $imgData
             ));
 
             require  'models/frontEnd/imageManager.php';
@@ -129,26 +129,26 @@ class ArticlesManager{
 
     }
 
-    //fonction pour passer le chapitre en liste supprimer 
+    //fonction pour passer le Chapter en liste supprimer 
     public function supprimerArticle($id)
     {
          global $bdd;
-        $req = $bdd->prepare('UPDATE chapitres SET supprimer = 1  WHERE id = ?') or die(print_r($bdd->errorInfo()));
+        $req = $bdd->prepare('UPDATE Chapters SET supprimer = 1  WHERE id = ?') or die(print_r($bdd->errorInfo()));
         $req->execute(array($id));
     }
 
-    //fonction pour passer le chapitre en brouillon
+    //fonction pour passer le Chapter en brouillon
     public function brouillonArticle($id)
     {
          global $bdd;
-        $req = $bdd->prepare('UPDATE chapitres SET supprimer = 0,brouillon = 1  WHERE id = ?') or die(print_r($bdd->errorInfo()));
+        $req = $bdd->prepare('UPDATE Chapters SET supprimer = 0,brouillon = 1  WHERE id = ?') or die(print_r($bdd->errorInfo()));
         $req->execute(array($id));
     }
     //fonction pour supprimer definitivement l'article 
     public function supressionFinal($id)
     {
          global $bdd;
-        $req = $bdd->prepare('DELETE FROM chapitres WHERE id = ?') or die(print_r($bdd->errorInfo()));
+        $req = $bdd->prepare('DELETE FROM Chapters WHERE id = ?') or die(print_r($bdd->errorInfo()));
         $req->execute(array($id));
     }
        
@@ -164,7 +164,7 @@ class ArticlesManager{
            $bdd = new PDO("mysql:host=$host_name; dbname=$database;", $user_name, $password);
             return $bdd; 
         } catch (PDOException $e) {
-           echo "Erreur!: " . $e->getMessage() . "<br/>";
+           echo "Error!: " . $e->getMessage() . "<br/>";
            die();
        }
     }

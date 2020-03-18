@@ -6,7 +6,7 @@
 
 
 <section id="mainBillet" class="row">
-    <div id="mainBilletConteneur" class="col-md-8 col-md-offset-2">
+    <div id="mainBilletContainer" class="col-md-8 col-md-offset-2">
 
         <h1>Billet simple pour l'Alaska</h1>
         <h2>Administration </h2>
@@ -34,24 +34,24 @@
 
 
 
-<section id="listesCommentairesSignales" class="administrationChapitre">
-    <div class="row justify-content-center " id="listesChapitres">
+<section id="listesCommentairesSignales" class="administrationChapter">
+    <div class="row justify-content-center " id="listesChapters">
         <div>
             <h3 >Listes des commentaires signalés sur le site</h3>
             <table>
                 <tr>
                     <th>Id </th>
-                    <th>Numero chapitre</th>
+                    <th>Number Chapter</th>
                     <th>Pseudo</th>
                     <th>Commentaire</th>
                     <th>Action</th>
                 </tr>
-                <!-- tableau des chapitres -->
+                <!-- tableau des Chapters -->
                 <?php foreach ($commentsS as $commentS) : ?>
                     <?php echo '    
                 <tr>
                     <td>' . $commentS['id'] . '</td>
-                    <td>' . $commentS['numChapitre'] . '</td>
+                    <td>' . $commentS['numChapter'] . '</td>
                     <td>' . $commentS['pseudo'] . '</td>
                     <td class="sentenceTableau"> '.$commentS['commentaire'].' </td>
                     <td>
@@ -74,7 +74,7 @@
 </section>
 
 
-<section id="listesCommentairesEnCours" class="administrationChapitre">
+<section id="listesCommentairesEnCours" class="administrationChapter">
     <div class="row justify-content-center ">
         <div>
             <h3 >Liste des commentaires publiées sur le site en attente de votre validation</h3>
@@ -82,16 +82,16 @@
             <table>
                 <tr>
                     <th>Id </th>
-                    <th>Numero chapitre</th>
+                    <th>Number Chapter</th>
                     <th>Pseudo</th>
                     <th>Commentaire</th>
                     <th>Action</th>
                 </tr>
-                <!-- tableau des chapitres -->
+                <!-- tableau des Chapters -->
                 <?php foreach ($comments as $comment) : ?>
                     <?php echo '    <tr>
                     <td>' .htmlspecialchars($comment['id']) . '</td>
-                    <td>' .htmlspecialchars($comment['numChapitre']) . '</td>
+                    <td>' .htmlspecialchars($comment['numChapter']) . '</td>
                     <td>' .htmlspecialchars($comment['pseudo']) . '</td>
                     <td class="sentenceTableau">' ?>
                     <?php
@@ -117,23 +117,23 @@
     </div>
 </section>
 
-<section id="listesCommentaires" class="administrationChapitre">
+<section id="listesCommentaires" class="administrationChapter">
     <div class="row justify-content-center ">
         <div>
             <h3 >Listes des commentaires validés et publiés sur le site</h3>
             <table>
                 <tr>
                     <th>Id </th>
-                    <th>Numero chapitre</th>   
+                    <th>Number Chapter</th>   
                     <th>Pseudo</th>
                     <th>Commentaire</th>
                     <th>Action</th>
                 </tr>
-                <!-- tableau des chapitres -->
+                <!-- tableau des Chapters -->
                 <?php foreach ($commentsV as $commentV) : ?>
                     <?php echo '    <tr>
                     <td>' .htmlspecialchars($commentV['id']) . '</td>
-                    <td>' .htmlspecialchars($commentV['numChapitre']) . '</td>
+                    <td>' .htmlspecialchars($commentV['numChapter']) . '</td>
                     <td>' .htmlspecialchars($commentV['pseudo']) . '</td>
                     <td class="sentenceTableau">' ?>
                     <?php

@@ -3,12 +3,12 @@
 
 
 <section id="mainBillet" class="row">
-    <div id="mainBilletConteneur" class="col-md-8 col-md-offset-2">
+    <div id="mainBilletContainer" class="col-md-8 col-md-offset-2">
 
         <h1>Billet simple pour l'Alaska</h1>
         <h2>Administration </h2>
         <div id="paragrapheBillet">
-            <p id="erreur"> Vous n'etes pas connecté </p>
+            <p id="Error"> Vous n'etes pas connecté </p>
             <p>Entrez votre nom et votre mot de passe </p>
             <?php if (isset($notification)) {
                 echo $notification;

@@ -29,11 +29,11 @@ if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {
     require 'models/frontEnd/articleManager.php';
     $allArticles = new ArticlesManager();
     $articlesuppression = $allArticles::supressionFinal($id);
-    $notification = "votre chapitre a été completement supprimé";
+    $notification = "votre Chapter a été completement supprimé";
     $articles = $allArticles::getArticles();
     $articlesB = $allArticles::getArticlesBrouillon();
     $articlesS = $allArticles::getArticlesSupprimer();
 
 
-    require 'views/backEnd/administrationChapitresView.php';
+    require 'views/backEnd/administrationChaptersView.php';
 }

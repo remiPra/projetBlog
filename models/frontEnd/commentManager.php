@@ -5,7 +5,7 @@ Class CommentManagerF {
 public function getComment($id)
 {
      global $bdd;
-    $req = $bdd->prepare('SELECT * FROM commentaires WHERE numChapitre = ?');
+    $req = $bdd->prepare('SELECT * FROM commentaires WHERE numChapter = ?');
     $req->execute(array($id));
     $data = $req->fetchAll();
     return $data;
@@ -27,16 +27,16 @@ public function sendComment()
 {
      global $bdd;
 
-    $req = $bdd->prepare('INSERT INTO commentaires (pseudo, commentaire,numChapitre) 
+    $req = $bdd->prepare('INSERT INTO commentaires (pseudo, commentaire,numChapter) 
                 VALUES(?, ?, ?)');
     $req->execute(array(
         $_POST['pseudo'],
         $_POST['commentaire'],
-        $_POST['numChapitre']
+        $_POST['numChapter']
     ));
     var_dump($_POST);
-    // Passe la variable get avec le num de chapitre
-    $_GET['id'] =   $_POST['numChapitre'];
+    // Passe la variable get avec le num de Chapter
+    $_GET['id'] =   $_POST['numChapter'];
 }
 
 public function connect(){
@@ -51,7 +51,7 @@ public function connect(){
        $bdd = new PDO("mysql:host=$host_name; dbname=$database;", $user_name, $password);
         return $bdd; 
     } catch (PDOException $e) {
-       echo "Erreur!: " . $e->getMessage() . "<br/>";
+       echo "Error!: " . $e->getMessage() . "<br/>";
        die();
    }
 }

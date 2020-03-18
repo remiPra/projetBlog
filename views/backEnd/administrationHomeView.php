@@ -6,7 +6,7 @@
 
 
 <section id="mainBillet" class="row">
-    <div id="mainBilletConteneur" class="col-md-8 col-md-offset-2">
+    <div id="mainBilletContainer" class="col-md-8 col-md-offset-2">
 
         <h1>Billet simple pour l'Alaska</h1>
         <h2>Administration </h2>
@@ -22,7 +22,7 @@
 <section>
     <div class="row justify-content-center" id="administrationHomeMarginBottom">
         <div class="col-md-4 d-flex justify-content-center">
-            <a class="boutonAdministration" href="index.php?action=administrationChapitres">Acceder aux chapitres </a>
+            <a class="boutonAdministration" href="index.php?action=administrationChapters">Acceder aux Chapters </a>
         </div>
 
         <div class="col-md-4 d-flex justify-content-center">

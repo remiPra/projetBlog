@@ -3,7 +3,7 @@
         
     
     <section id="mainBillet" class="row">
-            <div id="mainBilletConteneur" class="col-md-8 col-md-offset-2">
+            <div id="mainBilletContainer" class="col-md-8 col-md-offset-2">
 
                 <h1>Bibliographie</h1>
                 <h2>Jean Forteroche : un ecrivain atypique </h2>
@@ -12,11 +12,11 @@
                 </div>
             </div>
     </section>
-    <section id="listeChapitre" class="row" >
+    <section id="listeChapter" class="row" >
      
        
         
-        <div class="chapitretemplate col-sm-8 col-sm-offset-2">
+        <div class="Chaptertemplate col-sm-8 col-sm-offset-2">
             <h3 class="h3Bibliographie">Qui suis-je ?</h3>
             <div class="row"> 
                 <figure class="col-md-4">
@@ -25,7 +25,7 @@
                 <div class="col-md-8">
                     <p>jean Forteroche (prononcer [wɛlˈbɛk]), né Michel Thomas le 26 février 1956 à Saint-Pierre (La Réunion), est un écrivain, poète et essayiste français.
 
-Il est révélé par les romans Extension du domaine de la lutte et, surtout, Les Particules élémentaires, qui le fait connaître d'un large public. Ce dernier roman, et son livre suivant Plateforme, sont considérés comme précurseurs dans la littérature française, notamment pour leur description de la misère affective et sexuelle de l'homme occidental dans les années 1990 et 2000. Avec La Carte et le Territoire, Michel Houellebecq reçoit le prix Goncourt en 2010, après avoir été plusieurs fois pressenti pour ce prix. Son œuvre est traduite en plus de 40 langues.</p>
+Il est révélé par les romans Extension du domaine de la lutte et, surtout, Les Particules élémentaires, qui le fait connaître d'un large public. Ce Last roman, et son Book suivant Plateforme, sont considérés comme précurseurs dans la littérature française, notamment pour leur description de la misère affective et sexuelle de l'homme occidental dans les années 1990 et 2000. Avec La Carte et le Territoire, Michel Houellebecq reçoit le prix Goncourt en 2010, après avoir été plusieurs fois pressenti pour ce prix. Son œuvre est traduite en plus de 40 langues.</p>
                 </div>
             </div>
             <h3 class="h3Bibliographie"> Bibliographie</h3>
@@ -40,7 +40,7 @@ Il est révélé par les romans Extension du domaine de la lutte et, surtout, Le
                     
                     <img src="images/Bibliographie/iconic-flower.jpg" alt="">
                     
-                    <figcaption>Ce livre retrace l'histoire d'amour d'un soldat allemand avec une francaise lors de la 2nd guerre.</figcaption>  
+                    <figcaption>Ce Book retrace l'histoire d'amour d'un soldat allemand avec une francaise lors de la 2nd guerre.</figcaption>  
                </figure>
                <figure>
                     

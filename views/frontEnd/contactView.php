@@ -3,14 +3,14 @@
 
 
 <section id="mainBillet" class="row">
-    <div id="mainBilletConteneur" class="col-md-8 col-md-offset-2">
+    <div id="mainBilletContainer" class="col-md-8 col-md-offset-2">
 
         <h1>Billet simple pour l'Alaska</h1>
         <h2>Formulaire de contact</h2>
         <div id="paragrapheBillet">
            
-            <?php if(isset($notificationErreur)){
-                echo '<p class="notificationErreur">'.$notificationErreur.'</p>';
+            <?php if(isset($notificationError)){
+                echo '<p class="notificationError">'.$notificationError.'</p>';
             }
             else {echo '<p>Veuillez remplir ce formulaire si vous désirez plus de renseignements </p>';}?>
 

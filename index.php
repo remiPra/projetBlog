@@ -12,8 +12,8 @@ if ($_SESSION['connect'] == null) {
         case 'index':
             index();
             break;
-        case 'livre':
-            livre();
+        case 'Book':
+            Book();
             break;
         case 'bibliographie':
             bibliographie();
@@ -39,23 +39,23 @@ if ($_SESSION['connect'] == null) {
         case 'administrationConnexion':
             administrationConnexion();
             break;
-            // gestion des erreurs
-        case 'administrationConnexionErreur':
-            administrationConnexionErreur();
+            // gestion des Errors
+        case 'administrationConnexionError':
+            administrationConnexionError();
             break;
-        case 'administrationConnexionErreurVide':
-            administrationConnexionErreurVide();
+        case 'administrationConnexionErrorVide':
+            administrationConnexionErrorVide();
             break;
 
         case 'administrationHome':
-        case 'administrationChapitres':
-        case 'administrationChapitresEcrire':
-        case 'administrationChapitresModifier':
-        case 'administrationChapitreModifierEnvoi':
-        case 'administrationChapitreNouveau':
-        case 'administrationChapitresSupprimer':
-        case 'administrationChapitreTransformerBrouillon':
-        case 'administrationChapitreTransformerSupprimer':
+        case 'administrationChapters':
+        case 'administrationChaptersEcrire':
+        case 'administrationChaptersModifier':
+        case 'administrationChapterModifierEnvoi':
+        case 'administrationChapterNouveau':
+        case 'administrationChaptersSupprimer':
+        case 'administrationChapterTransformerBrouillon':
+        case 'administrationChapterTransformerSupprimer':
         case 'administrationCommentaires':
         case 'AdministrationCommentairesTransformerEnCours':
         case 'AdministrationCommentairesTransformerSuppression':
@@ -78,8 +78,8 @@ if ($_SESSION['connect'] == null) {
         case 'index':
             index();
             break;
-        case 'livre':
-            livre();
+        case 'Book':
+            Book();
             break;
         case 'bibliographie':
             bibliographie();
@@ -104,8 +104,8 @@ if ($_SESSION['connect'] == null) {
 
 
         case 'administration':
-        case 'administrationConnexionErreur':
-        case 'administrationConnexionErreurVide':
+        case 'administrationConnexionError':
+        case 'administrationConnexionErrorVide':
             administrationHome();
             break;
 
@@ -115,41 +115,41 @@ if ($_SESSION['connect'] == null) {
             administrationHome();
             break;
 
-        case 'administrationChapitres':
+        case 'administrationChapters':
 
-            administrationChapitres();
+            administrationChapters();
             break;
-            // nouveau chapitre
-        case 'administrationChapitresEcrire':
+            // nouveau Chapter
+        case 'administrationChaptersEcrire':
 
-            administrationChapitresEcrire();
+            administrationChaptersEcrire();
             break;
-            // modifier chapitre
-        case 'administrationChapitresModifier':
+            // modifier Chapter
+        case 'administrationChaptersModifier':
 
-            administrationChapitresModifier();
+            administrationChaptersModifier();
             break;
-            // envoie du chapitre modifier 
-        case 'administrationChapitreModifierEnvoi':
+            // envoie du Chapter modifier 
+        case 'administrationChapterModifierEnvoi':
 
-            administrationChapitresEnvoiModifier();
+            administrationChaptersEnvoiModifier();
             break;
-        case 'administrationChapitreNouveau':
+        case 'administrationChapterNouveau':
 
-            administrationChapitreNouveau();
+            administrationChapterNouveau();
             break;
-            // transformer le chapitre en liste supprimer 
-        case 'administrationChapitresSupprimer':
+            // transformer le Chapter en liste supprimer 
+        case 'administrationChaptersSupprimer':
 
-            administrationChapitresSupprimer();
+            administrationChaptersSupprimer();
             break;
-        case 'administrationChapitreTransformerBrouillon':
+        case 'administrationChapterTransformerBrouillon':
 
-            administrationChapitreTransformerBrouillon();
+            administrationChapterTransformerBrouillon();
             break;
-        case 'administrationChapitreTransformerSupprimer':
+        case 'administrationChapterTransformerSupprimer':
 
-            administrationChapitreTransformerSupprimer();
+            administrationChapterTransformerSupprimer();
             break;
             // COMMENTAIRES
         case 'administrationCommentaires':

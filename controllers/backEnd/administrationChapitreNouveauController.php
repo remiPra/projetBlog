@@ -27,4 +27,4 @@ $articlesS = $ArticlesManager::getArticlesSupprimer();
 
 
 
-require 'views/backEnd/administrationChapitresView.php';
+require 'views/backEnd/administrationChaptersView.php';

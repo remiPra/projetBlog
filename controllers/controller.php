@@ -2,7 +2,7 @@
 // Sommaire 
 ///////////////////////Front END/////////////////////////////
 // Controller de la page d'accueil
-// Controller de la page des chapitres du livre 
+// Controller de la page des Chapters du Book 
 // Controller de la page des d'un article sélectionné
 // Controller de la page de la bibliographie
 // Controller de la page des contacts 
@@ -10,17 +10,17 @@
 // Controlleur lorsqu'un signalement a été actionné sur le site
 // Controlleur de la page d'accueil de connexion a l'administration
 // Controlleur de l'execution de connexion a la partie administration
-// Controlleur de redirection en cas d'une erreur de connexion
-// Controlleur de redirection en cas d'une erreur de connexion du aux champs vides
+// Controlleur de redirection en cas d'une Error de connexion
+// Controlleur de redirection en cas d'une Error de connexion du aux champs vides
 //////////////////////Partie Administration////////////////////////////////
 // Controller de l'execution de deconnexion
 // Controller de notifications sous le logo en page administration
 // Controlleur de l'accueil de la page administration 
-// Controlleur de l'accueil de l'administration des chapitres
-// Controlleur de la page pour ecrire un nouveau chapitre 
-// Controlleur de la page pour modifier un chapitre
-// Controlleur de la page pour envoyer la modification d'un chapitre
-// Controlleur de la page pour envoyer un nouveau chapitre
+// Controlleur de l'accueil de l'administration des Chapters
+// Controlleur de la page pour ecrire un nouveau Chapter 
+// Controlleur de la page pour modifier un Chapter
+// Controlleur de la page pour envoyer la modification d'un Chapter
+// Controlleur de la page pour envoyer un nouveau Chapter
 
 require 'models/connect.php';
 $connectManager =  new ConnectManager();
@@ -40,17 +40,17 @@ function index()
     // affichage de la page d'accueil
     require 'views/frontEnd/indexView.php';
 }
-// Controller de la page des chapitres du livre 
+// Controller de la page des Chapters du Book 
 //////////////////////////:
-function livre()
+function Book()
 {
     //recuperation de tous les articles 
     require 'models/frontEnd/articleManager.php';
     $allArticles = new ArticlesManager();
     $articles = $allArticles->getArticles();
 
-    //affichage de la page livre ou se trouvent tous les chapitres publiées
-    require 'views/frontEnd/livreView.php';
+    //affichage de la page Book ou se trouvent tous les Chapters publiées
+    require 'views/frontEnd/BookView.php';
 }
 
 
@@ -77,7 +77,7 @@ function post()
             $CommentManagerF = new CommentManagerF();
             $sendComment = $CommentManagerF->sendComment();
 
-            //fonction pour recuperer l'article et le commentaire seulement le numéro de chapitre
+            //fonction pour recuperer l'article et le commentaire seulement le numéro de Chapter
             $articles = new ArticlesManager();
             $article = $articles->getArticle($id);
 
@@ -128,7 +128,7 @@ function contactRecu()
         require 'views/frontEnd/contactRecuView.php';
     } else {
 
-        $notificationErreur = '<p id="erreur"vous n\'avez pas remplis tous les champs';
+        $notificationError = '<p id="Error"vous n\'avez pas remplis tous les champs';
         require 'views/frontEnd/contactView.php';
     }
 }
@@ -136,7 +136,7 @@ function contactRecu()
 // Controlleur lorsqu'un signalement a été actionné sur le site
 function signalementRecu()
 {
-    //fonction pour signaler le commentaire selon le numero de chapitre
+    //fonction pour signaler le commentaire selon le Number de Chapter
     require 'models/frontEnd/commentManager.php';
     $idcomment = $_POST['idComment'];
     $CommentManagerF = new CommentManagerF();
@@ -179,26 +179,26 @@ function administrationConnexion()
             echo "<script type='text/javascript'>document.location.replace('index.php?action=administrationHome');</script>";
             exit();
         } else if ($password != $admin['password']) {
-            echo "<script type='text/javascript'>document.location.replace('index.php?action=administrationConnexionErreur');</script>";
+            echo "<script type='text/javascript'>document.location.replace('index.php?action=administrationConnexionError');</script>";
             exit();
         }
     } else {
-        $notification1 = '<p id="erreur"> Veuillez rentrer vos identifiants svp</p>';
-        echo "<script type='text/javascript'>document.location.replace('index.php?action=administrationConnexionErreurVide');</script>";
+        $notification1 = '<p id="Error"> Veuillez rentrer vos identifiants svp</p>';
+        echo "<script type='text/javascript'>document.location.replace('index.php?action=administrationConnexionErrorVide');</script>";
     }
 }
 
-// Controlleur de redirection en cas d'une erreur de connexion
-function administrationConnexionErreur()
+// Controlleur de redirection en cas d'une Error de connexion
+function administrationConnexionError()
 {
-    $notification = '<p id="erreur">Erreur dans vos identifiants</p>';
+    $notification = '<p id="Error">Error dans vos identifiants</p>';
     require 'views/frontEnd/administrationView.php';
 }
 
-// Controlleur de redirection en cas d'une erreur de connexion du aux champs vides
-function administrationConnexionErreurVide()
+// Controlleur de redirection en cas d'une Error de connexion du aux champs vides
+function administrationConnexionErrorVide()
 {
-    $notification = '<p id="erreur">Remplissez les différents champs svp</p>';
+    $notification = '<p id="Error">Remplissez les différents champs svp</p>';
     require 'views/frontEnd/administrationView.php';
 }
 
@@ -247,8 +247,8 @@ function administrationHome()
     require 'views/backEnd/administrationHomeView.php';
 }
 
-// Controlleur de l'accueil de l'administration des chapitres
-function administrationChapitres()
+// Controlleur de l'accueil de l'administration des Chapters
+function administrationChapters()
 {
     require 'models/backEnd/commentManager.php';
     require 'models/backEnd/contactManager.php';
@@ -267,11 +267,11 @@ function administrationChapitres()
     $articles = $allArticles->getArticles();
     $articlesB = $allArticles->getArticlesBrouillon();
 
-    //affichage des chapitres dans l'administration
-    require 'views/backEnd/administrationChapitresView.php';
+    //affichage des Chapters dans l'administration
+    require 'views/backEnd/administrationChaptersView.php';
 }
-// Controlleur de la page pour ecrire un nouveau chapitre 
-function administrationChapitresEcrire()
+// Controlleur de la page pour ecrire un nouveau Chapter 
+function administrationChaptersEcrire()
 {
     require 'models/backEnd/commentManager.php';
     require 'models/backEnd/contactManager.php';
@@ -286,14 +286,14 @@ function administrationChapitresEcrire()
     $nbCommentsDanger = $commentaires->countCommentsDanger();
     require 'models/backEnd/articleManager.php';
     $articlesManager = new ArticlesManager();
-    $chapitres = $articlesManager->numerosChapitre();
+    $Chapters = $articlesManager->NumbersChapter();
     $images = $articlesManager->getImages();
 
-    //Affichage du l'administration pour ecrire un nouveau chapitre
-    require 'views/backEnd/administrationChapitresEcrireView.php';
+    //Affichage du l'administration pour ecrire un nouveau Chapter
+    require 'views/backEnd/administrationChaptersEcrireView.php';
 }
-// Controlleur de la page pour modifier un chapitre
-function administrationChapitresModifier()
+// Controlleur de la page pour modifier un Chapter
+function administrationChaptersModifier()
 {
     require 'models/backEnd/commentManager.php';
     require 'models/backEnd/contactManager.php';
@@ -322,13 +322,13 @@ function administrationChapitresModifier()
         //recuperaton des articles pour les modifier 
         $articlesManager = new ArticlesManager();
         $article = $articlesManager->getArticleBrouillon($id);
-        $chapitres = $articlesManager->numerosChapitre();
+        $Chapters = $articlesManager->NumbersChapter();
 
-        require 'views/backEnd/administrationChapitresModifierView.php';
+        require 'views/backEnd/administrationChaptersModifierView.php';
     }
 }
-// Controlleur de la page pour envoyer la modification d'un chapitre
-function administrationChapitresEnvoiModifier()
+// Controlleur de la page pour envoyer la modification d'un Chapter
+function administrationChaptersEnvoiModifier()
 {
     require 'models/backEnd/commentManager.php';
     require 'models/backEnd/contactManager.php';
@@ -354,10 +354,10 @@ function administrationChapitresEnvoiModifier()
 
 
 
-    require 'views/backEnd/administrationChapitresView.php';
+    require 'views/backEnd/administrationChaptersView.php';
 }
-// Controlleur de la page pour envoyer un nouveau chapitre
-function administrationChapitreNouveau()
+// Controlleur de la page pour envoyer un nouveau Chapter
+function administrationChapterNouveau()
 {
 
     require 'models/backEnd/commentManager.php';
@@ -391,10 +391,10 @@ function administrationChapitreNouveau()
 
 
 
-    require 'views/backEnd/administrationChapitresView.php';
+    require 'views/backEnd/administrationChaptersView.php';
 }
 
-function administrationChapitresSupprimer()
+function administrationChaptersSupprimer()
 {
     require 'models/backEnd/commentManager.php';
     require 'models/backEnd/contactManager.php';
@@ -433,11 +433,11 @@ function administrationChapitresSupprimer()
         $articlesS = $allArticles->getArticlesSupprimer();
 
 
-        $notification = '<p id="succes"> votre chapitre est dans la liste des chapitres supprimer</p>';
-        require 'views/backEnd/administrationChapitresView.php';
+        $notification = '<p id="succes"> votre Chapter est dans la liste des Chapters supprimer</p>';
+        require 'views/backEnd/administrationChaptersView.php';
     }
 }
-function administrationChapitreTransformerBrouillon()
+function administrationChapterTransformerBrouillon()
 {
     require 'models/backEnd/commentManager.php';
     require 'models/backEnd/contactManager.php';
@@ -467,16 +467,16 @@ function administrationChapitreTransformerBrouillon()
         $allArticles = new ArticlesManager();
         $articleBrouillon = $allArticles->brouillonArticle($id);
 
-        $notification = '<p id="success">Votre chapitre a étét déplacé dans la liste des chapitres brouillon</p>';
+        $notification = '<p id="success">Votre Chapter a étét déplacé dans la liste des Chapters brouillon</p>';
         $articles = $allArticles->getArticles();
         $articlesB = $allArticles->getArticlesBrouillon();
         $articlesS = $allArticles->getArticlesSupprimer();
 
-        require 'views/backEnd/administrationChapitresView.php';
+        require 'views/backEnd/administrationChaptersView.php';
     }
 }
 
-function administrationChapitreTransformerSupprimer()
+function administrationChapterTransformerSupprimer()
 {
 
     require 'models/backEnd/commentManager.php';
@@ -514,13 +514,13 @@ function administrationChapitreTransformerSupprimer()
         require 'models/backEnd/articleManager.php';
         $allArticles = new ArticlesManager();
         $articlesuppression = $allArticles->supressionFinal($id);
-        $notification = "<Votre chapitre a été completement supprimé";
+        $notification = "<Votre Chapter a été completement supprimé";
         $articles = $allArticles->getArticles();
         $articlesB = $allArticles->getArticlesBrouillon();
         $articlesS = $allArticles->getArticlesSupprimer();
 
 
-        require 'views/backEnd/administrationChapitresView.php';
+        require 'views/backEnd/administrationChaptersView.php';
     }
 }
 // COMMENTAIRES ADMINISTRATION

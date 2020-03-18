@@ -4,34 +4,22 @@ Regles generales
 I Stylisation de la page d'accueil
        Stylisation  de l' header de l'accueil 
        stylisation du bloc de bienvenue 
-II  Stylisation de l'explication de livre en ligne 
+II  Stylisation de l'explication de Book en ligne 
 III stylisation de la bibliographie
 IV stylisation de la partie publication
-V Stylisation de la Page des chapitres
+V Stylisation de la Page des Chapters
 VI Stylisation des infos de connexion
 VII Stylisation de la partie contact 
 VIII Stylisation  Accueil administration 
-IX Stylisation de la page administration des chapitres 
-X Stylisation de la page des chapitres administration ecrire
+IX Stylisation de la page administration des Chapters 
+X Stylisation de la page des Chapters administration ecrire
 XI animation
 VII Media queries
 
 */
 
-
-
-
-
-/* Variable couleur  */
-/* :root {
-    --primaryColor: #061319;
-    --secondColor: #294444;
-    --thirdColor: #8A9DA6;
-    --quatriemeColor: #324951;
-} */
-
-#erreur {
-    animation: erreur 10s infinite;
+#Error {
+    animation: Error 10s infinite;
     color: red!important;
 }
 
@@ -41,11 +29,11 @@ VII Media queries
 }
 
 
-.administrationChapitre .message {
+.administrationChapter .message {
     margin: 0px auto;
 }
 
-#bodyConteneur {
+#bodyContainer {
     max-width: 1800px;
     margin: 0px auto;
 }
@@ -99,8 +87,8 @@ p {
 /* Stylisation de l'accueil*/
     /* header de l'accueil */
 #bienvenue h2,
-#conceptLivre h2,
-#dernierChapitrePublie h2 {
+#conceptBook h2,
+#LastChapterPublished h2 {
     padding: 60px 10px 30px 10px;
     text-align: center;
     color: #8A9DA6;
@@ -174,7 +162,7 @@ ul {
     text-align: center;
 }
 
-#conteneurTitre {
+#ContainerTitre {
     margin: 0 auto;
 }
 
@@ -240,7 +228,7 @@ footer {
     margin-top: 5%;
 }
 
-#footerConteneur {
+#footerContainer {
     padding: 20px 10px;
 }
 
@@ -254,32 +242,32 @@ footer a {
 }
 
 
-/* stylisation de l'explication de livre en ligne */
+/* stylisation de l'explication de Book en ligne */
 
 #explicationConcept {
     margin: 0px auto;
 }
 
-#conceptLivre {
+#conceptBook {
     background-color: #465d65;
 }
 
-#conceptLivre h2 {
+#conceptBook h2 {
     padding-top: 60px;
     text-align: center;
     padding-bottom: 30px;
 }
 
-#conteneurConcept {
+#ContainerConcept {
     margin: 0px auto;
 }
 
-#conteneurConcept p {
+#ContainerConcept p {
     color:#f8f9fa;
     font-family: 'Sriracha', cursive;
 }
 
-#conceptLivre #explicationConcept {
+#conceptBook #explicationConcept {
     color: white;
     width: 100%;
     padding-bottom: 60px;
@@ -288,7 +276,7 @@ footer a {
 }
 
 
-#conceptLivre figure:after {
+#conceptBook figure:after {
     position: absolute;
     top: 0px;
     left: 0px;
@@ -365,14 +353,14 @@ footer a {
 }
 
 
-/* Stylisation de la Page des chapitres  */
+/* Stylisation de la Page des Chapters  */
 
-#listeChapitre {
+#listeChapter {
     max-width: 1600px;
     margin: 0px auto!important;
 }
 
-#mainBilletConteneur {
+#mainBilletContainer {
     margin: 130px auto 12px auto;
     text-align: center;
 }
@@ -388,7 +376,7 @@ footer a {
     z-index: -12;
 }
 
-.chapitre {
+.Chapter {
     
     padding: 0;
     position: relative;
@@ -397,14 +385,14 @@ footer a {
    
 }
 
-.chapitre .infoChapitre {
+.Chapter .infoChapter {
   
     color: #6c757d!important;
   
     text-align: center;
 }
 
-.chapitre figure {
+.Chapter figure {
     display: flex;
     flex-wrap: wrap;
     position: relative;
@@ -413,15 +401,15 @@ footer a {
     border: 2px solid #294444;
 }
 
-.chapitre figcaption {
+.Chapter figcaption {
     background-color: #061319;
    
     padding: 13px 12px;
     text-align: center;
    
-}
+}   
 
-.buttonChapitre {
+.buttonChapter {
     position: absolute;
     bottom: 40%;
     color: white;
@@ -446,7 +434,7 @@ footer a {
     margin: 0px auto;
 }
 
-.infoChapitre {
+.infoChapter {
     position: absolute;
     background-color: #061319;
     width: 100%;
@@ -456,13 +444,13 @@ footer a {
     z-index: 222;
 }
 
-.infoChapitre h3 {
+.infoChapter h3 {
     margin: 1px auto;
     text-align: center;
     top: 2px;
 }
 
-.infoChapitre h4 {
+.infoChapter h4 {
     text-align: center;
 }
 
@@ -509,68 +497,69 @@ input {
 }
 
 
-/* Stylisation de la page administration des chapitres  */
+/* Stylisation de la page administration des Chapters  */
 
 .resizeBody {
     max-width: 1400px;
     margin: 0 auto;
+    margin-top: 50px;
 }
 
-#billetConteneur {
+#billetContainer {
     margin-top: 20px;
 }
 
-#billetConteneur figure {
+#billetContainer figure {
     position: relative;
 }
 
-#figcaptionChapitre {
+#figcaptionChapter {
     position: absolute;
     top: 2px;
     width: 100%;
 }
 
-#figcaptionChapitreConteneur {
+#figcaptionChapterContainer {
     margin: 20px auto;
     text-align: center;
     color: white;
 }
 
-#figcaptionChapitreConteneur h2 {
+#figcaptionChapterContainer h2 {
     font-size: 40px;
 }
 
-#figcaptionChapitreConteneur p {
+#figcaptionChapterContainer p {
     font-size: 30px;
 }
 
-.contenuChapitre {
+.contenuChapter {
     margin: 50px 0;
 }
 
-.chapitre figure img,
-.contenuChapitre img {
+.Chapter figure img,
+.contenuChapter img {
     height: 258px;
     margin: 0px auto;
 }
 
-.sousChapitre {
+.sousChapter {
     color: #6c757d;
     text-align: center;
 }
 
-.chapitretemplate {
+.Chaptertemplate {
     background-color: #061319;
     margin: 91px auto;
     border: 2px solid #294444;
 }
 
-.chapitretemplate p {
+.Chaptertemplate p {
     padding: 30px 12px;
     color: white;
 }
 
-.chapitretemplate label {
+.Chaptertemplate label {
     color: #8A9DA6;
 }
 
@@ -642,16 +631,18 @@ table tr:hover {
 }
 
 
-/* stylisation de la page des chapitres administration ecrire */
+/* X Stylisation de la page des Chapters administration ecrire */
 
-.administrationChapitre {
+.administrationChapter {
     background-color: #061319;
     color: white;
     margin: 60px 0;
     padding: 85px 0;
 }
 
-.chapitreEnCours {
+
+
+.ChapterEnCours {
     background-color: #294444;
     color: white;
     /* margin: 85px 0; */
@@ -666,7 +657,7 @@ td {
 
 th {background-color:#6c757d}
 
-#administrationChapitreEcrire {
+#administrationChapterEcrire {
     min-width: 60%!important;
 }
 
@@ -692,7 +683,48 @@ th {background-color:#6c757d}
     font-size:1px!important;
 }
 
+#prepareSend {
+    cursor:pointer;
+    color: white;
+    background-color: #061319;
+    padding: 2px;
+    border-radius: 2px;    
+}
 
+#confirmValidate {
+    width: 301px;
+    height: 263px;
+    position: fixed;
+    top: 190px;
+    z-index: 19029029292029202;
+    background-color: #678087;
+    border:2px solid #061319;
+    left: 50%;
+    margin-left: -150px;
+    /* color: white!important; */
+}
+
+#confirmValidate p {
+    padding: 20px;
+   color: #061319;
+}
+#ChapterValidationBtn {
+    height: 38px;
+    margin-top: 2px;
+}
+
+
+#confirmValidateButton {
+    display: flex;
+    justify-content:center;
+    height: 42px;
+}
+
+
+#confirmValidateButton button {
+    margin: 2px;
+  
+}
 /* animation */
 
 h1,
@@ -723,7 +755,7 @@ h2 {
     }
 }
 
-@keyframes erreur {
+@keyframes Error {
     0% {
         color: red;
     }
@@ -750,7 +782,7 @@ h2 {
         padding: 20px 20px;
     }
 
-    #mainBilletConteneur {
+    #mainBilletContainer {
         padding :60px 
     }
 
@@ -760,23 +792,23 @@ h2 {
         font-size: 21px;
         margin-bottom: 17%;
     }
-    #figcaptionChapitreConteneur h2 {
+    #figcaptionChapterContainer h2 {
         font-size: 33px;
     }
-    #figcaptionChapitreConteneur p {
+    #figcaptionChapterContainer p {
         font-size: 22px;
     }
-    .chapitretemplate {
+    .Chaptertemplate {
         padding-right: 0!important;
         padding-left: 0!important;
     }
-    /* stylisation de la partie Administration chapitre mobile*/
-    .administrationChapitre th,
-    .chapitreEnCours th {
+    /* stylisation de la partie Administration Chapter mobile*/
+    .administrationChapter th,
+    .ChapterEnCours th {
         display: none;
     }
-    .administrationChapitre td,
-    .chapitreEnCours td {
+    .administrationChapter td,
+    .ChapterEnCours td {
         display: flex;
         text-align: center;
         color: whitesmoke;

@@ -1,5 +1,5 @@
 <?php 
-// recuperation du dernier article publié
+// recuperation du Last article publié
 require 'models/frontEnd/articleManager.php';
 $articles = new ArticlesManager();
 $lastArticles = $articles::getLastArticles();

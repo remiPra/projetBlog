@@ -5,7 +5,7 @@
 
 
 <section id="mainBillet" class="row">
-    <div id="mainBilletConteneur" class="col-md-8 col-md-offset-2">
+    <div id="mainBilletContainer" class="col-md-8 col-md-offset-2">
 
         <h1>Billet simple pour l'Alaska</h1>
         <h2>Administration </h2>
@@ -32,7 +32,7 @@
     </div>
     
 
-    <section class="administrationChapitre">
+    <section class="administrationChapter">
         <div class="row justify-content-center " id="listesMessagesNonLu">
             <div>
                 <h3>Nouveaux Messages</h3>
@@ -44,7 +44,7 @@
                         <th>Message</th>
                         <th>Action</th>
                     </tr>
-                    <!-- tableau des chapitres valides -->
+                    <!-- tableau des Chapters valides -->
                     <?php foreach($MessagesS as $messages) : ?>
                         <?php echo '    <tr>
                     <td>'.$messages['pseudo'].'</td>
@@ -65,7 +65,7 @@
         </div>
     </section>
 
-    <section class="administrationChapitre">
+    <section class="administrationChapter">
         <div class="row justify-content-center " id="listesMessagesLu">
             <div>
                 <h3>Messages lu</h3>
@@ -77,7 +77,7 @@
                         <th>Message</th>
                         <th>Action</th>
                     </tr>
-                    <!-- tableau des chapitres valides -->
+                    <!-- tableau des Chapters valides -->
                     <?php foreach($MessagesSLu as $messagesLu) : ?>
                         <?php echo '    <tr>
                     <td>'.$messagesLu['pseudo'].'</td>
@@ -98,7 +98,7 @@
         </div>
     </section>
 
-    <section class="administrationChapitre">
+    <section class="administrationChapter">
         <div class="row justify-content-center " id="listesMessagesSupprimer">
             <div>
                 <h3>Messages supprimés</h3>
@@ -110,7 +110,7 @@
                         <th>Message</th>
                         <th>Action</th>
                     </tr>
-                    <!-- tableau des chapitres valides -->
+                    <!-- tableau des Chapters valides -->
                     <?php foreach($MessagesSup as $messagesSup) : ?>
                         <?php echo '    <tr>
                     <td>'.$messagesSup['pseudo'].'</td>

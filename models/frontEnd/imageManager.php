@@ -21,12 +21,12 @@ class imageManager
 			echo $extension_fichier;
 			echo "</strong><br/>";
 			if (!in_array($extension_fichier, $extensions)) {
-				$erreur = "Vous devez transférer un fichier de type PNG, GIF, JPG ou JPEG";
+				$Error = "Vous devez transférer un fichier de type PNG, GIF, JPG ou JPEG";
 			}
 			if ($taille > $taille_max) {
-				$erreur = 'Le fichier est trop gros...';
+				$Error = 'Le fichier est trop gros...';
 			}
-			if (!isset($erreur)) //S'il n'y a pas d'erreur, on upload
+			if (!isset($Error)) //S'il n'y a pas d'Error, on upload
 			{
 				//On formate le nom du fichier ici...
 				$fichier = strtr(
@@ -44,7 +44,7 @@ class imageManager
 					echo 'Echec de l\'upload !';
 				}
 			} else {
-				echo $erreur;
+				echo $Error;
 			}
 		} else {
 		}
@@ -54,7 +54,7 @@ class imageManager
 	public function deleteImageSrc($id)
 	{
 		 global $bdd;
-		$req = $bdd->prepare('SELECT imageChapitre FROM chapitres  WHERE id = ?');
+		$req = $bdd->prepare('SELECT imageChapter FROM Chapters  WHERE id = ?');
 		$req->execute(array($id));
 		$data = $req->fetch();
 		var_dump($data);
@@ -77,7 +77,7 @@ class imageManager
            $bdd = new PDO("mysql:host=$host_name; dbname=$database;", $user_name, $password);
             return $bdd; 
         } catch (PDOException $e) {
-           echo "Erreur!: " . $e->getMessage() . "<br/>";
+           echo "Error!: " . $e->getMessage() . "<br/>";
            die();
        }
     }

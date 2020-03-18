@@ -26,7 +26,7 @@ if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {
     //recuperaton des articles pour les modifier 
     $articlesManager = new ArticlesManager();
     $article = $articlesManager->getArticleBrouillon($id);
-    $chapitres = $articlesManager->numerosChapitre();
+    $Chapters = $articlesManager->NumbersChapter();
 
-    require 'views/backEnd/administrationChapitresModifierView.php';
+    require 'views/backEnd/administrationChaptersModifierView.php';
 }

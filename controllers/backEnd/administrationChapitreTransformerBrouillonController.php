@@ -23,10 +23,10 @@ if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {
     $allArticles = new ArticlesManager();
     $articleBrouillon = $allArticles::brouillonArticle($id);
 
-    $notification = "votre chapitre a étét déplacé dans la liste des chapitres brouillon";
+    $notification = "votre Chapter a étét déplacé dans la liste des Chapters brouillon";
     $articles = $allArticles::getArticles();
     $articlesB = $allArticles::getArticlesBrouillon();
     $articlesS = $allArticles::getArticlesSupprimer();
 
-    require 'views/backEnd/administrationChapitresView.php';
+    require 'views/backEnd/administrationChaptersView.php';
 }

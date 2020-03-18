@@ -12,7 +12,7 @@ if (($_POST['pseudo'] != null) AND ($_POST['email'] != null)
 }
 else {
    
-    $notificationErreur = "vous n'avez pas remplis tous les champs";
+    $notificationError = "vous n'avez pas remplis tous les champs";
     require 'views/frontEnd/contactView.php';
 }
 ?>

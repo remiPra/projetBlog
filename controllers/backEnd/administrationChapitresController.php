@@ -20,5 +20,5 @@ $articlesS = $allArticles::getArticlesSupprimer();
 $articles = $allArticles::getArticles();
 $articlesB = $allArticles::getArticlesBrouillon();
 
-//affichage des chapitres dans l'administration
-require 'views/backEnd/administrationChapitresView.php';
+//affichage des Chapters dans l'administration
+require 'views/backEnd/administrationChaptersView.php';

@@ -20,7 +20,7 @@ if(!isset($_GET['id']) OR !is_numeric($_GET['id'])) {
     $CommentManagerF = new CommentManagerF();
     $sendComment = $CommentManagerF->sendComment();
     
-    //fonction pour recuperer l'article et le commentaire seulement le numéro de chapitre
+    //fonction pour recuperer l'article et le commentaire seulement le numéro de Chapter
     $articles = new ArticlesManager();
     $article = $articles->getArticle($id);
    

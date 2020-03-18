@@ -24,8 +24,8 @@ if (($_POST['name']!= null) AND ($_POST['password'])!= null) {
         Exit();
     }    
     else if ($password != $admin['password']) { 
-        $notification = "erreur d'identifiant";
-        echo "<script type='text/javascript'>document.location.replace('index.php?action=administrationConnexionErreur');</script>";
+        $notification = "Error d'identifiant";
+        echo "<script type='text/javascript'>document.location.replace('index.php?action=administrationConnexionError');</script>";
         Exit();
     }
 }

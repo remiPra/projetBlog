@@ -23,7 +23,7 @@ $articleEnv = $allArticles->modifierArticle();
 //variable notification
 // $notification = '<p> votre article a été envoyé </p>';
 
-// require 'controllers/backEnd/administrationChapitresController.php';
+// require 'controllers/backEnd/administrationChaptersController.php';
 
 $articles = $allArticles::getArticles();
 $articlesB = $allArticles::getArticlesBrouillon();
@@ -31,4 +31,4 @@ $articlesS = $allArticles::getArticlesSupprimer();
 
 
 
-require 'views/backEnd/administrationChapitresView.php';
+require 'views/backEnd/administrationChaptersView.php';

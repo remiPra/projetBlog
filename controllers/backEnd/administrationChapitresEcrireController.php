@@ -14,8 +14,8 @@ $nbCommentsDanger = $commentaires->countCommentsDanger();
 
 
 $articlesManager = new ArticlesManager();
-$chapitres = $articlesManager->numerosChapitre();
+$Chapters = $articlesManager->NumbersChapter();
 
-//Affichage du l'administration pour ecrire un nouveau chapitre
-require 'views/backEnd/administrationChapitresEcrireView.php';
+//Affichage du l'administration pour ecrire un nouveau Chapter
+require 'views/backEnd/administrationChaptersEcrireView.php';
 

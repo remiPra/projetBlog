@@ -3,24 +3,24 @@
     
 
     <section id="mainBillet" class="row">
-        <div id="mainBilletConteneur" class="col-md-8 col-md-offset-2">
+        <div id="mainBilletContainer" class="col-md-8 col-md-offset-2">
             <?php echo '
             <h1>Billet simple pour l\'Alaska</h1>
-            <h2>chapitre '.$article['numeroChapitre'].' : '.$article['title'].' </h2>
+            <h2>Chapter '.$article['NumberChapter'].' : '.$article['title'].' </h2>
             <div id="paragrapheBillet">
                
             </div>
         </div>
 </section>
-    <section id="chapitreConteneur">
-        <article id="billetConteneur"class="row">
-            <div class="chapitretemplate col-md-8 col-md-offset-2 ">
+    <section id="ChapterContainer">
+        <article id="billetContainer"class="row">
+            <div class="Chaptertemplate col-md-8 col-md-offset-2 ">
       
               
             
-                <div class=contenuChapitre>
+                <div class=contenuChapter>
                 <figure class="row">
-                    <img class="col-lg-8 col-lg-offset-2 colonne-centree" src="images/'.$article['imageChapitre'].' " 
+                    <img class="col-lg-8 col-lg-offset-2 colonne-centree" src="images/'.$article['imageChapter'].' " 
                     alt="'.$article['imageAlt'].'">
                 </figure>
                 <div id="tinymce">
@@ -30,10 +30,10 @@
                 <div class="trait"></div>
                 </div>
                 
-                <form action="index.php?action=article&id='.$article['numeroChapitre'].'" method="POST"> '?> 
+                <form action="index.php?action=article&id='.$article['NumberChapter'].'" method="POST"> '?> 
                    
                     <h3>Laisser un commentaire</h3>
-                    <input type="text" name="numChapitre" class="inputNone" style="display:none" value="<?php echo $article['numeroChapitre'] ?>" disbable="disabled">
+                    <input type="text" name="numChapter" class="inputNone" style="display:none" value="<?php echo $article['NumberChapter'] ?>" disbable="disabled">
                     <label for="">Pseudo :</label>
                     <input type="text" name="pseudo">                    
                     <label for="">Message:</label>
