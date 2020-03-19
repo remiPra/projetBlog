@@ -1,17 +1,17 @@
 <?php
 extract($_GET);
 $id = strip_tags($id);
-require 'models/backEnd/commentManager.php';
+require 'models/backEnd/CommentManager.php';
 require 'models/backEnd/contactManager.php';
 $contactManager = new ContactManager();
-$commentaires = new Commentaires();
+$Comments = new Comments();
 
 
 $contactSuppression  = $contactManager->changeContacNonLu($id);
 // recuperation des notifications 
 $nbMessages = $contactManager->countMessageNew();
-$nbComments = $commentaires->countCommentsNew();
-$nbCommentsDanger = $commentaires->countCommentsDanger();
+$nbComments = $Comments->countCommentsNew();
+$nbCommentsDanger = $Comments->countCommentsDanger();
 //recuperation des messages 
 $MessagesS = $contactManager->getContactMessages();
 $MessagesSLu = $contactManager->getContactMessagesLu();

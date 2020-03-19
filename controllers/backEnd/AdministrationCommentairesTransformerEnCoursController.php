@@ -1,26 +1,26 @@
 <?php
 extract($_GET);
 $id = strip_tags($id);
-// Recuperation de tous les commentaires publiés et signalés
+// Recuperation de tous les Comments publiés et signalés
 
 require 'models/backEnd/contactManager.php';
-require 'models/backEnd/commentManager.php';
+require 'models/backEnd/CommentManager.php';
 
 $contactManager = new ContactManager();
-$commentaires = new Commentaires();
-$commentsEnCours = $commentaires->changeCommentEnCours($id);
+$Comments = new Comments();
+$CommentsEnCours = $Comments->changeCommentEnCours($id);
 
 
 $nbMessages = $contactManager->countMessageNew();
-$nbComments = $commentaires->countCommentsNew();
-$nbCommentsDanger = $commentaires->countCommentsDanger();
+$nbComments = $Comments->countCommentsNew();
+$nbCommentsDanger = $Comments->countCommentsDanger();
 
 
 
 
-$notification = 'le commentaire a été placé dans les commentaires en cours';
-$comments = $commentaires->getAllComments();
-$commentsV = $commentaires->getAllCommentsValidate();
-$commentsS = $commentaires->getAllCommentsSignaler();
-// affichage de la partie administration des commentaires 
-require 'views/backEnd/administrationCommentairesView.php';
+$notification = 'le Comment a été placé dans les Comments en cours';
+$Comments = $Comments->getAllComments();
+$CommentsV = $Comments->getAllCommentsValidate();
+$CommentsS = $Comments->getAllCommentsSignaler();
+// affichage de la partie administration des Comments 
+require 'views/backEnd/administrationCommentsView.php';

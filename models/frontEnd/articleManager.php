@@ -5,7 +5,7 @@ class ArticlesManager
     public function getLastArticles()
     {
         global $bdd;
-        $req = $bdd->prepare('SELECT * FROM Chapters WHERE brouillon = 0 AND supprimer = 0 ORDER BY id DESC LIMIT 0,1');
+        $req = $bdd->prepare('SELECT * FROM chapters WHERE brouillon = 0 AND supprimer = 0 ORDER BY id DESC LIMIT 0,1');
         $req->execute();
         $data = $req->fetchAll();
         return $data;
@@ -16,7 +16,7 @@ class ArticlesManager
     public function getArticle($id)
     {
         global $bdd;
-        $req = $bdd->prepare('SELECT * FROM Chapters WHERE NumberChapter = ? AND brouillon = 0');
+        $req = $bdd->prepare('SELECT * FROM chapters WHERE NumberChapter = ? AND brouillon = 0');
         $req->execute(array($id));
         //s'il y a une correspondance et une seule 
         if ($req->rowCount() == 1) {
@@ -32,7 +32,7 @@ class ArticlesManager
     public function getArticles()
     {
         global $bdd;
-        $req = $bdd->prepare('SELECT * FROM Chapters WHERE brouillon = 0 AND supprimer = 0 ORDER BY NumberChapter');
+        $req = $bdd->prepare('SELECT * FROM chapters WHERE brouillon = 0 AND supprimer = 0 ORDER BY NumberChapter');
         $req->execute();
         $data = $req->fetchAll();
         return $data;

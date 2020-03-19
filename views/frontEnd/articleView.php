@@ -32,30 +32,30 @@
                 
                 <form action="index.php?action=article&id='.$article['NumberChapter'].'" method="POST"> '?> 
                    
-                    <h3>Laisser un commentaire</h3>
+                    <h3>Laisser un Comment</h3>
                     <input type="text" name="numChapter" class="inputNone" style="display:none" value="<?php echo $article['NumberChapter'] ?>" disbable="disabled">
                     <label for="">Pseudo :</label>
                     <input type="text" name="pseudo">                    
                     <label for="">Message:</label>
-                    <textarea name="commentaire" id="" cols="30" rows="10"></textarea>                    
+                    <textarea name="Comment" id="" cols="30" rows="10"></textarea>                    
                     <input type="submit" value="envoyer" name="btnComment">
                 </form>
 
 
-                <div class="commentaire">
-                    <h3>Commentaires</h3>
-                <?php foreach($comments as $comment): ?>   
+                <div class="Comment">
+                    <h3>Comments</h3>
+                <?php foreach($Comments as $Comment): ?>   
                
                 <?php echo    '<div class="trait"></div>
-                    <h4>Pseudo : '.htmlspecialchars($comment['pseudo']).' </h4>
+                    <h4>Pseudo : '.htmlspecialchars($Comment['pseudo']).' </h4>
                     <h5>Publié le :  '.
                     
-                    ($comment['date']).'</h5>
-                    <p>" '.htmlspecialchars($comment['commentaire']).' "</p>
+                    ($Comment['date']).'</h5>
+                    <p>" '.htmlspecialchars($Comment['Comment']).' "</p>
                     <form action="index.php?action=signalementRecu" method="POST">
-                        <input class="inputNone" type="text" name="idComment"value="'.htmlspecialchars($comment['id']).'">
+                        <input class="inputNone" type="text" name="idComment"value="'.htmlspecialchars($Comment['id']).'">
                         <input class="inputNone" type="text" name="signaler" value="1">
-                        <input type="submit" value="Signaler ce commentaire">
+                        <input type="submit" value="Signaler ce Comment">
                     </form> '?>
                 <?php endforeach; ?>      
                     <div class="trait"></div>

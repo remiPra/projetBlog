@@ -166,18 +166,18 @@ ul {
     margin: 0 auto;
 }
 
-.boutonAlaska {
+.ButtonAlaska {
     color: #061319;
     border: 2px solid #061319;
     padding: 20px;
     margin: 20px 0;
 }
 
-.boutonAlaska:hover {
+.ButtonAlaska:hover {
     color: #061319;
 }
 
-#boutonHomePage {
+#ButtonHomePage {
     margin: 30px;
 }
 
@@ -572,18 +572,18 @@ input {
     z-index: 3333333333;
 }
 
-.commentaire {
+.Comment {
     text-align: center;
     padding: 10px 0;
     position: relative;
 }
 
-.commentaire h4,
-.commentaire h5 {
+.Comment h4,
+.Comment h5 {
     color: #6c757d
 }
 
-.commentaire form {
+.Comment form {
     display: flex;
     color: white;
     vertical-align: center;
@@ -600,7 +600,7 @@ input {
 
 
 
-.boutonAdministration {
+.ButtonAdministration {
     color: white;
     background-color: #061319;
     padding: 20px;
@@ -612,7 +612,7 @@ input {
     border: 2px solid transparent;
 }
 
-.boutonAdministration:hover {
+.ButtonAdministration:hover {
     color: #061319;
     background-color: #294444;
     border: 2px solid #061319;
@@ -667,13 +667,13 @@ th {background-color:#6c757d}
     /* width: 161px; */
 }
 
-.lienAdministration {
+.LinkAdministration {
     text-decoration: none!important;
     color: white;
     text-align: center;
 }
 
-.lienAdministration:hover {
+.LinkAdministration:hover {
     color: #061319;
     background-color: #294444;
 }
@@ -691,7 +691,7 @@ th {background-color:#6c757d}
     border-radius: 2px;    
 }
 
-#confirmValidate {
+#confirmValidate, #imagePossibleValidate {
     width: 301px;
     height: 263px;
     position: fixed;
@@ -701,7 +701,7 @@ th {background-color:#6c757d}
     border:2px solid #061319;
     left: 50%;
     margin-left: -150px;
-    /* color: white!important; */
+   
 }
 
 #confirmValidate p {

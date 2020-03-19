@@ -27,7 +27,7 @@ class ContactManager
     }
 
     
-   //fonction pour recuperer tous les commentaires validés
+   //fonction pour recuperer tous les Comments validés
    public function getContactMessagesSupprimer()
    {
        global $bdd;
@@ -37,7 +37,7 @@ class ContactManager
       return $data;
      
    }
-   //fonction pour recuperer tous les commentaires validés
+   //fonction pour recuperer tous les Comments validés
    public function getContactMessagesLu()
    {
        global $bdd;
@@ -74,7 +74,7 @@ class ContactManager
       $req->execute(array($id));
    }
 
-    //fonction qui supprime DEFINITIVEMENT le commentaire
+    //fonction qui supprime DEFINITIVEMENT le Comment
    public function changeContactSupprimer($id)
    {
        global $bdd;
@@ -82,7 +82,7 @@ class ContactManager
       $req->execute(array($id));
    }
 
-    //fonction qui supprime DEFINITIVEMENT le commentaire
+    //fonction qui supprime DEFINITIVEMENT le Comment
    public function supressionFinal($id)
    {
        global $bdd;

@@ -10,7 +10,7 @@ if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {
     $id = strip_tags($id);
     // recupération de l'article concerné par l'id
     require 'models/backEnd/contactManager.php';
-    require 'models/backEnd/commentManager.php';
+    require 'models/backEnd/CommentManager.php';
     require 'models/frontEnd/articleManager.php';
 
    

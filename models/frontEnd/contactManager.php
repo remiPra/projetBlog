@@ -8,8 +8,8 @@ class ContactManager
 
         // possibilité de stocker dans la BDD
          global $bdd;
-        $req = $bdd->prepare('INSERT INTO contact (pseudo,sujet, email,message) VALUES(?, ?, ?, ?)');
-        $req->execute(array($_POST['pseudo'], $_POST['sujet'], $_POST['email'], $_POST['message']));
+        $req = $bdd->prepare('INSERT INTO contact (pseudo,subject, email,message) VALUES(?, ?, ?, ?)');
+        $req->execute(array($_POST['pseudo'], $_POST['subject'], $_POST['email'], $_POST['message']));
         //possibilité d'enovoyer par mail
         $email = $_POST['email'];
         $firstname = $_POST['pseudo'];

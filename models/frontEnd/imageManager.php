@@ -57,12 +57,11 @@ class imageManager
 		$req = $bdd->prepare('SELECT imageChapter FROM Chapters  WHERE id = ?');
 		$req->execute(array($id));
 		$data = $req->fetch();
-		var_dump($data);
+	
 		$repertoire = 'images/'.$data[0].'';
-		var_dump($repertoire);
+	
 		unlink($repertoire);
-		var_dump("coucoucoucouc");
-
+	
 	}
 
 	public function connect(){

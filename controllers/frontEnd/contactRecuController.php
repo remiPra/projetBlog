@@ -1,6 +1,6 @@
 <?php
 if (($_POST['pseudo'] != null) AND ($_POST['email'] != null) 
-    AND ($_POST['message'] != null) AND ($_POST['sujet'] != null)  ) {
+    AND ($_POST['message'] != null) AND ($_POST['subject'] != null)  ) {
 
     //appel de la méthode contact pur recuperer le message
     require 'models/frontEnd/contactManager.php';

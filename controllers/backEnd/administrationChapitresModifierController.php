@@ -9,13 +9,13 @@ if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {
     // extraction de $_GET
 
     require 'models/backEnd/contactManager.php';
-    require 'models/backEnd/commentManager.php';
+    require 'models/backEnd/CommentManager.php';
 
     $contactManager = new ContactManager();
     $nbMessages = $contactManager->countMessageNew();
-    $commentaires = new Commentaires();
-    $nbComments = $commentaires->countCommentsNew();
-    $nbCommentsDanger = $commentaires->countCommentsDanger();
+    $Comments = new Comments();
+    $nbComments = $Comments->countCommentsNew();
+    $nbCommentsDanger = $Comments->countCommentsDanger();
 
 
     extract($_GET);
@@ -23,10 +23,10 @@ if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {
 
     require 'models/frontEnd/articleManager.php';
 
-    //recuperaton des articles pour les modifier 
+    //recuperaton des articles pour les Modify 
     $articlesManager = new ArticlesManager();
     $article = $articlesManager->getArticleBrouillon($id);
     $Chapters = $articlesManager->NumbersChapter();
 
-    require 'views/backEnd/administrationChaptersModifierView.php';
+    require 'views/backEnd/administrationChaptersModifyView.php';
 }

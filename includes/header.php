@@ -6,7 +6,7 @@
     <nav id="menu">
         <button id="toggle">Menu</button>
         <ul id="ulMenu">  
-        <!-- redirection des liens vers un chemin index.php?action=? -->
+        <!-- redirection des Links vers un chemin index.php?action=? -->
             <li><a href="index.php?action=index">Accueil</a></li>
             <li><a href="index.php?action=Book">Chapters</a></li>
             <li><a href="index.php?action=bibliographie">Bibliographie</a></li>

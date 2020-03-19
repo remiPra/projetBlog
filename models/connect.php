@@ -1,12 +1,23 @@
 <?php
-class ConnectManager {
+class ConnectManager
+{
 
- public function connect() {  
+  public function connect()
+  {
     $host_name = 'db5000267422.hosting-data.io';
-   $database = 'dbs260968';
+    $database = 'dbs260968';
     $user_name = 'dbu246755';
+  
     $password = "Tfctfc3131@";
-    
+
+
+    //   $host_name = 'localhost';
+    //  $database = 'projetblog';
+    //   $user_name = 'root';
+    //   $password = '';
+
+
+
 
     try {
       global $bdd;
@@ -14,12 +25,6 @@ class ConnectManager {
     } catch (PDOException $e) {
       echo "Error!: " . $e->getMessage() . "<br/>";
       die();
+    }
   }
- }
-} 
-
-      
- 
-
-
-
+}

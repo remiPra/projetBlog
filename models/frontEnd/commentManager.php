@@ -1,40 +1,40 @@
 <?php
 
 Class CommentManagerF {
-//fonction pour recuperer les commentaires
+//fonction pour recuperer les Comments
 public function getComment($id)
 {
      global $bdd;
-    $req = $bdd->prepare('SELECT * FROM commentaires WHERE numChapter = ?');
+    $req = $bdd->prepare('SELECT * FROM Comments WHERE numChapter = ?');
     $req->execute(array($id));
     $data = $req->fetchAll();
     return $data;
    
 }
-
   
-//fonction pour signaler un commentaire
-public function signalerComment($idcomment)
+  
+//fonction pour signaler un Comment
+public function signalerComment($idComment)
 {
      global $bdd;
-    $req = $bdd->prepare('UPDATE commentaires SET signaler = ?  WHERE id = ?') or die(print_r($bdd->errorInfo()));
-    $req->execute(array($_POST['signaler'], $idcomment));
+    $req = $bdd->prepare('UPDATE Comments SET signaler = ?  WHERE id = ?') or die(print_r($bdd->errorInfo()));
+    $req->execute(array($_POST['signaler'], $idComment));
 }
 
 
-//fonction pour envoyer les commentaires
+//fonction pour envoyer les Comments
 public function sendComment()
 {
      global $bdd;
 
-    $req = $bdd->prepare('INSERT INTO commentaires (pseudo, commentaire,numChapter) 
+    $req = $bdd->prepare('INSERT INTO Comments (pseudo, Comment,numChapter) 
                 VALUES(?, ?, ?)');
     $req->execute(array(
         $_POST['pseudo'],
-        $_POST['commentaire'],
+        $_POST['Comment'],
         $_POST['numChapter']
     ));
-    var_dump($_POST);
+  
     // Passe la variable get avec le num de Chapter
     $_GET['id'] =   $_POST['numChapter'];
 }

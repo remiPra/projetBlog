@@ -22,9 +22,9 @@
         <label  for="pseudo"> Nom :
         </label>
         <input type="text" name="pseudo" id="pseudo">
-        <label  for="sujet"> Sujet :
+        <label  for="subject"> subject :
         </label>
-        <input type="text" name="sujet" id="sujet">
+        <input type="text" name="subject" id="subject">
         <label> Email :
         </label  for="email">
         <input type="mail" name="email" id="email">

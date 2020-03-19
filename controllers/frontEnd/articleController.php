@@ -6,25 +6,25 @@ if(!isset($_GET['id']) OR !is_numeric($_GET['id'])) {
  else
 {
     
-// condition si un commentaire est envoyé sur l'article    
+// condition si un Comment est envoyé sur l'article    
     if(!empty($_POST) && isset($_POST['btnComment']))
     { 
             // recupération de l'article concerné par l'id
         require 'models/frontEnd/articleManager.php';
-        require 'models/frontEnd/commentManager.php';
+        require 'models/frontEnd/CommentManager.php';
     // extraction de $_GET
     extract($_GET);
     $id = strip_tags($id);
 
-    //fonction pour envoyer le commentaire
+    //fonction pour envoyer le Comment
     $CommentManagerF = new CommentManagerF();
     $sendComment = $CommentManagerF->sendComment();
     
-    //fonction pour recuperer l'article et le commentaire seulement le numéro de Chapter
+    //fonction pour recuperer l'article et le Comment seulement le numéro de Chapter
     $articles = new ArticlesManager();
     $article = $articles->getArticle($id);
    
-    $comments = $CommentManagerF->getComment($id);
+    $Comments = $CommentManagerF->getComment($id);
 
     // Affichage de la view de l'article
     require 'views/frontEnd/articleView.php';
@@ -32,16 +32,16 @@ if(!isset($_GET['id']) OR !is_numeric($_GET['id'])) {
     if(!empty($_POST) && isset($_POST['btnComment']))
     { 
         require 'models/frontEnd/articleManager.php';
-        require 'models/frontEnd/commentManager.php';
+        require 'models/frontEnd/CommentManager.php';
   
     extract($_GET);
     $id = strip_tags($id);
 
    
-    //fonction pour envoyer le commentaire
+    //fonction pour envoyer le Comment
     $CommentManagerF = new CommentManagerF();
     $sendComment = $CommentManagerF->sendComment();
-    $comments = $CommentManagerF->getComment($id);
+    $Comments = $CommentManagerF->getComment($id);
     
    
     $articles = new ArticlesManager();
@@ -52,7 +52,7 @@ if(!isset($_GET['id']) OR !is_numeric($_GET['id'])) {
     else 
     {
         require 'models/frontEnd/articleManager.php';
-        require 'models/frontEnd/commentManager.php';
+        require 'models/frontEnd/CommentManager.php';
   
         extract($_GET);
         $id = strip_tags($id);
@@ -64,7 +64,7 @@ if(!isset($_GET['id']) OR !is_numeric($_GET['id'])) {
     $articles = new ArticlesManager();
     $article = $articles->getArticle($id);
     $CommentManagerF = new CommentManagerF();
-    $comments = $CommentManagerF->getComment($id);
+    $Comments = $CommentManagerF->getComment($id);
         require 'views/frontEnd/articleView.php';
     } 
 }

@@ -1,4 +1,4 @@
-<?php $raccourci = [['lien' =>'administrationHome','name'=>'Administration'],['lien'=>'administrationContactHome','name'=>'Contact']];?>
+<?php $raccourci = [['Link' =>'administrationHome','name'=>'Administration'],['Link'=>'administrationContactHome','name'=>'Contact']];?>
 
 <?php $title = "administration"; ?>
 <?php ob_start() ?>
@@ -19,15 +19,15 @@
 <section>
     <div class="row justify-content-center">
         <div class="col-md-4 d-flex justify-content-center">
-            <a class="boutonAdministration" href="#listesMessagesNonLu">Messages</a>
+            <a class="ButtonAdministration" href="#listesMessagesNonLu">Messages</a>
         </div>
 
         <div class="col-md-4 d-flex justify-content-center">
-            <a class="boutonAdministration" href="#listesMessagesLu">Messages répondus</a>
+            <a class="ButtonAdministration" href="#listesMessagesLu">Messages répondus</a>
         </div>
 
         <div class="col-md-4 d-flex justify-content-center">
-            <a class="boutonAdministration" href="#listesMessagesSupprimer">Messages supprimés</a>
+            <a class="ButtonAdministration" href="#listesMessagesSupprimer">Messages supprimés</a>
         </div>
     </div>
     
@@ -40,7 +40,7 @@
                     <tr>
                         <th>Pseudo </th>
                         <th>Email</th>
-                        <th>Sujet</th>
+                        <th>subject</th>
                         <th>Message</th>
                         <th>Action</th>
                     </tr>
@@ -49,11 +49,11 @@
                         <?php echo '    <tr>
                     <td>'.$messages['pseudo'].'</td>
                     <td>'.$messages['email'].'</td>
-                    <td class="sentenceTableau">'.$messages['sujet'].'</td>
+                    <td class="sentenceTableau">'.$messages['subject'].'</td>
                     <td class="sentenceTableau">'.$messages['message'].'</td>
                     <td >
                         <div class="actionTableau">
-                            <a class="lienAdministration" href="index.php?action=administrationContactMessageNonLu&id=' . $messages['id'] . '">Voir le message </a>
+                            <a class="LinkAdministration" href="index.php?action=administrationContactMessageNonLu&id=' . $messages['id'] . '">Voir le message </a>
                          
                         </div>
                     </td>
@@ -73,7 +73,7 @@
                     <tr>
                         <th>Pseudo </th>
                         <th>Email</th>
-                        <th>Sujet</th>
+                        <th>subject</th>
                         <th>Message</th>
                         <th>Action</th>
                     </tr>
@@ -82,12 +82,12 @@
                         <?php echo '    <tr>
                     <td>'.$messagesLu['pseudo'].'</td>
                     <td>'.$messagesLu['email'].'</td>
-                    <td class="sentenceTableau">'.$messagesLu['sujet'].'</td>
+                    <td class="sentenceTableau">'.$messagesLu['subject'].'</td>
                     <td class="sentenceTableau">'.$messagesLu['message'].'</td>
                     <td >
                         <div class="actionTableau">
-                            <a class="lienAdministration" href="index.php?action=administrationContactMessageNonLu&id=' . $messagesLu['id'] . '">Voir le message </a>
-                            <a class="lienAdministration" href="index.php?action=administrationContactTransformerSupprimer&id=' . $messagesLu['id'] . '">Supprimer </a>
+                            <a class="LinkAdministration" href="index.php?action=administrationContactMessageNonLu&id=' . $messagesLu['id'] . '">Voir le message </a>
+                            <a class="LinkAdministration" href="index.php?action=administrationContactTransformSupprimer&id=' . $messagesLu['id'] . '">Supprimer </a>
                         </div>
                     </td>
                         </tr> ' ?>
@@ -106,7 +106,7 @@
                     <tr>
                         <th>Pseudo </th>
                         <th>Email</th>
-                        <th>Sujet</th>
+                        <th>subject</th>
                         <th>Message</th>
                         <th>Action</th>
                     </tr>
@@ -115,12 +115,12 @@
                         <?php echo '    <tr>
                     <td>'.$messagesSup['pseudo'].'</td>
                     <td>'.$messagesSup['email'].'</td>
-                    <td class="sentenceTableau">'.$messagesSup['sujet'].'</td>
+                    <td class="sentenceTableau">'.$messagesSup['subject'].'</td>
                     <td class="sentenceTableau">'.$messagesSup['message'].'</td>
                     <td >
                         <div class="actionTableau">
-                        <a class="lienAdministration" href="index.php?action=administrationContactMessageNonLu&id=' . $messagesSup['id'] . '">Voir le message </a>
-                            <a class="lienAdministration" href="index.php?action=administrationContactTransformerSuppression&id=' . $messagesSup['id'] . '">Supprimer definitivement </a>
+                        <a class="LinkAdministration" href="index.php?action=administrationContactMessageNonLu&id=' . $messagesSup['id'] . '">Voir le message </a>
+                            <a class="LinkAdministration" href="index.php?action=administrationContactTransformSuppression&id=' . $messagesSup['id'] . '">Supprimer definitivement </a>
                         </div>
                     </td>
                         </tr> ' ?>

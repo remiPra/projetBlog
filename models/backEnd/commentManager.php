@@ -1,12 +1,12 @@
 <?php
-class Commentaires
+class Comments
 {
    
-   //nombres de commentaires nouveaux 
+   //nombres de Comments nouveaux 
    public function countCommentsNew()
    {
        global $bdd;
-      $req = $bdd->prepare('SELECT COUNT(*) FROM commentaires WHERE valider = 0 AND signaler = 0 ');
+      $req = $bdd->prepare('SELECT COUNT(*) FROM Comments WHERE valider = 0 AND signaler = 0 ');
       $req->execute();
       $data = $req->fetchAll();
       return $data; 
@@ -14,7 +14,7 @@ class Commentaires
    public function countCommentsDanger()
    {
        global $bdd;
-      $req = $bdd->prepare('SELECT COUNT(*) FROM commentaires WHERE valider = 0 AND signaler = 1 ');
+      $req = $bdd->prepare('SELECT COUNT(*) FROM Comments WHERE valider = 0 AND signaler = 1 ');
       $req->execute();
       $data = $req->fetchAll();
       return $data; 
@@ -23,22 +23,22 @@ class Commentaires
    
    
    
-   //fonction pour recuperer les commentaires non valider 
+   //fonction pour recuperer les Comments non valider 
    public function getAllComments()
    {
        global $bdd;
-      $req = $bdd->prepare('SELECT * FROM commentaires WHERE valider = 0 AND signaler = 0 ORDER BY id DESC');
+      $req = $bdd->prepare('SELECT * FROM Comments WHERE valider = 0 AND signaler = 0 ORDER BY id DESC');
       $req->execute();
       $data = $req->fetchAll();
       return $data;
     
    }
 
-   //fonction pour recuperer tous les commentaires validés
+   //fonction pour recuperer tous les Comments validés
    public function getAllCommentsValidate()
-   {
-       global $bdd;
-      $req = $bdd->prepare('SELECT * FROM commentaires WHERE signaler = 0 AND valider = 1 ORDER BY id DESC');
+   {  
+      global $bdd;
+      $req = $bdd->prepare('SELECT * FROM Comments WHERE signaler = 0 AND valider = 1 ORDER BY id DESC');
       $req->execute();
       $data = $req->fetchAll();
       return $data;
@@ -49,7 +49,7 @@ class Commentaires
    public function getAllCommentsSignaler()
    {
        global $bdd;
-      $req = $bdd->prepare('SELECT * FROM commentaires WHERE signaler = 1 ORDER BY id DESC');
+      $req = $bdd->prepare('SELECT * FROM Comments WHERE signaler = 1 ORDER BY id DESC');
       $req->execute();
       $data = $req->fetchAll();
       return $data;
@@ -57,33 +57,33 @@ class Commentaires
    }
 
 
-   //fonction qui passe le commentaire a validé
+   //fonction qui passe le Comment a validé
    public function changeCommentEnCours($id)
    {
        global $bdd;
-      $req = $bdd->prepare('UPDATE commentaires SET valider = 0, signaler = 0  WHERE id = ? ' ) or die(print_r($bdd->errorInfo()));
+      $req = $bdd->prepare('UPDATE Comments SET valider = 0, signaler = 0  WHERE id = ? ' ) or die(print_r($bdd->errorInfo()));
       $req->execute(array($id));
    }
-   //fonction qui passe le commentaire a validé
+   //fonction qui passe le Comment a validé
    public function changeCommentValider($id)
    {
        global $bdd;
-      $req = $bdd->prepare('UPDATE commentaires SET valider = 1, signaler = 0 WHERE id = ? ') or die(print_r($bdd->errorInfo()));
+      $req = $bdd->prepare('UPDATE Comments SET valider = 1, signaler = 0 WHERE id = ? ') or die(print_r($bdd->errorInfo()));
       $req->execute(array($id));
    }
 
-   //fonction qui passe le commentaire a signaler 
+   //fonction qui passe le Comment a signaler 
    public function changeCommentSignaler($id)
    {
        global $bdd;
-      $req = $bdd->prepare('UPDATE commentaires SET signaler = 1, valider = 0 WHERE id = ? ') or die(print_r($bdd->errorInfo()));
+      $req = $bdd->prepare('UPDATE Comments SET signaler = 1, valider = 0 WHERE id = ? ') or die(print_r($bdd->errorInfo()));
       $req->execute(array($id));
    }
-   //fonction qui supprime DEFINITIVEMENT le commentaire
+   //fonction qui supprime DEFINITIVEMENT le Comment
    public function supressionFinal($id)
    {
        global $bdd;
-      $req = $bdd->prepare('DELETE FROM commentaires WHERE id = ?') or die(print_r($bdd->errorInfo()));
+      $req = $bdd->prepare('DELETE FROM Comments WHERE id = ?') or die(print_r($bdd->errorInfo()));
       $req->execute(array($id));
    }
 

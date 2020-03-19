@@ -1,25 +1,25 @@
 <?php
 
-// Recuperation de tous les commentaires publiés et signalés
+// Recuperation de tous les Comments publiés et signalés
 
 
 require 'models/backEnd/contactManager.php';
-require 'models/backEnd/commentManager.php';
+require 'models/backEnd/CommentManager.php';
 
 $contactManager = new ContactManager();
 $nbMessages = $contactManager->countMessageNew();
-$commentaires = new Commentaires();
-$nbComments = $commentaires->countCommentsNew();
-$nbCommentsDanger = $commentaires->countCommentsDanger();
+$Comments = new Comments();
+$nbComments = $Comments->countCommentsNew();
+$nbCommentsDanger = $Comments->countCommentsDanger();
 
 
 
 
 
 
-$comments = $commentaires->getAllComments();
-$commentsV = $commentaires->getAllCommentsValidate();
-$commentsS = $commentaires->getAllCommentsSignaler();
+$Comments = $Comments->getAllComments();
+$CommentsV = $Comments->getAllCommentsValidate();
+$CommentsS = $Comments->getAllCommentsSignaler();
 
-// affichage de la partie administration des commentaires 
-require 'views/backEnd/administrationCommentairesView.php';
+// affichage de la partie administration des Comments 
+require 'views/backEnd/administrationCommentsView.php';

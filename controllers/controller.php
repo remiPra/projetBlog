@@ -18,7 +18,7 @@
 // Controlleur de l'accueil de la page administration 
 // Controlleur de l'accueil de l'administration des Chapters
 // Controlleur de la page pour ecrire un nouveau Chapter 
-// Controlleur de la page pour modifier un Chapter
+// Controlleur de la page pour Modify un Chapter
 // Controlleur de la page pour envoyer la modification d'un Chapter
 // Controlleur de la page pour envoyer un nouveau Chapter
 
@@ -29,7 +29,7 @@ $bdds = $connectManager->connect();
 // controller de la page d'accueil
 ////////////////////////
 function index()
-{ 
+{
     require 'models/frontEnd/articleManager.php';
     $articles = new ArticlesManager();
     $lastArticles = $articles->getLastArticles();
@@ -64,30 +64,30 @@ function post()
         header('Location: index.php');
     } else {
 
-        // condition si un commentaire est envoyé sur l'article    
+        // condition si un Comment est envoyé sur l'article    
         if (!empty($_POST) && isset($_POST['btnComment'])) {
             // recupération de l'article concerné par l'id
             require 'models/frontEnd/articleManager.php';
-            require 'models/frontEnd/commentManager.php';
+            require 'models/frontEnd/CommentManager.php';
             // extraction de $_GET
             extract($_GET);
             $id = strip_tags($id);
 
-            //fonction pour envoyer le commentaire
+            //fonction pour envoyer le Comment
             $CommentManagerF = new CommentManagerF();
             $sendComment = $CommentManagerF->sendComment();
 
-            //fonction pour recuperer l'article et le commentaire seulement le numéro de Chapter
+            //fonction pour recuperer l'article et le Comment seulement le numéro de Chapter
             $articles = new ArticlesManager();
             $article = $articles->getArticle($id);
 
-            $comments = $CommentManagerF->getComment($id);
+            $Comments = $CommentManagerF->getComment($id);
 
             // Affichage de la view de l'article
             require 'views/frontEnd/articleView.php';
         } else {
             require 'models/frontEnd/articleManager.php';
-            require 'models/frontEnd/commentManager.php';
+            require 'models/frontEnd/CommentManager.php';
 
             extract($_GET);
             $id = strip_tags($id);
@@ -95,7 +95,7 @@ function post()
             $articles = new ArticlesManager();
             $article = $articles->getArticle($id);
             $CommentManagerF = new CommentManagerF();
-            $comments = $CommentManagerF->getComment($id);
+            $Comments = $CommentManagerF->getComment($id);
             require 'views/frontEnd/articleView.php';
         }
     }
@@ -116,7 +116,7 @@ function contact()
 function contactRecu()
 {
     if (($_POST['pseudo'] != null) and ($_POST['email'] != null)
-        and ($_POST['message'] != null) and ($_POST['sujet'] != null)
+        and ($_POST['message'] != null) and ($_POST['subject'] != null)
     ) {
 
         //appel de la méthode contact pur recuperer le message
@@ -136,11 +136,11 @@ function contactRecu()
 // Controlleur lorsqu'un signalement a été actionné sur le site
 function signalementRecu()
 {
-    //fonction pour signaler le commentaire selon le Number de Chapter
-    require 'models/frontEnd/commentManager.php';
-    $idcomment = $_POST['idComment'];
+    //fonction pour signaler le Comment selon le Number de Chapter
+    require 'models/frontEnd/CommentManager.php';
+    $idComment = $_POST['idComment'];
     $CommentManagerF = new CommentManagerF();
-    $signalerComment = $CommentManagerF->signalerComment($idcomment);
+    $signalerComment = $CommentManagerF->signalerComment($idComment);
     // affichage de la page réussite
     $messageSignalement = '<p>Votre signalement nous a bien été transmis <br>
     Nous prenons beaucoup a coeur de bien traiter les signalements sur notre site <br>
@@ -175,7 +175,7 @@ function administrationConnexion()
         if ($password == $admin['password'] and $pseudo == $admin['name']) {
             $_SESSION['connect'] = 1;
             $_SESSION['name'] = $admin['name'];
-            var_dump($_SESSION['connect']);
+          
             echo "<script type='text/javascript'>document.location.replace('index.php?action=administrationHome');</script>";
             exit();
         } else if ($password != $admin['password']) {
@@ -215,33 +215,33 @@ function deconnexion()
 function notifications()
 {
 
-    require 'models/backEnd/commentManager.php';
+    require 'models/backEnd/CommentManager.php';
     require 'models/backEnd/contactManager.php';
 
     $contact = new ContactManager();
     // global $nbMessages;
     $nbMessages = $contact->countMessageNew();
-    $commentaires = new Commentaires();
+    $Comments = new Comments();
     //  global $nbComments;
-    $nbComments = $commentaires->countCommentsNew();
+    $nbComments = $Comments->countCommentsNew();
 
-    $nbCommentsDanger = $commentaires->countCommentsDanger();
+    $nbCommentsDanger = $Comments->countCommentsDanger();
 }
 
 // Controlleur de l'accueil de la page administration 
 function administrationHome()
 {
-    require 'models/backEnd/commentManager.php';
+    require 'models/backEnd/CommentManager.php';
     require 'models/backEnd/contactManager.php';
 
     $contact = new ContactManager();
     // global $nbMessages;
     $nbMessages = $contact->countMessageNew();
-    $commentaires = new Commentaires();
+    $Comments = new Comments();
     //  global $nbComments;
-    $nbComments = $commentaires->countCommentsNew();
+    $nbComments = $Comments->countCommentsNew();
 
-    $nbCommentsDanger = $commentaires->countCommentsDanger();
+    $nbCommentsDanger = $Comments->countCommentsDanger();
 
     //Affichage de la page d'accueil de l'administration
     require 'views/backEnd/administrationHomeView.php';
@@ -250,17 +250,17 @@ function administrationHome()
 // Controlleur de l'accueil de l'administration des Chapters
 function administrationChapters()
 {
-    require 'models/backEnd/commentManager.php';
+    require 'models/backEnd/CommentManager.php';
     require 'models/backEnd/contactManager.php';
 
     $contact = new ContactManager();
     // global $nbMessages;
     $nbMessages = $contact->countMessageNew();
-    $commentaires = new Commentaires();
+    $Comments = new Comments();
     //  global $nbComments;
-    $nbComments = $commentaires->countCommentsNew();
-    
-    $nbCommentsDanger = $commentaires->countCommentsDanger();
+    $nbComments = $Comments->countCommentsNew();
+
+    $nbCommentsDanger = $Comments->countCommentsDanger();
     require 'models/backEnd/articleManager.php';
     $allArticles = new ArticlesManager();
     $articlesS = $allArticles->getArticlesSupprimer();
@@ -273,17 +273,17 @@ function administrationChapters()
 // Controlleur de la page pour ecrire un nouveau Chapter 
 function administrationChaptersEcrire()
 {
-    require 'models/backEnd/commentManager.php';
+    require 'models/backEnd/CommentManager.php';
     require 'models/backEnd/contactManager.php';
 
     $contact = new ContactManager();
     // global $nbMessages;
     $nbMessages = $contact->countMessageNew();
-    $commentaires = new Commentaires();
+    $Comments = new Comments();
     //  global $nbComments;
-    $nbComments = $commentaires->countCommentsNew();
+    $nbComments = $Comments->countCommentsNew();
 
-    $nbCommentsDanger = $commentaires->countCommentsDanger();
+    $nbCommentsDanger = $Comments->countCommentsDanger();
     require 'models/backEnd/articleManager.php';
     $articlesManager = new ArticlesManager();
     $Chapters = $articlesManager->NumbersChapter();
@@ -292,20 +292,20 @@ function administrationChaptersEcrire()
     //Affichage du l'administration pour ecrire un nouveau Chapter
     require 'views/backEnd/administrationChaptersEcrireView.php';
 }
-// Controlleur de la page pour modifier un Chapter
-function administrationChaptersModifier()
+// Controlleur de la page pour Modify un Chapter
+function administrationChaptersModify()
 {
-    require 'models/backEnd/commentManager.php';
+    require 'models/backEnd/CommentManager.php';
     require 'models/backEnd/contactManager.php';
 
     $contact = new ContactManager();
     // global $nbMessages;
     $nbMessages = $contact->countMessageNew();
-    $commentaires = new Commentaires();
+    $Comments = new Comments();
     //  global $nbComments;
-    $nbComments = $commentaires->countCommentsNew();
+    $nbComments = $Comments->countCommentsNew();
 
-    $nbCommentsDanger = $commentaires->countCommentsDanger();
+    $nbCommentsDanger = $Comments->countCommentsDanger();
     //premiere condition pour voir si Id getter est non vide et est un chiffre
     if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {
         // redirection vers header
@@ -319,34 +319,39 @@ function administrationChaptersModifier()
 
         require 'models/backEnd/articleManager.php';
 
-        //recuperaton des articles pour les modifier 
+        //recuperaton des articles pour les Modify 
         $articlesManager = new ArticlesManager();
-        $article = $articlesManager->getArticleBrouillon($id);
+       
+        $articleBrouillon = $articlesManager->brouillonArticle($id);
         $Chapters = $articlesManager->NumbersChapter();
+        $article = $articlesManager->getArticleBrouillon($id);
 
-        require 'views/backEnd/administrationChaptersModifierView.php';
+        require 'views/backEnd/administrationChaptersModifyView.php';
     }
 }
 // Controlleur de la page pour envoyer la modification d'un Chapter
-function administrationChaptersEnvoiModifier()
+function administrationChaptersEnvoiModify()
 {
-    require 'models/backEnd/commentManager.php';
+   
+    require 'models/backEnd/CommentManager.php';
     require 'models/backEnd/contactManager.php';
+    require  'models/backEnd/articleManager.php';
+    $allArticles = new ArticlesManager();
+  
 
     $contact = new ContactManager();
     // global $nbMessages;
     $nbMessages = $contact->countMessageNew();
-    $commentaires = new Commentaires();
+    $Comments = new Comments();
     //  global $nbComments;
-    $nbComments = $commentaires->countCommentsNew();
+    $nbComments = $Comments->countCommentsNew();
 
-    $nbCommentsDanger = $commentaires->countCommentsDanger();
+    $nbCommentsDanger = $Comments->countCommentsDanger();
     //variable notification
     $notification = '<p> votre article a été envoyé </p>';
 
-    require  'models/backEnd/articleManager.php';
-    $allArticles = new ArticlesManager();
-    $articleEnv = $allArticles->modifierArticle();
+
+    $articleEnv = $allArticles->ModifyArticle();
 
     $articles = $allArticles->getArticles();
     $articlesB = $allArticles->getArticlesBrouillon();
@@ -360,17 +365,17 @@ function administrationChaptersEnvoiModifier()
 function administrationChapterNouveau()
 {
 
-    require 'models/backEnd/commentManager.php';
+    require 'models/backEnd/CommentManager.php';
     require 'models/backEnd/contactManager.php';
 
     $contact = new ContactManager();
     // global $nbMessages;
     $nbMessages = $contact->countMessageNew();
-    $commentaires = new Commentaires();
+    $Comments = new Comments();
     //  global $nbComments;
-    $nbComments = $commentaires->countCommentsNew();
+    $nbComments = $Comments->countCommentsNew();
 
-    $nbCommentsDanger = $commentaires->countCommentsDanger();
+    $nbCommentsDanger = $Comments->countCommentsDanger();
     //Envoie de l'article fini 
     require  'models/backEnd/articleManager.php';
     $allArticles = new ArticlesManager();
@@ -396,17 +401,17 @@ function administrationChapterNouveau()
 
 function administrationChaptersSupprimer()
 {
-    require 'models/backEnd/commentManager.php';
+    require 'models/backEnd/CommentManager.php';
     require 'models/backEnd/contactManager.php';
 
     $contact = new ContactManager();
     // global $nbMessages;
     $nbMessages = $contact->countMessageNew();
-    $commentaires = new Commentaires();
+    $Comments = new Comments();
     //  global $nbComments;
-    $nbComments = $commentaires->countCommentsNew();
+    $nbComments = $Comments->countCommentsNew();
 
-    $nbCommentsDanger = $commentaires->countCommentsDanger();
+    $nbCommentsDanger = $Comments->countCommentsDanger();
     //premiere condition pour voir si Id getter est non vide et est un chiffre
     if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {
         // redirection vers header
@@ -437,19 +442,19 @@ function administrationChaptersSupprimer()
         require 'views/backEnd/administrationChaptersView.php';
     }
 }
-function administrationChapterTransformerBrouillon()
+function administrationChapterTransformBrouillon()
 {
-    require 'models/backEnd/commentManager.php';
+    require 'models/backEnd/CommentManager.php';
     require 'models/backEnd/contactManager.php';
 
     $contact = new ContactManager();
     // global $nbMessages;
     $nbMessages = $contact->countMessageNew();
-    $commentaires = new Commentaires();
+    $Comments = new Comments();
     //  global $nbComments;
-    $nbComments = $commentaires->countCommentsNew();
+    $nbComments = $Comments->countCommentsNew();
 
-    $nbCommentsDanger = $commentaires->countCommentsDanger();
+    $nbCommentsDanger = $Comments->countCommentsDanger();
     //premiere condition pour voir si Id getter est non vide et est un chiffre
     if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {
         // redirection vers header
@@ -476,20 +481,20 @@ function administrationChapterTransformerBrouillon()
     }
 }
 
-function administrationChapterTransformerSupprimer()
+function administrationChapterTransformSupprimer()
 {
 
-    require 'models/backEnd/commentManager.php';
+    require 'models/backEnd/CommentManager.php';
     require 'models/backEnd/contactManager.php';
 
     $contact = new ContactManager();
     // global $nbMessages;
     $nbMessages = $contact->countMessageNew();
-    $commentaires = new Commentaires();
+    $Comments = new Comments();
     //  global $nbComments;
-    $nbComments = $commentaires->countCommentsNew();
+    $nbComments = $Comments->countCommentsNew();
 
-    $nbCommentsDanger = $commentaires->countCommentsDanger();
+    $nbCommentsDanger = $Comments->countCommentsDanger();
     //premiere condition pour voir si Id getter est non vide et est un chiffre
     if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {
         // redirection vers header
@@ -523,159 +528,159 @@ function administrationChapterTransformerSupprimer()
         require 'views/backEnd/administrationChaptersView.php';
     }
 }
-// COMMENTAIRES ADMINISTRATION
+// CommentS ADMINISTRATION
 
-function administrationCommentaires()
+function administrationComments()
 {
-    require 'models/backEnd/commentManager.php';
+    require 'models/backEnd/CommentManager.php';
     require 'models/backEnd/contactManager.php';
 
     $contact = new ContactManager();
     // global $nbMessages;
     $nbMessages = $contact->countMessageNew();
-    $commentaires = new Commentaires();
+    $Comments = new Comments();
     //  global $nbComments;
-    $nbComments = $commentaires->countCommentsNew();
+    $nbComments = $Comments->countCommentsNew();
 
-    $nbCommentsDanger = $commentaires->countCommentsDanger();
+    $nbCommentsDanger = $Comments->countCommentsDanger();
 
-    $comments = $commentaires->getAllComments();
-    $commentsV = $commentaires->getAllCommentsValidate();
-    $commentsS = $commentaires->getAllCommentsSignaler();
+    $CommentsP = $Comments->getAllComments();
+    $CommentsV = $Comments->getAllCommentsValidate();
+    $CommentsS = $Comments->getAllCommentsSignaler();
 
-    // affichage de la partie administration des commentaires 
-    require 'views/backEnd/administrationCommentairesView.php';
+    // affichage de la partie administration des Comments 
+    require 'views/backEnd/administrationCommentsView.php';
 }
 
-function AdministrationCommentairesTransformerEnCours()
+function AdministrationCommentsTransformEnCours()
 {
 
 
     extract($_GET);
     $id = strip_tags($id);
-    // Recuperation de tous les commentaires publiés et signalés
+    // Recuperation de tous les Comments publiés et signalés
 
     require 'models/backEnd/contactManager.php';
-    require 'models/backEnd/commentManager.php';
+    require 'models/backEnd/CommentManager.php';
 
     $contactManager = new ContactManager();
-    $commentaires = new Commentaires();
-    $commentsEnCours = $commentaires->changeCommentEnCours($id);
+    $Comments = new Comments();
+    $CommentsEnCours = $Comments->changeCommentEnCours($id);
 
 
     $nbMessages = $contactManager->countMessageNew();
-    $nbComments = $commentaires->countCommentsNew();
-    $nbCommentsDanger = $commentaires->countCommentsDanger();
+    $nbComments = $Comments->countCommentsNew();
+    $nbCommentsDanger = $Comments->countCommentsDanger();
 
 
 
 
-    $notification = 'le commentaire a été placé dans les commentaires en cours';
-    $comments = $commentaires->getAllComments();
-    $commentsV = $commentaires->getAllCommentsValidate();
-    $commentsS = $commentaires->getAllCommentsSignaler();
-    // affichage de la partie administration des commentaires 
-    require 'views/backEnd/administrationCommentairesView.php';
+    $notification = 'le Comment a été placé dans les Comments en cours';
+    $CommentsP = $Comments->getAllComments();
+    $CommentsV = $Comments->getAllCommentsValidate();
+    $CommentsS = $Comments->getAllCommentsSignaler();
+    // affichage de la partie administration des Comments 
+    require 'views/backEnd/administrationCommentsView.php';
 }
 
-function AdministrationCommentairesTransformerSuppression()
+function AdministrationCommentsTransformSuppression()
 {
 
     extract($_GET);
     $id = strip_tags($id);
-    // Recuperation de tous les commentaires publiés et signalés
+    // Recuperation de tous les Comments publiés et signalés
 
     require 'models/backEnd/contactManager.php';
-    require 'models/backEnd/commentManager.php';
+    require 'models/backEnd/CommentManager.php';
 
 
     $contactManager = new ContactManager();
-    $commentaires = new Commentaires();
+    $Comments = new Comments();
 
 
-    $commentsSuppression = $commentaires->supressionFinal($id);
+    $CommentsSuppression = $Comments->supressionFinal($id);
 
-    $nbComments = $commentaires->countCommentsNew();
+    $nbComments = $Comments->countCommentsNew();
     $nbMessages = $contactManager->countMessageNew();
-    $nbCommentsDanger = $commentaires->countCommentsDanger();
+    $nbCommentsDanger = $Comments->countCommentsDanger();
 
 
-    $notification = 'le commentaire a été supprimé';
-    $comments = $commentaires->getAllComments();
-    $commentsV = $commentaires->getAllCommentsValidate();
-    $commentsS = $commentaires->getAllCommentsSignaler();
-    // affichage de la partie administration des commentaires 
-    require 'views/backEnd/administrationCommentairesView.php';
+    $notification = 'le Comment a été supprimé';
+    $CommentsP = $Comments->getAllComments();
+    $CommentsV = $Comments->getAllCommentsValidate();
+    $CommentsS = $Comments->getAllCommentsSignaler();
+    // affichage de la partie administration des Comments 
+    require 'views/backEnd/administrationCommentsView.php';
 }
 
-function AdministrationCommentairesTransformerSupprimer()
+function AdministrationCommentsTransformSupprimer()
 {
 
     extract($_GET);
     $id = strip_tags($id);
-    // Recuperation de tous les commentaires publiés et signalés
-    require 'models/backEnd/commentManager.php';
+    // Recuperation de tous les Comments publiés et signalés
+    require 'models/backEnd/CommentManager.php';
 
     require 'models/backEnd/contactManager.php';
 
 
     $contactManager = new ContactManager();
-    $commentaires = new Commentaires();
-    $commentsSuppression = $commentaires->changeCommentSignaler($id);
+    $Comments = new Comments();
+    $CommentsSuppression = $Comments->changeCommentSignaler($id);
 
     $nbMessages = $contactManager->countMessageNew();
-    $nbComments = $commentaires->countCommentsNew();
-    $nbCommentsDanger = $commentaires->countCommentsDanger();
+    $nbComments = $Comments->countCommentsNew();
+    $nbCommentsDanger = $Comments->countCommentsDanger();
 
 
 
-    $notification = 'le commentaire a été placé dans les commentares supprimés';
-    $comments = $commentaires->getAllComments();
-    $commentsV = $commentaires->getAllCommentsValidate();
-    $commentsS = $commentaires->getAllCommentsSignaler();
-    // affichage de la partie administration des commentaires 
-    require 'views/backEnd/administrationCommentairesView.php';
+    $notification = 'le Comment a été placé dans les Commentares supprimés';
+    $CommentsP = $Comments->getAllComments();
+    $CommentsV = $Comments->getAllCommentsValidate();
+    $CommentsS = $Comments->getAllCommentsSignaler();
+    // affichage de la partie administration des Comments 
+    require 'views/backEnd/administrationCommentsView.php';
 }
 
-function AdministrationCommentairesTransformerValider()
+function AdministrationCommentsTransformValider()
 {
 
     extract($_GET);
     $id = strip_tags($id);
-    // Recuperation de tous les commentaires publiés et signalés
-    require 'models/backEnd/commentManager.php';
+    // Recuperation de tous les Comments publiés et signalés
+    require 'models/backEnd/CommentManager.php';
     require 'models/backEnd/contactManager.php';
 
 
     $contactManager = new ContactManager();
-    $commentaires = new Commentaires();
-    $commentsSuppression = $commentaires->changeCommentValider($id);
+    $Comments = new Comments();
+    $CommentsSuppression = $Comments->changeCommentValider($id);
 
     $nbMessages = $contactManager->countMessageNew();
-    $nbComments = $commentaires->countCommentsNew();
-    $nbCommentsDanger = $commentaires->countCommentsDanger();
+    $nbComments = $Comments->countCommentsNew();
+    $nbCommentsDanger = $Comments->countCommentsDanger();
 
 
 
-    $notification = 'le commentaire a été validé';
-    $comments = $commentaires->getAllComments();
-    $commentsV = $commentaires->getAllCommentsValidate();
-    $commentsS = $commentaires->getAllCommentsSignaler();
-    // affichage de la partie administration des commentaires 
-    require 'views/backEnd/administrationCommentairesView.php';
+    $notification = 'le Comment a été validé';
+    $CommentsP = $Comments->getAllComments();
+    $CommentsV = $Comments->getAllCommentsValidate();
+    $CommentsS = $Comments->getAllCommentsSignaler();
+    // affichage de la partie administration des Comments 
+    require 'views/backEnd/administrationCommentsView.php';
 }
 
 function administrationContactHome()
 {
 
     require 'models/backEnd/contactManager.php';
-    require 'models/backEnd/commentManager.php';
+    require 'models/backEnd/CommentManager.php';
 
     $contactManager = new ContactManager();
     $nbMessages = $contactManager->countMessageNew();
-    $commentaires = new Commentaires();
-    $nbComments = $commentaires->countCommentsNew();
-    $nbCommentsDanger = $commentaires->countCommentsDanger();
+    $Comments = new Comments();
+    $nbComments = $Comments->countCommentsNew();
+    $nbCommentsDanger = $Comments->countCommentsDanger();
 
     $MessagesS = $contactManager->getContactMessages();
     $MessagesSLu = $contactManager->getContactMessagesLu();
@@ -688,35 +693,35 @@ function administrationContactMessageNonLu()
     extract($_GET);
     $id = strip_tags($id);
 
-    require 'models/backEnd/commentManager.php';
+    require 'models/backEnd/CommentManager.php';
     require 'models/backEnd/contactManager.php';
     $contactManager = new ContactManager();
     $nbMessages = $contactManager->countMessageNew();
-    $commentaires = new Commentaires();
-    $nbComments = $commentaires->countCommentsNew();
-    $nbCommentsDanger = $commentaires->countCommentsDanger();
+    $Comments = new Comments();
+    $nbComments = $Comments->countCommentsNew();
+    $nbCommentsDanger = $Comments->countCommentsDanger();
 
     $messageNonLu = $contactManager->getContactMessage($id);
 
     require 'views/backEnd/administrationContactMessageNonLuView.php';
 }
 
-function administrationContactTransformerLu()
+function administrationContactTransformLu()
 {
 
     extract($_GET);
     $id = strip_tags($id);
-    require 'models/backEnd/commentManager.php';
+    require 'models/backEnd/CommentManager.php';
     require 'models/backEnd/contactManager.php';
     $contactManager = new ContactManager();
-    $commentaires = new Commentaires();
+    $Comments = new Comments();
 
     $contactChangeLu  = $contactManager->changeContactLu($id);
 
     // recuperation des notifications 
     $nbMessages = $contactManager->countMessageNew();
-    $nbComments = $commentaires->countCommentsNew();
-    $nbCommentsDanger = $commentaires->countCommentsDanger();
+    $nbComments = $Comments->countCommentsNew();
+    $nbCommentsDanger = $Comments->countCommentsDanger();
     //recuperation des messages 
     $MessagesS = $contactManager->getContactMessages();
     $MessagesSLu = $contactManager->getContactMessagesLu();
@@ -726,22 +731,22 @@ function administrationContactTransformerLu()
     require 'views/backEnd/administrationContactHomeView.php';
 }
 
-function administrationContactTransformerNonLu()
+function administrationContactTransformNonLu()
 {
 
     extract($_GET);
     $id = strip_tags($id);
-    require 'models/backEnd/commentManager.php';
+    require 'models/backEnd/CommentManager.php';
     require 'models/backEnd/contactManager.php';
     $contactManager = new ContactManager();
-    $commentaires = new Commentaires();
+    $Comments = new Comments();
 
 
     $contactSuppression  = $contactManager->changeContacNonLu($id);
     // recuperation des notifications 
     $nbMessages = $contactManager->countMessageNew();
-    $nbComments = $commentaires->countCommentsNew();
-    $nbCommentsDanger = $commentaires->countCommentsDanger();
+    $nbComments = $Comments->countCommentsNew();
+    $nbCommentsDanger = $Comments->countCommentsDanger();
     //recuperation des messages 
     $MessagesS = $contactManager->getContactMessages();
     $MessagesSLu = $contactManager->getContactMessagesLu();
@@ -750,20 +755,20 @@ function administrationContactTransformerNonLu()
     require 'views/backEnd/administrationContactHomeView.php';
 }
 
-function administrationContactTransformerSuppression()
+function administrationContactTransformSuppression()
 {
 
     extract($_GET);
     $id = strip_tags($id);
 
 
-    require 'models/backEnd/commentManager.php';
+    require 'models/backEnd/CommentManager.php';
     require 'models/backEnd/contactManager.php';
     $contactManager = new ContactManager();
     $nbMessages = $contactManager->countMessageNew();
-    $commentaires = new Commentaires();
-    $nbComments = $commentaires->countCommentsNew();
-    $nbCommentsDanger = $commentaires->countCommentsDanger();
+    $Comments = new Comments();
+    $nbComments = $Comments->countCommentsNew();
+    $nbCommentsDanger = $Comments->countCommentsDanger();
 
 
     $contactSuppression  = $contactManager->supressionFinal($id);
@@ -775,21 +780,21 @@ function administrationContactTransformerSuppression()
     require 'views/backEnd/administrationContactHomeView.php';
 }
 
-function administrationContactTransformerSupprimer()
+function administrationContactTransformSupprimer()
 {
 
     extract($_GET);
     $id = strip_tags($id);
 
 
-    require 'models/backEnd/commentManager.php';
+    require 'models/backEnd/CommentManager.php';
     require 'models/backEnd/contactManager.php';
 
     $contactManager = new ContactManager();
-    $commentaires = new Commentaires();
+    $Comments = new Comments();
     $nbMessages = $contactManager->countMessageNew();
-    $nbComments = $commentaires->countCommentsNew();
-    $nbCommentsDanger = $commentaires->countCommentsDanger();
+    $nbComments = $Comments->countCommentsNew();
+    $nbCommentsDanger = $Comments->countCommentsDanger();
 
     $contactSuppression  = $contactManager->changeContactSupprimer($id);
 

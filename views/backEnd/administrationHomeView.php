@@ -1,4 +1,4 @@
-<?php $raccourci = ['lien' =>'administrationHome','name'=>'Administration'];?>
+<?php $raccourci = ['Link' =>'administrationHome','name'=>'Administration'];?>
 
 <?php $title = "administration"; ?>
 <?php ob_start() ?>
@@ -22,15 +22,15 @@
 <section>
     <div class="row justify-content-center" id="administrationHomeMarginBottom">
         <div class="col-md-4 d-flex justify-content-center">
-            <a class="boutonAdministration" href="index.php?action=administrationChapters">Acceder aux Chapters </a>
+            <a class="ButtonAdministration" href="index.php?action=administrationChapters">Acceder aux Chapters </a>
         </div>
 
         <div class="col-md-4 d-flex justify-content-center">
-            <a class="boutonAdministration" href="index.php?action=administrationCommentaires">Acceder aux commentaires </a>
+            <a class="ButtonAdministration" href="index.php?action=administrationComments">Acceder aux Comments </a>
         </div>
 
         <div class="col-md-4 d-flex justify-content-center">
-            <a class="boutonAdministration" href="index.php?action=administrationContactHome">Acceder au message</a>
+            <a class="ButtonAdministration" href="index.php?action=administrationContactHome">Acceder au message</a>
         </div>
 
     </div>

@@ -10,7 +10,7 @@
                 <div id="ContainerTitre" class="col-md-8 col-md-offset-2">
                 <h1 class="ghost">Billet simple pour l'Alaska</h1>
                     <h2>Un Book de Jean Forteroche</h2>
-                    <div id="boutonHomePage">
+                    <div id="ButtonHomePage">
                          <a href="#conceptBook">
                         Decouvrez le projet
                         </a> 

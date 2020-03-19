@@ -1,4 +1,4 @@
-<?php $raccourci = [['lien' =>'administrationHome','name'=>'Administration'],['lien'=>'administrationCommentaires','name'=>'Commentaires']];?>
+<?php $raccourci = [['Link' =>'administrationHome','name'=>'Administration'],['Link'=>'administrationComments','name'=>'Comments']];?>
 
 
 <?php $title = "administration"; ?>
@@ -11,7 +11,7 @@
         <h1>Billet simple pour l'Alaska</h1>
         <h2>Administration </h2>
         <div id="paragrapheBillet">
-            <p>Voici la liste des commentaires </p>
+            <p>Voici la liste des Comments </p>
             <p id="success"><?php if(isset($notification)) {echo $notification;} ?></p>
         </div>
     </div>
@@ -19,47 +19,47 @@
 <section>
     <div class="row justify-content-center">
         <div class="col-md-4 d-flex justify-content-center">
-            <a class="boutonAdministration" href="#listesCommentaires">Listes des commentaires publiés </a>
+            <a class="ButtonAdministration" href="#listesComments">Listes des Comments publiés </a>
         </div>
 
         <div class="col-md-4 d-flex justify-content-center">
-            <a class="boutonAdministration" href="#listesCommentairesSignales">Listes des commentaires signalés </a>
+            <a class="ButtonAdministration" href="#listesCommentsSignales">Listes des Comments signalés </a>
         </div>
 
         <div class="col-md-4 d-flex justify-content-center">
-            <a class="boutonAdministration" href="#listesCommentairesEnCours">Liste des commentaires en cours de validation</a>
+            <a class="ButtonAdministration" href="#listesCommentsEnCours">Liste des Comments en cours de validation</a>
         </div>
     </div>
 </section>
 
 
 
-<section id="listesCommentairesSignales" class="administrationChapter">
+<section id="listesCommentsSignales" class="administrationChapter">
     <div class="row justify-content-center " id="listesChapters">
         <div>
-            <h3 >Listes des commentaires signalés sur le site</h3>
+            <h3 >Listes des Comments signalés sur le site</h3>
             <table>
                 <tr>
                     <th>Id </th>
                     <th>Number Chapter</th>
                     <th>Pseudo</th>
-                    <th>Commentaire</th>
+                    <th>Comment</th>
                     <th>Action</th>
                 </tr>
                 <!-- tableau des Chapters -->
-                <?php foreach ($commentsS as $commentS) : ?>
+                <?php foreach ($CommentsS as $CommentS) : ?>
                     <?php echo '    
                 <tr>
-                    <td>' . $commentS['id'] . '</td>
-                    <td>' . $commentS['numChapter'] . '</td>
-                    <td>' . $commentS['pseudo'] . '</td>
-                    <td class="sentenceTableau"> '.$commentS['commentaire'].' </td>
+                    <td>' . $CommentS['id'] . '</td>
+                    <td>' . $CommentS['numChapter'] . '</td>
+                    <td>' . $CommentS['pseudo'] . '</td>
+                    <td class="sentenceTableau"> '.$CommentS['Comment'].' </td>
                     <td>
                         <div class="actionTableau">
-                            <a class="lienAdministration" href="index.php?action=AdministrationCommentairesTransformerEnCours&id='.$commentS['id'].'">
+                            <a class="LinkAdministration" href="index.php?action=AdministrationCommentsTransformEnCours&id='.$CommentS['id'].'">
                             Passer en cours</a> 
                        
-                            <a class="lienAdministration" href="index.php?action=AdministrationCommentairesTransformerSuppression&id='.$commentS['id'].'">
+                            <a class="LinkAdministration" href="index.php?action=AdministrationCommentsTransformSuppression&id='.$CommentS['id'].'">
                             Suppression</a> 
                             
                         </div>
@@ -74,35 +74,35 @@
 </section>
 
 
-<section id="listesCommentairesEnCours" class="administrationChapter">
+<section id="listesCommentsEnCours" class="administrationChapter">
     <div class="row justify-content-center ">
         <div>
-            <h3 >Liste des commentaires publiées sur le site en attente de votre validation</h3>
+            <h3 >Liste des Comments publiées sur le site en attente de votre validation</h3>
            
             <table>
                 <tr>
                     <th>Id </th>
                     <th>Number Chapter</th>
                     <th>Pseudo</th>
-                    <th>Commentaire</th>
+                    <th>Comment</th>
                     <th>Action</th>
                 </tr>
                 <!-- tableau des Chapters -->
-                <?php foreach ($comments as $comment) : ?>
+                <?php foreach ($CommentsP as $Comment) : ?>
                     <?php echo '    <tr>
-                    <td>' .htmlspecialchars($comment['id']) . '</td>
-                    <td>' .htmlspecialchars($comment['numChapter']) . '</td>
-                    <td>' .htmlspecialchars($comment['pseudo']) . '</td>
+                    <td>' .htmlspecialchars($Comment['id']) . '</td>
+                    <td>' .htmlspecialchars($Comment['numChapter']) . '</td>
+                    <td>' .htmlspecialchars($Comment['pseudo']) . '</td>
                     <td class="sentenceTableau">' ?>
                     <?php
-                    echo htmlspecialchars($comment['commentaire']) ?><?php echo '</td>
+                    echo htmlspecialchars($Comment['Comment']) ?><?php echo '</td>
                     <td >
                         <div class="actionTableau">
-                            <a class="lienAdministration" href="index.php?action=AdministrationCommentairesTransformerValider&id='.$comment['id'].'">
+                            <a class="LinkAdministration" href="index.php?action=AdministrationCommentsTransformValider&id='.$Comment['id'].'">
                             Valider</a> 
                             
-                            <a class="lienAdministration" href="index.php?action=AdministrationCommentairesTransformerSupprimer&id='.$comment['id'].'">
-                            Supprimer</a> 
+                            <a class="LinkAdministration" href="index.php?action=AdministrationCommentsTransformSuppression&id='.$Comment['id'].'">
+                            Suppression</a> 
                              
 
                             
@@ -117,35 +117,35 @@
     </div>
 </section>
 
-<section id="listesCommentaires" class="administrationChapter">
+<section id="listesComments" class="administrationChapter">
     <div class="row justify-content-center ">
         <div>
-            <h3 >Listes des commentaires validés et publiés sur le site</h3>
+            <h3 >Listes des Comments validés et publiés sur le site</h3>
             <table>
                 <tr>
                     <th>Id </th>
                     <th>Number Chapter</th>   
                     <th>Pseudo</th>
-                    <th>Commentaire</th>
+                    <th>Comment</th>
                     <th>Action</th>
                 </tr>
                 <!-- tableau des Chapters -->
-                <?php foreach ($commentsV as $commentV) : ?>
+                <?php foreach ($CommentsV as $CommentV) : ?>
                     <?php echo '    <tr>
-                    <td>' .htmlspecialchars($commentV['id']) . '</td>
-                    <td>' .htmlspecialchars($commentV['numChapter']) . '</td>
-                    <td>' .htmlspecialchars($commentV['pseudo']) . '</td>
+                    <td>' .htmlspecialchars($CommentV['id']) . '</td>
+                    <td>' .htmlspecialchars($CommentV['numChapter']) . '</td>
+                    <td>' .htmlspecialchars($CommentV['pseudo']) . '</td>
                     <td class="sentenceTableau">' ?>
                     <?php
-                    echo htmlspecialchars($commentV['commentaire']) ?><?php echo '</td>
+                    echo htmlspecialchars($CommentV['Comment']) ?><?php echo '</td>
                     <td >
                         <div class="actionTableau">
-                            <a class="lienAdministration" href="index.php?action=AdministrationCommentairesTransformerEnCours&id='.htmlspecialchars($commentV['id']).'">Passer en cours
+                            <a class="LinkAdministration" href="index.php?action=AdministrationCommentsTransformEnCours&id='.htmlspecialchars($CommentV['id']).'">Passer en cours
                             </a> 
                            
                                 
-                            <a class="lienAdministration" href="index.php?action=AdministrationCommentairesTransformerSupprimer&id='.htmlspecialchars($commentV['id']).'">
-                            Supprimer</a> 
+                            <a class="LinkAdministration" href="index.php?action=AdministrationCommentsTransformSuppression&id='.htmlspecialchars($CommentV['id']).'">
+                            Suppression</a> 
                                
 
                             

@@ -26,7 +26,7 @@
                     <h5 class="Publication">Publié le : ' ?>
 
                 <?php 
-               var_dump($article['date']);
+            
                //$allArticles->dateFormat($str);
               
 

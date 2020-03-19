@@ -1,12 +1,12 @@
 <?php
 require 'models/backEnd/contactManager.php';
-require 'models/backEnd/commentManager.php';
+require 'models/backEnd/CommentManager.php';
 
 $contactManager = new ContactManager();
 $nbMessages = $contactManager->countMessageNew();
-$commentaires = new Commentaires();
-$nbComments = $commentaires->countCommentsNew();
-$nbCommentsDanger = $commentaires->countCommentsDanger();
+$Comments = new Comments();
+$nbComments = $Comments->countCommentsNew();
+$nbCommentsDanger = $Comments->countCommentsDanger();
 
 
 
@@ -16,7 +16,7 @@ $notification = '<p> votre article a été envoyé </p>';
 
 require  'models/frontEnd/articleManager.php';
 $allArticles = new ArticlesManager();
-$articleEnv = $allArticles->modifierArticle();
+$articleEnv = $allArticles->ModifyArticle();
 
 
 

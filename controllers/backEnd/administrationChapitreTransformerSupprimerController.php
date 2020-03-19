@@ -11,14 +11,14 @@ if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {
     // recupération de l'article concerné par l'id
 
     require 'models/backEnd/contactManager.php';
-    require 'models/backEnd/commentManager.php';
+    require 'models/backEnd/CommentManager.php';
     require 'models/frontEnd/imageManager.php';
 
     $contactManager = new ContactManager();
     $nbMessages = $contactManager->countMessageNew();
-    $commentaires = new Commentaires();
-    $nbComments = $commentaires->countCommentsNew();
-    $nbCommentsDanger = $commentaires->countCommentsDanger();
+    $Comments = new Comments();
+    $nbComments = $Comments->countCommentsNew();
+    $nbCommentsDanger = $Comments->countCommentsDanger();
     
     
     $imagemanager = new ImageManager();

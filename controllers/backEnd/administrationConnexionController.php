@@ -1,13 +1,13 @@
 <?php 
 if (($_POST['name']!= null) AND ($_POST['password'])!= null) {
     require 'models/backEnd/contactManager.php';
-    require 'models/backEnd/commentManager.php';
+    require 'models/backEnd/CommentManager.php';
 
     $contactManager = new ContactManager();
     $nbMessages = $contactManager->countMessageNew();
-    $commentaires = new Commentaires();
-    $nbComments = $commentaires->countCommentsNew();
-    $nbCommentsDanger = $commentaires->countCommentsDanger();
+    $Comments = new Comments();
+    $nbComments = $Comments->countCommentsNew();
+    $nbCommentsDanger = $Comments->countCommentsDanger();
 
 
     $pseudo = $_POST['name'];
@@ -15,7 +15,7 @@ if (($_POST['name']!= null) AND ($_POST['password'])!= null) {
     require 'models/backEnd/administrationManager.php';
     $administrationManager = new AdministrationManager();
     $admin = $administrationManager->getUser($pseudo);
-    $nbCommentsDanger = $commentaires->countCommentsDanger();
+    $nbCommentsDanger = $Comments->countCommentsDanger();
 
     if($password == $admin['password'] AND $pseudo == $admin['name']) {
         $_SESSION['connect'] = 1;

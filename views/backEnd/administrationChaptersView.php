@@ -1,4 +1,4 @@
-    <?php $raccourci = [['lien' =>'administrationHome','name'=>'Administration'],['lien'=>'administrationChapters','name'=>'Chapters']];?>
+    <?php $raccourci = [['Link' =>'administrationHome','name'=>'Administration'],['Link'=>'administrationChapters','name'=>'Chapters']];?>
 <?php $title = "administrationChapter"; ?>
 <?php ob_start() ?>
 
@@ -21,15 +21,15 @@
 <section>
     <div class="row justify-content-center">
         <div class="col-md-4 d-flex justify-content-center">
-            <a class="boutonAdministration" href="#listesChapters">Listes des Chapters </a>
+            <a class="ButtonAdministration" href="#listesChapters">Listes des Chapters </a>
         </div>
 
         <div class="col-md-4 d-flex justify-content-center">
-            <a class="boutonAdministration" href="#Chaptersbrouillons">Chapters en cours d'ecriture </a>
+            <a class="ButtonAdministration" href="#Chaptersbrouillons">Chapters en cours d'ecriture </a>
         </div>
 
         <div class="col-md-4 d-flex justify-content-center">
-            <a class="boutonAdministration" href="index.php?action=administrationChaptersEcrire">Ecrire un nouveau Chapter</a>
+            <a class="ButtonAdministration" href="index.php?action=administrationChaptersEcrire">Ecrire un nouveau Chapter</a>
         </div>
     </div>
     <section>
@@ -55,9 +55,9 @@
                             echo $article['sentence'] ?><?php echo '</td>
                     <td >
                         <div class="actionTableau">
-                            <a class="lienAdministration" href="index.php?action=article&id=' . $article['NumberChapter'] . '">Lire </a>
-                            <a class="lienAdministration" href="index.php?action=administrationChaptersModifier&id=' . $article['id'] . '">Modifier </a>
-                            <a class="lienAdministration" href="index.php?action=administrationChaptersSupprimer&id=' . $article['id'] . '"">Supprimer </a>
+                            <a class="LinkAdministration" href="index.php?action=article&id=' . $article['NumberChapter'] . '">Lire </a>
+                            <a class="LinkAdministration" href="index.php?action=administrationChaptersModify&id=' . $article['id'] . '">Modify </a>
+                            <a class="LinkAdministration" href="index.php?action=administrationChaptersSupprimer&id=' . $article['id'] . '"">Supprimer </a>
 
                         </div>
                     </td>
@@ -86,8 +86,8 @@
                     <td class="sentenceTableau">' . $articleB['sentence'] . '</td>
                     <td>
                         <div class="actionTableau">
-                            <a class="lienAdministration" href="index.php?action=administrationChaptersModifier&id=' . $articleB['id'] . '">Modifier </a>
-                            <a class="lienAdministration" href="index.php?action=administrationChaptersSupprimer&id=' . $articleB['id'] . '"">Supprimer </a>
+                            <a class="LinkAdministration" href="index.php?action=administrationChaptersModify&id=' . $articleB['id'] . '">Modify </a>
+                            <a class="LinkAdministration" href="index.php?action=administrationChaptersSupprimer&id=' . $articleB['id'] . '"">Supprimer </a>
                         </div>
                         </td>
                 </tr> ' ?>
@@ -122,8 +122,8 @@
                     <td >
                         <div class="actionTableau">
                            
-                            <a class="lienAdministration" href="index.php?action=administrationChapterTransformerBrouillon&id=' . $articleS['id'] . '">Passer en brouillon </a>
-                            <a class="lienAdministration" href="index.php?action=administrationChapterTransformerSupprimer&id=' . $articleS['id'] . '">Supprimer </a>
+                            <a class="LinkAdministration" href="index.php?action=administrationChapterTransformBrouillon&id=' . $articleS['id'] . '">Passer en brouillon </a>
+                            <a class="LinkAdministration" href="index.php?action=administrationChapterTransformSupprimer&id=' . $articleS['id'] . '">Supprimer </a>
                         </div>
                     </td>
                         </tr> ' ?>

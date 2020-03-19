@@ -1,26 +1,26 @@
 <?php
 extract($_GET);
 $id = strip_tags($id);
-// Recuperation de tous les commentaires publiés et signalés
+// Recuperation de tous les Comments publiés et signalés
 
 require 'models/backEnd/contactManager.php';
-require 'models/backEnd/commentManager.php';
+require 'models/backEnd/CommentManager.php';
 
 
 $contactManager = new ContactManager();
-$commentaires = new Commentaires();
+$Comments = new Comments();
 
 
-$commentsSuppression = $commentaires->supressionFinal($id);
+$CommentsSuppression = $Comments->supressionFinal($id);
 
-$nbComments = $commentaires->countCommentsNew();
+$nbComments = $Comments->countCommentsNew();
 $nbMessages = $contactManager->countMessageNew();
-$nbCommentsDanger = $commentaires->countCommentsDanger();
+$nbCommentsDanger = $Comments->countCommentsDanger();
 
 
-$notification = 'le commentaire a été supprimé';
-$comments = $commentaires->getAllComments();
-$commentsV = $commentaires->getAllCommentsValidate();
-$commentsS = $commentaires->getAllCommentsSignaler();
-// affichage de la partie administration des commentaires 
-require 'views/backEnd/administrationCommentairesView.php';
+$notification = 'le Comment a été supprimé';
+$Comments = $Comments->getAllComments();
+$CommentsV = $Comments->getAllCommentsValidate();
+$CommentsS = $Comments->getAllCommentsSignaler();
+// affichage de la partie administration des Comments 
+require 'views/backEnd/administrationCommentsView.php';

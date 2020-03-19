@@ -50,24 +50,24 @@ if ($_SESSION['connect'] == null) {
         case 'administrationHome':
         case 'administrationChapters':
         case 'administrationChaptersEcrire':
-        case 'administrationChaptersModifier':
-        case 'administrationChapterModifierEnvoi':
+        case 'administrationChaptersModify':
+        case 'administrationChapterModifyEnvoi':
         case 'administrationChapterNouveau':
         case 'administrationChaptersSupprimer':
-        case 'administrationChapterTransformerBrouillon':
-        case 'administrationChapterTransformerSupprimer':
-        case 'administrationCommentaires':
-        case 'AdministrationCommentairesTransformerEnCours':
-        case 'AdministrationCommentairesTransformerSuppression':
-        case 'AdministrationCommentairesTransformerSupprimer':
-        case 'AdministrationCommentairesTransformerValider':
+        case 'administrationChapterTransformBrouillon':
+        case 'administrationChapterTransformSupprimer':
+        case 'administrationComments':
+        case 'AdministrationCommentsTransformEnCours':
+        case 'AdministrationCommentsTransformSuppression':
+        case 'AdministrationCommentsTransformSupprimer':
+        case 'AdministrationCommentsTransformValider':
         case 'administrationContactHome':
         case 'administrationContactHome':
         case 'administrationContactMessageNonLu':
-        case 'administrationContactTransformerLu':
-        case 'administrationContactTransformerNonLu':
-        case 'administrationContactTransformerSuppression':
-        case 'administrationContactTransformerSupprimer':
+        case 'administrationContactTransformLu':
+        case 'administrationContactTransformNonLu':
+        case 'administrationContactTransformSuppression':
+        case 'administrationContactTransformSupprimer':
             index(); 
             break;
         default:
@@ -124,55 +124,55 @@ if ($_SESSION['connect'] == null) {
 
             administrationChaptersEcrire();
             break;
-            // modifier Chapter
-        case 'administrationChaptersModifier':
+            // Modify Chapter
+        case 'administrationChaptersModify':
 
-            administrationChaptersModifier();
+            administrationChaptersModify();
             break;
-            // envoie du Chapter modifier 
-        case 'administrationChapterModifierEnvoi':
+            // envoie du Chapter Modify 
+        case 'administrationChapterModifyEnvoi':
 
-            administrationChaptersEnvoiModifier();
+            administrationChaptersEnvoiModify();
             break;
         case 'administrationChapterNouveau':
 
             administrationChapterNouveau();
             break;
-            // transformer le Chapter en liste supprimer 
+            // Transform le Chapter en liste supprimer 
         case 'administrationChaptersSupprimer':
 
             administrationChaptersSupprimer();
             break;
-        case 'administrationChapterTransformerBrouillon':
+        case 'administrationChapterTransformBrouillon':
 
-            administrationChapterTransformerBrouillon();
+            administrationChapterTransformBrouillon();
             break;
-        case 'administrationChapterTransformerSupprimer':
+        case 'administrationChapterTransformSupprimer':
 
-            administrationChapterTransformerSupprimer();
+            administrationChapterTransformSupprimer();
             break;
-            // COMMENTAIRES
-        case 'administrationCommentaires':
+            // CommentS
+        case 'administrationComments':
 
-            administrationCommentaires();
-            break;
-
-        case 'AdministrationCommentairesTransformerEnCours':
-
-            AdministrationCommentairesTransformerEnCours();
+            administrationComments();  
             break;
 
-        case 'AdministrationCommentairesTransformerSuppression':
+        case 'AdministrationCommentsTransformEnCours':
 
-            AdministrationCommentairesTransformerSuppression();
+            AdministrationCommentsTransformEnCours();
             break;
-        case 'AdministrationCommentairesTransformerSupprimer':
 
-            AdministrationCommentairesTransformerSupprimer();
+        case 'AdministrationCommentsTransformSuppression':
+
+            AdministrationCommentsTransformSuppression();
             break;
-        case 'AdministrationCommentairesTransformerValider':
+        case 'AdministrationCommentsTransformSupprimer':
 
-            AdministrationCommentairesTransformerValider();
+            AdministrationCommentsTransformSupprimer();
+            break;
+        case 'AdministrationCommentsTransformValider':
+
+            AdministrationCommentsTransformValider();
             break;
         case 'administrationContactHome':
 
@@ -186,20 +186,20 @@ if ($_SESSION['connect'] == null) {
 
             administrationContactMessageNonLu();
             break;
-        case 'administrationContactTransformerLu':
+        case 'administrationContactTransformLu':
 
-            administrationContactTransformerLu();
+            administrationContactTransformLu();
             break;
-        case 'administrationContactTransformerNonLu':
+        case 'administrationContactTransformNonLu':
 
-            administrationContactTransformerNonLu();
+            administrationContactTransformNonLu();
             break;
-        case 'administrationContactTransformerSuppression':
+        case 'administrationContactTransformSuppression':
 
-            administrationContactTransformerSuppression();
+            administrationContactTransformSuppression();
             break;
-        case 'administrationContactTransformerSupprimer':
-            administrationContactTransformerSupprimer();
+        case 'administrationContactTransformSupprimer':
+            administrationContactTransformSupprimer();
             break;
         case 'deconnexion':
             deconnexion();
