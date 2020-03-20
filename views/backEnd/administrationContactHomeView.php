@@ -40,7 +40,7 @@
                     <tr>
                         <th>Pseudo </th>
                         <th>Email</th>
-                        <th>subject</th>
+                        <th>Sujet</th>
                         <th>Message</th>
                         <th>Action</th>
                     </tr>
@@ -73,7 +73,7 @@
                     <tr>
                         <th>Pseudo </th>
                         <th>Email</th>
-                        <th>subject</th>
+                        <th>Sujet</th>
                         <th>Message</th>
                         <th>Action</th>
                     </tr>
@@ -106,7 +106,7 @@
                     <tr>
                         <th>Pseudo </th>
                         <th>Email</th>
-                        <th>subject</th>
+                        <th>Sujet</th>
                         <th>Message</th>
                         <th>Action</th>
                     </tr>
@@ -135,7 +135,6 @@
 
 
 
-    <script src="scroll.js"></script>
 
     <?php $content = ob_get_clean(); ?>
     <?php require 'template.php' ?>

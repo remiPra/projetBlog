@@ -40,7 +40,7 @@ Il est révélé par les romans Extension du domaine de la lutte et, surtout, Le
                     
                     <img src="images/Bibliographie/iconic-flower.jpg" alt="">
                     
-                    <figcaption>Ce Book retrace l'histoire d'amour d'un soldat allemand avec une francaise lors de la 2nd guerre.</figcaption>  
+                    <figcaption>Ce livre retrace l'histoire d'amour d'un soldat allemand avec une francaise lors de la 2nd guerre.</figcaption>  
                </figure>
                <figure>
                     

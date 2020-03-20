@@ -14,7 +14,13 @@
     <!-- Condition pour eviter de mettre l'image fixe sur l'index -->
     <?php if(isset($index) != 1)  
     {require 'includes/backgroundImage.php';}
-    
+    function dateFormat($str)
+    {
+        list($date1,$date2) = explode(" ", $str);
+        list($y,$m,$d) = explode("-", $date1);
+        list($h,$min,$s) = explode("-", $date2);
+        echo ''.$d.'/'.$m.'/'.$y.' à '.$h.''.$min.''.$s.'';
+    }
     
     ?>
     <?php echo ($content) ?>

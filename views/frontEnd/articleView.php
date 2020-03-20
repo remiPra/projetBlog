@@ -6,7 +6,7 @@
         <div id="mainBilletContainer" class="col-md-8 col-md-offset-2">
             <?php echo '
             <h1>Billet simple pour l\'Alaska</h1>
-            <h2>Chapter '.$article['NumberChapter'].' : '.$article['title'].' </h2>
+            <h2>Chapitre '.$article['NumberChapter'].' : '.$article['title'].' </h2>
             <div id="paragrapheBillet">
                
             </div>
@@ -32,7 +32,7 @@
                 
                 <form action="index.php?action=article&id='.$article['NumberChapter'].'" method="POST"> '?> 
                    
-                    <h3>Laisser un Comment</h3>
+                    <h3>Laisser un commentaire</h3>
                     <input type="text" name="numChapter" class="inputNone" style="display:none" value="<?php echo $article['NumberChapter'] ?>" disbable="disabled">
                     <label for="">Pseudo :</label>
                     <input type="text" name="pseudo">                    
@@ -43,7 +43,7 @@
 
 
                 <div class="Comment">
-                    <h3>Comments</h3>
+                    <h3>Commentaires</h3>
                 <?php foreach($Comments as $Comment): ?>   
                
                 <?php echo    '<div class="trait"></div>
@@ -55,7 +55,7 @@
                     <form action="index.php?action=signalementRecu" method="POST">
                         <input class="inputNone" type="text" name="idComment"value="'.htmlspecialchars($Comment['id']).'">
                         <input class="inputNone" type="text" name="signaler" value="1">
-                        <input type="submit" value="Signaler ce Comment">
+                        <input type="submit" value="Signaler ce commentaire">
                     </form> '?>
                 <?php endforeach; ?>      
                     <div class="trait"></div>

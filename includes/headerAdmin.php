@@ -34,8 +34,8 @@
         <ul id="ulMenu">
             <!-- redirection des Links vers un chemin index.php?action=? -->
             <li><a href="index.php?action=index">Accueil</a></li>
-            <li><a href="index.php?action=administrationChapters">Listes des Chapters</a></li>
-            <li><a href="index.php?action=administrationComments">Listes des Comments</a></li>
+            <li><a href="index.php?action=administrationChapters">Listes des chapitres</a></li>
+            <li><a href="index.php?action=administrationComments">Listes des commentaires</a></li>
             <li><a href="index.php?action=deconnexion">Deconnexion</a></li>
             <li><a href="index.php?action=administrationHome">Administration</a></li>
 

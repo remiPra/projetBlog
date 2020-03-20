@@ -14,8 +14,8 @@
         <h1>Billet simple pour l'Alaska</h1>
         <h2>Administration </h2>
         <div id="paragrapheBillet">
-            <p>vous pouvez creer votre nouveau Chapter <br>
-                Attention a bien utiliser un Chapter avec un Number de Chapter non utilisé. </p>
+            <p>Vous pouvez creer votre nouveau chapitre <br>
+                Attention a bien utiliser un chapitre avec un numéro de chapitre non utilisé. </p>
 
         </div>
     </div>
@@ -25,8 +25,8 @@
     <div class="row justify-content-center">
 
         <form enctype="multipart/form-data" action="index.php?action=administrationChapterNouveau" method="POST" id="administrationChapterEcrire">
-            <label> Numéro de Chapter déja utilisé </label>
-            <p id="ChapterNumberUse"> Vous avez deja utilisé les Chapters :
+            <label> Numéro de chapitre déja utilisé </label>
+            <p id="ChapterNumberUse"> Vous avez deja utilisé les chapitres :
                 <?php foreach ($Chapters as $Chapter) : ?>
 
                     <?php echo 'N°' . $Chapter['NumberChapter'] . ' '; ?>
@@ -34,13 +34,13 @@
                 <?php endforeach; ?>
             </p>
 
-            <label for="NumberChapter"> Number de Chapter :
+            <label for="NumberChapter"> numéro de chapitre :
             </label>
             <input id="numberPossible" type="text" name="NumberChapter">
             <p id="numberPossibleValidate" style="color:red;"></p>
-            <label for="title"> Titre du Chapter :</label>
+            <label for="title"> Titre du chapitre :</label>
             <input id="Chaptertitle" type="text" name="title">
-            <label> Résumé du Chapter :
+            <label> Résumé du chapitre :
             </label>
             <input id="ChapterSentence" type="text" name="sentence">
             <label> Envoyer une image </label>
@@ -66,11 +66,11 @@
             </div> 
        
 
-            <label for="content"> Contenu du Chapter : </label>
+            <label for="content"> Contenu du chapitre : </label>
             <textarea id="ChapterContent" name="content" id="" cols="300" rows="10"></textarea>
-            <label for="brouillon" id="brouillonForm"> Que voulez vous faire pour ce Chapter : </label>
+            <label for="brouillon" id="brouillonForm"> Que voulez vous faire pour ce chapitre : </label>
             <select id="ChapterBrouillon" name="brouillon">
-                <option value="0">Ce Chapter peut être publié</option>
+                <option value="0">Ce chapitre peut être publié</option>
                 <option value="1">Garder en brouillon</option>
             </select>
             <div id=blocValidate>

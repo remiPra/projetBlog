@@ -11,7 +11,7 @@
         <h1>Billet simple pour l'Alaska</h1>
         <h2>Administration </h2>
         <div id="paragrapheBillet">
-            <p>Voici la liste des Chapters </p>
+            <p>Voici la liste des chapitres </p>
             
             <p><?php if(isset($notification)) echo $notification ;?></p>
  
@@ -21,15 +21,15 @@
 <section>
     <div class="row justify-content-center">
         <div class="col-md-4 d-flex justify-content-center">
-            <a class="ButtonAdministration" href="#listesChapters">Listes des Chapters </a>
+            <a class="ButtonAdministration" href="#listesChapters">Listes des chapitres </a>
         </div>
 
         <div class="col-md-4 d-flex justify-content-center">
-            <a class="ButtonAdministration" href="#Chaptersbrouillons">Chapters en cours d'ecriture </a>
+            <a class="ButtonAdministration" href="#Chaptersbrouillons">Chapitres en cours d'ecriture </a>
         </div>
 
         <div class="col-md-4 d-flex justify-content-center">
-            <a class="ButtonAdministration" href="index.php?action=administrationChaptersEcrire">Ecrire un nouveau Chapter</a>
+            <a class="ButtonAdministration" href="index.php?action=administrationChaptersEcrire">Ecrire un nouveau chapitre</a>
         </div>
     </div>
     <section>
@@ -37,10 +37,10 @@
         <section class="administrationChapter" id="listesChapters" >
             <div class="row justify-content-center " >
                 <div>
-                    <h3>Listes des Chapters </h3>
+                    <h3>Listes des chapitres </h3>
                     <table>
                         <tr>
-                            <th>Numéro Chapter </th>
+                            <th>Numéro chapitre</th>
                             <th>Titre</th>
                             <th>Extrait</th>
                             <th>Action</th>
@@ -56,7 +56,7 @@
                     <td >
                         <div class="actionTableau">
                             <a class="LinkAdministration" href="index.php?action=article&id=' . $article['NumberChapter'] . '">Lire </a>
-                            <a class="LinkAdministration" href="index.php?action=administrationChaptersModify&id=' . $article['id'] . '">Modify </a>
+                            <a class="LinkAdministration" href="index.php?action=administrationChaptersModify&id=' . $article['id'] . '">Modifier </a>
                             <a class="LinkAdministration" href="index.php?action=administrationChaptersSupprimer&id=' . $article['id'] . '"">Supprimer </a>
 
                         </div>
@@ -70,10 +70,10 @@
         </section>
         <div class="row justify-content-center ChapterEnCours" id="Chaptersbrouillons">
             <div>
-                <h3> Chapters en cours d'ecriture </h3>
+                <h3> Chapitres en cours d'ecriture </h3>
                 <table>
                     <tr>
-                        <th>Numéro Chapter </th>
+                        <th>Numéro chapitres </th>
                         <th>Titre</th>
                         <th>Extrait</th>
                         <th>Action</th>
@@ -86,7 +86,7 @@
                     <td class="sentenceTableau">' . $articleB['sentence'] . '</td>
                     <td>
                         <div class="actionTableau">
-                            <a class="LinkAdministration" href="index.php?action=administrationChaptersModify&id=' . $articleB['id'] . '">Modify </a>
+                            <a class="LinkAdministration" href="index.php?action=administrationChaptersModify&id=' . $articleB['id'] . '">Modifier </a>
                             <a class="LinkAdministration" href="index.php?action=administrationChaptersSupprimer&id=' . $articleB['id'] . '"">Supprimer </a>
                         </div>
                         </td>
@@ -103,10 +103,10 @@
     <section class="administrationChapter">
         <div class="row justify-content-center " id="listesChapters">
             <div>
-                <h3>Listes des Chapters supprimés</h3>
+                <h3>Listes des chapitres supprimés</h3>
                 <table>
                     <tr>
-                        <th>Numéro Chapter </th>
+                        <th>Numéro chapitre </th>
                         <th>Titre</th>
                         <th>Extrait</th>
                         <th>Action</th>
@@ -136,7 +136,7 @@
 
 
 
-    <script src="scroll.js"></script>
+   
 
     <?php $content = ob_get_clean(); ?>
     <?php require 'template.php' ?>

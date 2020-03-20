@@ -22,7 +22,7 @@
         <h4> Nom : '.$messageNonLu['pseudo'].'
             </h4>
             
-            <h4> subject : '.$messageNonLu['subject'].'
+            <h4> Sujet : '.$messageNonLu['subject'].'
             </h4>    
             
             <h4> Email : '.$messageNonLu['email'].' 

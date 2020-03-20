@@ -22,7 +22,7 @@
         <label  for="pseudo"> Nom :
         </label>
         <input type="text" name="pseudo" id="pseudo">
-        <label  for="subject"> subject :
+        <label  for="subject"> Sujet :
         </label>
         <input type="text" name="subject" id="subject">
         <label> Email :

@@ -11,7 +11,7 @@
         <h1>Billet simple pour l'Alaska</h1>
         <h2>Administration </h2>
         <div id="paragrapheBillet">
-            <p>Voici la liste des Comments </p>
+            <p>Voici la liste des commentaires </p>
             <p id="success"><?php if(isset($notification)) {echo $notification;} ?></p>
         </div>
     </div>
@@ -19,15 +19,15 @@
 <section>
     <div class="row justify-content-center">
         <div class="col-md-4 d-flex justify-content-center">
-            <a class="ButtonAdministration" href="#listesComments">Listes des Comments publiés </a>
+            <a class="ButtonAdministration" href="#listesComments">Listes des commentaires publiés </a>
         </div>
 
         <div class="col-md-4 d-flex justify-content-center">
-            <a class="ButtonAdministration" href="#listesCommentsSignales">Listes des Comments signalés </a>
+            <a class="ButtonAdministration" href="#listesCommentsSignales">Listes des commentaires signalés </a>
         </div>
 
         <div class="col-md-4 d-flex justify-content-center">
-            <a class="ButtonAdministration" href="#listesCommentsEnCours">Liste des Comments en cours de validation</a>
+            <a class="ButtonAdministration" href="#listesCommentsEnCours">Liste des commentaires en cours de validation</a>
         </div>
     </div>
 </section>
@@ -37,7 +37,7 @@
 <section id="listesCommentsSignales" class="administrationChapter">
     <div class="row justify-content-center " id="listesChapters">
         <div>
-            <h3 >Listes des Comments signalés sur le site</h3>
+            <h3 >Listes des commentaires signalés sur le site</h3>
             <table>
                 <tr>
                     <th>Id </th>
@@ -77,14 +77,14 @@
 <section id="listesCommentsEnCours" class="administrationChapter">
     <div class="row justify-content-center ">
         <div>
-            <h3 >Liste des Comments publiées sur le site en attente de votre validation</h3>
+            <h3 >Liste des commentaires publiées sur le site en attente de votre validation</h3>
            
             <table>
                 <tr>
                     <th>Id </th>
-                    <th>Number Chapter</th>
+                    <th>Numero chapitre</th>
                     <th>Pseudo</th>
-                    <th>Comment</th>
+                    <th>Commentaire</th>
                     <th>Action</th>
                 </tr>
                 <!-- tableau des Chapters -->
@@ -120,13 +120,13 @@
 <section id="listesComments" class="administrationChapter">
     <div class="row justify-content-center ">
         <div>
-            <h3 >Listes des Comments validés et publiés sur le site</h3>
+            <h3 >Listes des commentaires validés et publiés sur le site</h3>
             <table>
                 <tr>
                     <th>Id </th>
-                    <th>Number Chapter</th>   
+                    <th>Numero chapitre</th>   
                     <th>Pseudo</th>
-                    <th>Comment</th>
+                    <th>Commentaire</th>
                     <th>Action</th>
                 </tr>
                 <!-- tableau des Chapters -->
@@ -164,7 +164,6 @@
 
 
 
-<script src="scroll.js"></script>
 
 <?php $content = ob_get_clean(); ?>
 <?php require_once 'template.php' ?>

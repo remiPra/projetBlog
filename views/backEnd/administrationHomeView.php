@@ -22,11 +22,11 @@
 <section>
     <div class="row justify-content-center" id="administrationHomeMarginBottom">
         <div class="col-md-4 d-flex justify-content-center">
-            <a class="ButtonAdministration" href="index.php?action=administrationChapters">Acceder aux Chapters </a>
+            <a class="ButtonAdministration" href="index.php?action=administrationChapters">Acceder aux chapitres </a>
         </div>
 
         <div class="col-md-4 d-flex justify-content-center">
-            <a class="ButtonAdministration" href="index.php?action=administrationComments">Acceder aux Comments </a>
+            <a class="ButtonAdministration" href="index.php?action=administrationComments">Acceder aux commentaires </a>
         </div>
 
         <div class="col-md-4 d-flex justify-content-center">

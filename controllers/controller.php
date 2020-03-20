@@ -128,8 +128,8 @@ function contactRecu()
         require 'views/frontEnd/contactRecuView.php';
     } else {
 
-        $notificationError = '<p id="Error"vous n\'avez pas remplis tous les champs';
-        require 'views/frontEnd/contactView.php';
+        $notificationError = '<p id="Error">vous n\'avez pas remplis tous les champs</p>';
+        require 'views/frontEnd/contactView.php';     
     }
 }
 

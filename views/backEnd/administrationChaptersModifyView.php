@@ -14,7 +14,7 @@
         <h1>Billet simple pour l'Alaska</h1>
         <h2>Administration </h2>
         <div id="paragrapheBillet">
-            <p>Voici votre Chapter a modifié</p>
+            <p>Voici votre chapitre a modifié</p>
 
 
         </div>
@@ -27,11 +27,11 @@
 
         <form enctype="multipart/form-data" action="index.php?action=administrationChapterModifyEnvoi" method="POST" id="administrationChapterEcrire">
             <?php echo '
-               <label> Numéro de Chapter déja utilisé </label> 
-               <p> Vous avez deja utilisé les Chapters : ' ?>
+               <label> Numéro de chapitre déja utilisé </label> 
+               <p> Vous avez deja utilisé les chapitres : ' ?>
            
             </p>
-            <p id="ChapterNumberUse"> Vous avez deja utilisé les Chapters :
+            <p id="ChapterNumberUse"> Vous avez deja utilisé les chapitres :
                 <?php foreach ($Chapters as $Chapter) : ?>
 
                     <?php echo 'N°' . $Chapter['NumberChapter'] . ' '; ?>
@@ -40,15 +40,15 @@
             </p>
 
             <?php echo '
-            <label for="numberPossible">Number de Chapter : 
+            <label for="numberPossible">Numéro de chapitre : 
             </label>
             <input id="numberPossible"type="text" name="NumberChapter" value="' . $article['NumberChapter'] . '">
            
             <p id="numberPossibleValidate" style="color:red;"></p>
-            <label for="title"> Titre du Chapter : 
+            <label for="title"> Titre du chapitre : 
             </label>    
             <input id="title" type="text" name="title" value="' . $article['title'] . '">
-            <label for="sentence"> Résumé du Chapter : 
+            <label for="sentence"> Résumé du chapitre : 
             </label>    
             <input id="sentence"type="text" name="sentence" value="' . $article['sentence'] . '">
             <input type="text" class="inputNone" name="id" value="' . $article['id'] . '">
@@ -74,15 +74,15 @@
             </div> 
             
             <?php '        
-            <label for="texteeditor"> Contenu du Chapter  : </label>
+            <label for="texteeditor"> Contenu du Cchapitre  : </label>
            
             <textarea name="content" class="tinymce" id="texteditor" cols="300" rows="10" >  <div> ' . $article['content'] . '</div></textarea>
            
             '?>
            
-            <label for="brouillon" id="brouillonForm"> Que voulez vous faire pour ce Chapter : </label>
+            <label for="brouillon" id="brouillonForm"> Que voulez vous faire pour ce chapitre : </label>
                 <select id="brouillon" name="brouillon">
-                    <option value="0">Ce Chapter peut être publié</option>
+                    <option value="0">Ce chapitre peut être publié</option>
                     <option value="1">Garder en brouillon</option>
                 </select>
             <div id=blocValidate>
