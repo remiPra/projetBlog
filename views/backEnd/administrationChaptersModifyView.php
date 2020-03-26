@@ -38,11 +38,11 @@
 
                 <?php endforeach; ?>
             </p>
-
+            <p class="success">Reecrivez svp le numero de chapitre en cours ou un autre numéro de chapitre possible</p>
             <?php echo '
-            <label for="numberPossible">Numéro de chapitre : 
+            <label for="numberPossible">Numéro de chapitre : ' . $article['NumberChapter'] . '
             </label>
-            <input id="numberPossible"type="text" name="NumberChapter" value="' . $article['NumberChapter'] . '">
+            <input id="numberPossible"type="text" name="NumberChapter" value="">
            
             <p id="numberPossibleValidate" style="color:red;"></p>
             <label for="title"> Titre du chapitre : 
@@ -52,12 +52,15 @@
             </label>    
             <input id="sentence"type="text" name="sentence" value="' . $article['sentence'] . '">
             <input type="text" class="inputNone" name="id" value="' . $article['id'] . '">
-            
+            <label for="texteeditor"> Contenu du chapitre  : </label>
+            <label for="texteeditor"> Contenu du Chapter  : </label>
+           
+            <textarea name="content" class="tinymce" id="texteditor" cols="300" rows="10" >  <div> '.$article['content'].'</div></textarea>
 
-            <img src="images/' . $article['imageChapter'] . ' " 
+            <img id="imgSource" src="images/' . $article['imageChapter'] . ' " 
                     alt="' . $article['imageAlt'] . '">
 
-       
+           
            
 
             <label>Uploader le fichier image:</label>

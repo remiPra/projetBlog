@@ -47,7 +47,7 @@
                 <?php foreach($Comments as $Comment): ?>   
                
                 <?php echo    '<div class="trait"></div>
-                    <h4>Pseudo : '.htmlspecialchars($Comment['pseudo']).' </h4>
+                    <h4>Pseudo : '.($Comment['pseudo']).' </h4>
                     <h5>Publié le :  '.
                     
                     ($Comment['date']).'</h5>
@@ -59,6 +59,7 @@
                     </form> '?>
                 <?php endforeach; ?>      
                     <div class="trait"></div>
+             
 
                 <div>
 

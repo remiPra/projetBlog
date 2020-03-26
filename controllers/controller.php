@@ -54,7 +54,7 @@ function Book()
 }
 
 
-// controller de la page des d'un article sélectionné
+// Controller de la page des d'un article sélectionné
 ////////////////////////////////
 function post()
 {
@@ -166,10 +166,17 @@ function administrationConnexion()
         //declaration des variables de connexion
         $pseudo = $_POST['name'];
         $password = $_POST['password'];
+        
+
+
         // appel a la base  de données pour verifier le password selon le pseudo
         require 'models/backEnd/administrationManager.php';
         $administrationManager = new AdministrationManager();
         $admin = $administrationManager->getUser($pseudo);
+
+      
+
+
 
         //condition
         if ($password == $admin['password'] and $pseudo == $admin['name']) {
@@ -183,7 +190,6 @@ function administrationConnexion()
             exit();
         }
     } else {
-        $notification1 = '<p id="Error"> Veuillez rentrer vos identifiants svp</p>';
         echo "<script type='text/javascript'>document.location.replace('index.php?action=administrationConnexionErrorVide');</script>";
     }
 }
@@ -206,7 +212,7 @@ function administrationConnexionErrorVide()
 function deconnexion()
 {
     session_destroy();
-    $notification = '<p id="success"vous etes déconnecté</p>';
+    $notification = '<p class="success"vous etes déconnecté</p>';
     echo "<script type='text/javascript'>document.location.replace('index.php?action=administration');</script>";
     exit();
 }
@@ -369,10 +375,8 @@ function administrationChapterNouveau()
     require 'models/backEnd/contactManager.php';
 
     $contact = new ContactManager();
-    // global $nbMessages;
     $nbMessages = $contact->countMessageNew();
     $Comments = new Comments();
-    //  global $nbComments;
     $nbComments = $Comments->countCommentsNew();
 
     $nbCommentsDanger = $Comments->countCommentsDanger();
@@ -472,7 +476,7 @@ function administrationChapterTransformBrouillon()
         $allArticles = new ArticlesManager();
         $articleBrouillon = $allArticles->brouillonArticle($id);
 
-        $notification = '<p id="success">Votre Chapter a étét déplacé dans la liste des Chapters brouillon</p>';
+        $notification = '<p class="success">Votre Chapter a étét déplacé dans la liste des Chapters brouillon</p>';
         $articles = $allArticles->getArticles();
         $articlesB = $allArticles->getArticlesBrouillon();
         $articlesS = $allArticles->getArticlesSupprimer();

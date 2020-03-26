@@ -11,7 +11,7 @@
         <h1>Billet simple pour l'Alaska</h1>
         <h2>Administration </h2>
         <div id="paragrapheBillet">
-            <p id="success"> Vous êtes connecté </p>
+            <p class="success"> Vous êtes connecté </p>
             <p>Choisissez votre section </p>
            
 

@@ -12,7 +12,7 @@
         <h2>Administration </h2>
         <div id="paragrapheBillet">
             <p>Voici la liste des commentaires </p>
-            <p id="success"><?php if(isset($notification)) {echo $notification;} ?></p>
+            <p class="success"><?php if(isset($notification)) {echo $notification;} ?></p>
         </div>
     </div>
 </section>
