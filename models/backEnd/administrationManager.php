@@ -10,6 +10,20 @@ class AdministrationManager
     $data = $req->fetch();
     return $data;    
     } 
+
+    public function passwordChange($pseudo,$passwordCrypt) {
+        global $bdd;
+        $req = $bdd->prepare('UPDATE administrateurs SET password = :password,newPassword = :newPassword WHERE name =:name');
+        $req->execute(array(
+            'password' => $passwordCrypt ,
+            'newPassword' => 1 ,
+            'name' => $pseudo
+        ));
+        var_dump($passwordCrypt);  
+        var_dump($pseudo); 
+    }
+
+
     
   
    

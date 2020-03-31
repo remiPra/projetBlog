@@ -589,6 +589,10 @@ input {
     vertical-align: center;
 }
 
+.password {
+    font-size :2em;
+    color:white!important;
+}
 
 .sentenceTableau {
     width: 300px;

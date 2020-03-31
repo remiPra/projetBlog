@@ -1,4 +1,4 @@
-<?php $raccourci = ['Link' =>'administrationHome','name'=>'Administration'];?>
+<?php $raccourci = ['Link' => 'administrationHome', 'name' => 'Administration']; ?>
 
 <?php $title = "administration"; ?>
 <?php ob_start() ?>
@@ -12,8 +12,9 @@
         <h2>Administration </h2>
         <div id="paragrapheBillet">
             <p class="success"> Vous êtes connecté </p>
-            <p>Choisissez votre section </p>
-           
+            
+                    <p>Choisissez votre section </p>
+
 
 
         </div>

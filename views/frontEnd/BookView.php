@@ -26,8 +26,8 @@
                     <h5 class="Publication">Publié le : ' ?>
                <?php 
                 //méthode pour retoruner la date dans un bon format
-               $newFormatDate = $allArticles->dateformat($article['date']);
-               echo($newFormatDate); ?>
+             //  $newFormatDate = $allArticles->dateformat($article['date']);
+             //  echo($newFormatDate); ?>
            
                 <?php echo '       
                     </h5>

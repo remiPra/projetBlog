@@ -72,19 +72,20 @@ class ArticlesManager{
         $imgData = basename($_FILES['avatar']['name']);
       
         // condition si l'utilisateur veut que ce soit un brouillon
-        if ($_POST['brouillon'] == 1) {
-             global $bdd;
-            $req = $bdd->prepare('INSERT INTO chapters (NumberChapter,title,content,sentence,brouillon) VALUES(:NumberChapter,:title,:content,:sentence,:brouillon)');
+        // if ($_POST['brouillon'] == 1) {
+        //      global $bdd;
+        //     $req = $bdd->prepare('INSERT INTO chapters (NumberChapter,title,content,sentence,brouillon) VALUES(:NumberChapter,:title,:content,:sentence,:brouillon)');
          
-            $req->execute(array($_POST['NumberChapter'], $_POST['title'], $_POST['content'], $_POST['sentence'], $_POST['brouillon']));
-        }
-        //sinon il est publié
-        else {
+        //     $req->execute(array($_POST['NumberChapter'], $_POST['title'], $_POST['content'], $_POST['sentence'], $_POST['brouillon']));
+        // }
+        // //sinon il est publié
+        // else {
+            var_dump($imgData);
              global $bdd;
-            $req = $bdd->prepare('INSERT INTO chapters (NumberChapter,title,content,sentence,imageChapter) VALUES(?, ?, ?, ?, ?)');
-            $req->execute(array($_POST['NumberChapter'], $_POST['title'], $_POST['content'], $_POST['sentence'], $imgData));
-         
-        }
+            $req = $bdd->prepare('INSERT INTO chapters (NumberChapter,title,content,sentence,brouillon,imageChapter) VALUES(?, ?, ?, ?,?, ?)');
+            $req->execute(array($_POST['NumberChapter'], $_POST['title'], $_POST['content'], $_POST['sentence'],$_POST['brouillon'], $imgData));
+            var_dump($req);
+        // }
     }
 
     public function ModifyArticle()
@@ -152,22 +153,7 @@ class ArticlesManager{
         $req->execute(array($id));
     }
        
-    public function connect(){
-        $host_name = 'db5000267422.hosting-data.io';
-        $database = 'dbs260968';
-         $user_name = 'dbu246755';
-         $password = "Tfctfc3131@";
-         
-     
-         try {
-          
-           $bdd = new PDO("mysql:host=$host_name; dbname=$database;", $user_name, $password);
-            return $bdd; 
-        } catch (PDOException $e) {
-           echo "Error!: " . $e->getMessage() . "<br/>";
-           die();
-       }
-    }
+  
    
 
 }

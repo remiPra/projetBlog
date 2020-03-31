@@ -54,7 +54,7 @@ function Book()
 }
 
 
-// Controller de la page des d'un article sélectionné
+// controller de la page des d'un article sélectionné
 ////////////////////////////////
 function post()
 {
@@ -129,7 +129,7 @@ function contactRecu()
     } else {
 
         $notificationError = '<p id="Error">vous n\'avez pas remplis tous les champs</p>';
-        require 'views/frontEnd/contactView.php';     
+        require 'views/frontEnd/contactView.php';
     }
 }
 
@@ -166,25 +166,27 @@ function administrationConnexion()
         //declaration des variables de connexion
         $pseudo = $_POST['name'];
         $password = $_POST['password'];
-        
+
 
 
         // appel a la base  de données pour verifier le password selon le pseudo
         require 'models/backEnd/administrationManager.php';
         $administrationManager = new AdministrationManager();
         $admin = $administrationManager->getUser($pseudo);
-
-      
-
-
-
+        
+        $isPasswordCorrect = password_verify($_POST['password'], $admin['password']);
         //condition
-        if ($password == $admin['password'] and $pseudo == $admin['name']) {
-            $_SESSION['connect'] = 1;
-            $_SESSION['name'] = $admin['name'];
-          
-            echo "<script type='text/javascript'>document.location.replace('index.php?action=administrationHome');</script>";
-            exit();
+        if ($isPasswordCorrect== true AND $pseudo == $admin['name']) {
+            global $_SESSION;
+           
+       
+            $_SESSION['pseudo'] = $admin['name'];
+
+            if ($admin['newPassword'] == 0) {
+                header('Location:index.php?action=administrationHomeNewPassword');
+            } else {
+                header('Location: index.php?action=administrationHome');
+            }
         } else if ($password != $admin['password']) {
             echo "<script type='text/javascript'>document.location.replace('index.php?action=administrationConnexionError');</script>";
             exit();
@@ -192,6 +194,74 @@ function administrationConnexion()
     } else {
         echo "<script type='text/javascript'>document.location.replace('index.php?action=administrationConnexionErrorVide');</script>";
     }
+}
+
+// controlleur pour bien verifier le nouveau password
+function administrationConnexionNewPasswordCheck()
+{
+    require 'models/backEnd/CommentManager.php';
+    require 'models/backEnd/contactManager.php';
+
+    $contact = new ContactManager();
+    // global $nbMessages;
+    $nbMessages = $contact->countMessageNew();
+    $Comments = new Comments();
+    //  global $nbComments;
+    $nbComments = $Comments->countCommentsNew();
+    
+    $nbCommentsDanger = $Comments->countCommentsDanger();
+
+    if (($_POST['password'] != null) AND ($_POST['password1'] != null)) {
+        if($_POST['password'] == $_POST['password1'] ){
+            $passwordCrypt = password_hash($_POST['password'], PASSWORD_DEFAULT);
+            $pseudo = $_SESSION['pseudo'];
+            require 'models/backEnd/administrationManager.php';
+            $administrationManager = new AdministrationManager();
+            $newPassword = $administrationManager->passwordChange($pseudo,$passwordCrypt);
+            require 'views/backEnd/administrationHomeView.php';
+        }
+        else {
+            header('Location:index.php?action=administrationHomeNewPasswordError');   
+        }
+    } else {
+        header('Location:index.php?action=administrationHomeNewPasswordError');
+    }
+}
+//controlleur des erreurs sur le password
+function administrationHomeNewPasswordError()
+{
+    require 'models/backEnd/CommentManager.php';
+    require 'models/backEnd/contactManager.php';
+
+    $contact = new ContactManager();
+    // global $nbMessages;
+    $nbMessages = $contact->countMessageNew();
+    $Comments = new Comments();
+    //  global $nbComments;
+    $nbComments = $Comments->countCommentsNew();
+    
+    $nbCommentsDanger = $Comments->countCommentsDanger();
+
+    $notificationError = '<p id="Error">vous n\'avez pas remplis tous les champs</p>';
+    require 'views/backEnd/administrationHomeNewPasswordView.php';
+}
+
+// Controlleur de redirection pour prevenir du password trop faible
+function administrationHomeNewPassword()
+{
+    require 'models/backEnd/CommentManager.php';
+    require 'models/backEnd/contactManager.php';
+
+    $contact = new ContactManager();
+    // global $nbMessages;
+    $nbMessages = $contact->countMessageNew();
+    $Comments = new Comments();
+    //  global $nbComments;
+    $nbComments = $Comments->countCommentsNew();
+    
+    $nbCommentsDanger = $Comments->countCommentsDanger();
+
+    require 'views/backEnd/administrationHomeNewPasswordView.php';
 }
 
 // Controlleur de redirection en cas d'une Error de connexion
@@ -327,7 +397,7 @@ function administrationChaptersModify()
 
         //recuperaton des articles pour les Modify 
         $articlesManager = new ArticlesManager();
-       
+
         $articleBrouillon = $articlesManager->brouillonArticle($id);
         $Chapters = $articlesManager->NumbersChapter();
         $article = $articlesManager->getArticleBrouillon($id);
@@ -338,12 +408,12 @@ function administrationChaptersModify()
 // Controlleur de la page pour envoyer la modification d'un Chapter
 function administrationChaptersEnvoiModify()
 {
-   
+
     require 'models/backEnd/CommentManager.php';
     require 'models/backEnd/contactManager.php';
     require  'models/backEnd/articleManager.php';
     $allArticles = new ArticlesManager();
-  
+
 
     $contact = new ContactManager();
     // global $nbMessages;

@@ -2,13 +2,14 @@
 session_start();
 require 'controllers/controller.php';
 
-if ($_SESSION['connect'] == null) {
+
+if ($_SESSION == false AND isset($_GET['action'])) {
     ////////////////////////////////////////////////////
     ///////////Partie Frond-end///////////////////////
     //////////////////////////////////////////////////
     // redirection page d'accueil
 
-    switch ($_GET['action']) {
+    switch (($_GET['action'])) {
         case 'index':
             index();
             break;
@@ -68,12 +69,13 @@ if ($_SESSION['connect'] == null) {
         case 'administrationContactTransformNonLu':
         case 'administrationContactTransformSuppression':
         case 'administrationContactTransformSupprimer':
-            index(); 
+            index();
             break;
         default:
             index();
+            break;
     }
-} else if (($_SESSION['connect'] == 1)) {
+} else if (($_SESSION == true AND isset($_GET['action']))) {
     switch ($_GET['action']) {
         case 'index':
             index();
@@ -113,6 +115,17 @@ if ($_SESSION['connect'] == null) {
         case 'administrationHome':
 
             administrationHome();
+            break;
+        case 'administrationHomeNewPassword':
+            administrationHomeNewPassword();
+            break;
+
+        case 'administrationConnexionNewPasswordCheck':
+            administrationConnexionNewPasswordCheck();
+            break;
+
+        case 'administrationHomeNewPasswordError':
+            administrationHomeNewPasswordError();
             break;
 
         case 'administrationChapters':
@@ -154,7 +167,7 @@ if ($_SESSION['connect'] == null) {
             // CommentS
         case 'administrationComments':
 
-            administrationComments();  
+            administrationComments();
             break;
 
         case 'AdministrationCommentsTransformEnCours':
