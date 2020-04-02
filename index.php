@@ -31,9 +31,16 @@ if ($_SESSION == false AND isset($_GET['action'])) {
         case 'article':
             if (($_GET['id']) > 0) {
                 post();
+            break;
             } else {
                 index();
+            break;
             }
+        case 'initializeNewPassword':
+                initializePassword();
+                break;
+
+
         case 'administration':
             administration();
             break;
@@ -46,6 +53,13 @@ if ($_SESSION == false AND isset($_GET['action'])) {
             break;
         case 'administrationConnexionErrorVide':
             administrationConnexionErrorVide();
+            break;
+        // gestion des mots de passse oubliées 
+        case 'administrationPasswordForgot' :
+            administrationPasswordForgot();
+            break;
+        case 'administrationPasswordForgotCheck' :
+            administrationPasswordForgotCheck();
             break;
 
         case 'administrationHome':

@@ -27,24 +27,23 @@
 
         <form enctype="multipart/form-data" action="index.php?action=administrationChapterModifyEnvoi" method="POST" id="administrationChapterEcrire">
             <?php echo '
-               <label> Numéro de chapitre déja utilisé </label> 
-               <p> Vous avez deja utilisé les chapitres : ' ?>
+               <label> Numéro de chapitre déja utilisé </label> ' ?>
            
             </p>
-            <p id="ChapterNumberUse"> Vous avez deja utilisé les chapitres :
-                <?php foreach ($Chapters as $Chapter) : ?>
-
-                    <?php echo 'N°' . $Chapter['NumberChapter'] . ' '; ?>
-
-                <?php endforeach; ?>
+            <p id="ChapterNumberUse"> Vous avez deja utilisé les chapitres :<span id="ChapterNumberUseList">
+          
+            <?php foreach($Chapters as $Chapter) :
+                if($Chapter['NumberChapter'] != $article['NumberChapter']  ) 
+                    { echo '<span>'.$Chapter['NumberChapter'].'</span>;'; }
+                    endforeach; ?>
             </p>
             <p class="success">Reecrivez svp le numero de chapitre en cours ou un autre numéro de chapitre possible</p>
             <?php echo '
             <label for="numberPossible">Numéro de chapitre : ' . $article['NumberChapter'] . '
             </label>
-            <input id="numberPossible"type="text" name="NumberChapter" value="">
+            <input id="numberPossible"type="text" name="NumberChapter" value="' . $article['NumberChapter'] . '">
            
-            <p id="numberPossibleValidate" style="color:red;"></p>
+            <p id="numberPossibleValidate"></p>
             <label for="title"> Titre du chapitre : 
             </label>    
             <input id="title" type="text" name="title" value="' . $article['title'] . '">
@@ -57,8 +56,7 @@
            
             <textarea name="content" class="tinymce" id="texteditor" cols="300" rows="10" >  <div> '.$article['content'].'</div></textarea>
 
-            <img id="imgSource" src="images/' . $article['imageChapter'] . ' " 
-                    alt="' . $article['imageAlt'] . '">
+            <img id="imgSource" src="images/' . $article['imageChapter'] . ' " >
 
            
            
@@ -82,7 +80,8 @@
             <textarea name="content" class="tinymce" id="texteditor" cols="300" rows="10" >  <div> ' . $article['content'] . '</div></textarea>
            
             '?>
-           
+             <label for="altImage"> Description de l'image : </label>
+            <input id="altImage" type="text" name="altImage">
             <label for="brouillon" id="brouillonForm"> Que voulez vous faire pour ce chapitre : </label>
                 <select id="brouillon" name="brouillon">
                     <option value="0">Ce chapitre peut être publié</option>
@@ -97,15 +96,15 @@
                 <p></p>
                 <div id="confirmValidateButton">
                     <button type="button" id="closeConfirmValidate">Fermer</button>
-                    <input id="ChapterValidationBtn" class="formButton" type="submit" value="oui" name="btnAdministrationEcrire">
+                    <input id="ChapterValidationBtn" class="formButton" type="button" value="oui" name="btnAdministrationEcrire">
                     <button type="button" id="returnChapter">Non</button>
                 </div>
    
             </div>
             <div class="inputNone" id="textEditor"> <?php echo $article['content'] ?> </div>
         </form>
+        <script src="assets/js/validationChapter.js"></script>
 </section>
-<script src="assets/js/validationChapter.js"></script>
 
 
 

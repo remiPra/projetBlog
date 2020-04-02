@@ -34,7 +34,7 @@
                 </div>
             </div>
             <figure>
-                <img src="images/' . $article['imageChapter'] . '" alt="' . $article['imageAlt'] . '">
+                <img src="images/' . $article['imageChapter'] . '" alt="' . $article['altImage'] . '">
                
                 <figcaption >
                     <h6 class="resume">' . $article['sentence'] . '</h5>

@@ -17,6 +17,7 @@
                 echo $notification1;
             }
              ?>
+             
 
 
         </div>
@@ -31,6 +32,12 @@
         </label>
         <input name="password" type="password">
         <input type="submit" value="Se connecter">
+    </form>
+    <form action="">     
+        <a href="index?action=administrationPasswordForgot">
+            Mot de passe Oublié??
+        </a>
+             
     </form>
 
 </section>

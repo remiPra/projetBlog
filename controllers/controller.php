@@ -161,7 +161,6 @@ function administration()
 // Controlleur de l'execution de connexion a la partie administration
 function administrationConnexion()
 {
-
     if (($_POST['name'] != null) and ($_POST['password']) != null) {
         //declaration des variables de connexion
         $pseudo = $_POST['name'];
@@ -173,19 +172,28 @@ function administrationConnexion()
         require 'models/backEnd/administrationManager.php';
         $administrationManager = new AdministrationManager();
         $admin = $administrationManager->getUser($pseudo);
-        
-        $isPasswordCorrect = password_verify($_POST['password'], $admin['password']);
-        //condition
-        if ($isPasswordCorrect== true AND $pseudo == $admin['name']) {
-            global $_SESSION;
-           
+
+        //$isPasswordCorrect = password_verify($_POST['password'], $admin['password']);
+       $isPasswordCorrect = password_verify($_POST['password'], $admin['password']);
        
+       
+       
+        //condition
+        if (
+            //$_POST['password'] == $admin['password']
+            $isPasswordCorrect == true 
+            AND $pseudo == $admin['name']) {
+            global $_SESSION;
+            $_SESSION['connect'] = true;
+            echo $_SESSION['connect'];
             $_SESSION['pseudo'] = $admin['name'];
 
             if ($admin['newPassword'] == 0) {
-                header('Location:index.php?action=administrationHomeNewPassword');
+                echo "<script type='text/javascript'>document.location.replace('index.php?action=administrationHomeNewPassword');</script>";
+
+                //                header('Location:index.php?action=administrationHomeNewPassword');
             } else {
-                header('Location: index.php?action=administrationHome');
+                echo "<script type='text/javascript'>document.location.replace('index.php?action=administrationHome');</script>";
             }
         } else if ($password != $admin['password']) {
             echo "<script type='text/javascript'>document.location.replace('index.php?action=administrationConnexionError');</script>";
@@ -208,20 +216,20 @@ function administrationConnexionNewPasswordCheck()
     $Comments = new Comments();
     //  global $nbComments;
     $nbComments = $Comments->countCommentsNew();
-    
+
     $nbCommentsDanger = $Comments->countCommentsDanger();
 
-    if (($_POST['password'] != null) AND ($_POST['password1'] != null)) {
-        if($_POST['password'] == $_POST['password1'] ){
+    if (($_POST['password'] != null) and ($_POST['password1'] != null) and ($_POST['email'])) {
+        if ($_POST['password'] == $_POST['password1']) {
             $passwordCrypt = password_hash($_POST['password'], PASSWORD_DEFAULT);
-            $pseudo = $_SESSION['pseudo'];
+            $pseudo = $_POST['name'];
+            var_dump($pseudo);
             require 'models/backEnd/administrationManager.php';
             $administrationManager = new AdministrationManager();
-            $newPassword = $administrationManager->passwordChange($pseudo,$passwordCrypt);
+            $newPassword = $administrationManager->passwordChange($pseudo, $passwordCrypt);
             require 'views/backEnd/administrationHomeView.php';
-        }
-        else {
-            header('Location:index.php?action=administrationHomeNewPasswordError');   
+        } else {
+            header('Location:index.php?action=administrationHomeNewPasswordError');
         }
     } else {
         header('Location:index.php?action=administrationHomeNewPasswordError');
@@ -239,7 +247,7 @@ function administrationHomeNewPasswordError()
     $Comments = new Comments();
     //  global $nbComments;
     $nbComments = $Comments->countCommentsNew();
-    
+
     $nbCommentsDanger = $Comments->countCommentsDanger();
 
     $notificationError = '<p id="Error">vous n\'avez pas remplis tous les champs</p>';
@@ -258,7 +266,7 @@ function administrationHomeNewPassword()
     $Comments = new Comments();
     //  global $nbComments;
     $nbComments = $Comments->countCommentsNew();
-    
+
     $nbCommentsDanger = $Comments->countCommentsDanger();
 
     require 'views/backEnd/administrationHomeNewPasswordView.php';
@@ -397,7 +405,7 @@ function administrationChaptersModify()
 
         //recuperaton des articles pour les Modify 
         $articlesManager = new ArticlesManager();
-
+        $images = $articlesManager->getImages();
         $articleBrouillon = $articlesManager->brouillonArticle($id);
         $Chapters = $articlesManager->NumbersChapter();
         $article = $articlesManager->getArticleBrouillon($id);
@@ -423,6 +431,8 @@ function administrationChaptersEnvoiModify()
     $nbComments = $Comments->countCommentsNew();
 
     $nbCommentsDanger = $Comments->countCommentsDanger();
+
+    //condition si le numero de chapitre deja
     //variable notification
     $notification = '<p> votre article a été envoyé </p>';
 
@@ -876,4 +886,73 @@ function administrationContactTransformSupprimer()
     $MessagesSLu = $contactManager->getContactMessagesLu();
     $MessagesSup = $contactManager->getContactMessagesSupprimer();
     require 'views/backEnd/administrationContactHomeView.php';
+}
+function administrationPasswordForgot()
+{
+    require 'views/frontEnd/administrationPasswordForgotView.php';
+}
+
+function administrationPasswordForgotCheck()
+{
+    if ($_POST['name'] != null) {
+        require 'models/backEnd/administrationManager.php';
+        $administrationManager = new AdministrationManager();
+        $pseudo = $_POST['name'];
+        $user = $administrationManager->getUser($pseudo);
+
+        if ($pseudo == $user['name']) {
+
+            $to = $user['email'];
+            $firstname = $pseudo;
+            $v = rand(1, 10);
+            $link = password_hash($v, PASSWORD_DEFAULT);
+            
+            $linkCode = $administrationManager->alertPassword($link,$firstname);
+            // Always set content-type when sending HTML email
+            $headers = "MIME-Version: 1.0" . "\r\n";
+            $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+
+            // More headers
+
+            $subject = "lien pour vous reconnecter";
+
+
+            $message = '<h1> ' . $firstname . ' </h1>
+            <p> veuillez cliquez sur ce lien 
+            <a href="http://www.remi-pradere.com/projetBlog/index.php?action=initializeNewPassword&name='.$firstname.'&link=' . $link . '"> 
+            cliquez ici
+            
+            <p>';
+            mail($to, $subject, $message, $headers);
+
+            // ENVOYER UN EMAIL
+
+            $messageEnvoye =  'votre mot de passe vous a été envoyé sur votre mail';
+            require 'views/frontEnd/contactRecuView.php';
+        } else {
+            $notificationError = "name invalid";
+            require 'views/frontEnd/administrationPasswordForgotView.php';
+        }
+    } else {
+        $notificationError = "vous n'avez pas rempli tous les champs";
+        require 'views/frontEnd/administrationPasswordForgotView.php';
+    }
+}
+
+function initializePassword()
+{
+    $name = extract($_GET['name']);
+    $link = extract($_GET['link']);
+    
+    require 'models/backEnd/administrationManager.php';
+
+    $administrationManager = new AdministrationManager();
+    $user = $administrationManager->checkUser($name);
+    if ($name == $user['name'] AND $link == $user['link']) {
+        global $_SESSION;
+        $_SESSION['connect'] = true;
+        require 'views/frontEnd/administrationPasswordForgotView.php';
+    } else {
+        echo "<script type='text/javascript'>document.location.replace('index.php?action=index.php');</script>";
+    }
 }

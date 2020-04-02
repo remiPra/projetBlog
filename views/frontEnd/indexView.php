@@ -55,7 +55,7 @@
                         '.$lastArticle['title'].'</h3>
                         <h4 class="Publication">Publié le : '.$lastArticle['date'].'</h4>
                     </div>
-                    <img src="images/'.$lastArticle['imageChapter'].'" alt="'.$lastArticle['imageAlt'].'">    
+                    <img src="images/'.$lastArticle['imageChapter'].'" alt="'.$lastArticle['altImage'].'">    
                     <figcaption >
                         <h5 class="resume"> '.$lastArticle['sentence'].' </h5>
                         <div>

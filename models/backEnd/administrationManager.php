@@ -1,7 +1,7 @@
 <?php
 class AdministrationManager 
 {
-    
+    // recuperation du nom de l'administrateur pour verifier si match marche 
     public function getUser($pseudo) {
 
         global $bdd;
@@ -10,22 +10,40 @@ class AdministrationManager
     $data = $req->fetch();
     return $data;    
     } 
-
+    // méthode pour changer le password pour plus de sécurité
     public function passwordChange($pseudo,$passwordCrypt) {
         global $bdd;
-        $req = $bdd->prepare('UPDATE administrateurs SET password = :password,newPassword = :newPassword WHERE name =:name');
+        $req = $bdd->prepare('UPDATE administrateurs SET password = :password,newPassword = :newPassword,email = :email  WHERE name =:name');
         $req->execute(array(
             'password' => $passwordCrypt ,
             'newPassword' => 1 ,
-            'name' => $pseudo
+            'email' => $_POST['email'],
+            'name' => $pseudo,
+
         ));
+        var_dump($pseudo);
         var_dump($passwordCrypt);  
         var_dump($pseudo); 
     }
 
+    public function alertPassword($link,$firstname) {
+        global $bdd;
+        $req = $bdd->prepare('UPDATE administrateurs SET newPassword = :newPassword, date=:date ,link=:link WHERE name =:name');
+        $req->execute(array(
+            'newPassword' => 1 ,
+            'date'=>$_POST['date'],
+            'link'=>$link,
+            'name'=>$firstname
+        ));
+    }
 
-    
-  
+    public function checkUser($name) {
+        global $bdd;
+        $req = $bdd->prepare('SELECT * from administrateurs WHERE name=:name' );
+        $req->execute(array($name));
+        $data = $req->fetchAll();
+        return $data;
+    }
    
 }
         

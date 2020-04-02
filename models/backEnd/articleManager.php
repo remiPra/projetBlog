@@ -56,7 +56,7 @@ class ArticlesManager{
     public function NumbersChapter()
     {
          global $bdd;
-        $req = $bdd->prepare('SELECT NumberChapter FROM chapters WHERE supprimer = 0 AND brouillon = 0 ORDER BY NumberChapter');
+        $req = $bdd->prepare('SELECT NumberChapter FROM chapters ORDER BY NumberChapter');
         $req->execute();
         $data = $req->fetchAll();
         return $data;
@@ -70,28 +70,17 @@ class ArticlesManager{
          global $bdd;
       
         $imgData = basename($_FILES['avatar']['name']);
-      
-        // condition si l'utilisateur veut que ce soit un brouillon
-        // if ($_POST['brouillon'] == 1) {
-        //      global $bdd;
-        //     $req = $bdd->prepare('INSERT INTO chapters (NumberChapter,title,content,sentence,brouillon) VALUES(:NumberChapter,:title,:content,:sentence,:brouillon)');
-         
-        //     $req->execute(array($_POST['NumberChapter'], $_POST['title'], $_POST['content'], $_POST['sentence'], $_POST['brouillon']));
-        // }
-        // //sinon il est publié
-        // else {
             var_dump($imgData);
              global $bdd;
-            $req = $bdd->prepare('INSERT INTO chapters (NumberChapter,title,content,sentence,brouillon,imageChapter) VALUES(?, ?, ?, ?,?, ?)');
-            $req->execute(array($_POST['NumberChapter'], $_POST['title'], $_POST['content'], $_POST['sentence'],$_POST['brouillon'], $imgData));
+            $req = $bdd->prepare('INSERT INTO chapters (NumberChapter,title,sentence,content,imageChapter,brouillon,supprimer,altImage) VALUES(?, ?, ?, ?,?,?,?,?)');
+            $req->execute(array($_POST['NumberChapter'], $_POST['title'],  $_POST['sentence'],$_POST['content'],$imgData,$_POST['brouillon'], 0,$_POST['altImage']));
             var_dump($req);
-        // }
     }
 
     public function ModifyArticle()
     {
-         global $bdd;
-        // traitement de l'image
+        
+        
         // traitement de l'image
          global $bdd;
         $imgData = basename($_FILES['avatar']['name']);
@@ -99,27 +88,29 @@ class ArticlesManager{
 
         if ($imgData == null) {
       
-        $req = $bdd->prepare('UPDATE chapters SET NumberChapter = :NumberChapter, title = :title, content =:content, sentence =:sentence, brouillon= :brouillon WHERE id =:id ');
+        $req = $bdd->prepare('UPDATE chapters SET NumberChapter = :NumberChapter, title = :title, content =:content, sentence =:sentence, brouillon= :brouillon,altImage = :altImage WHERE id =:id ');
         $req->execute(array(
             'NumberChapter' => $_POST['NumberChapter'],
             'title' => $_POST['title'],
             'content' => $_POST['content'],
             'sentence' => $_POST['sentence'],
             'brouillon' => $_POST['brouillon'],
+            'altImage' => $_POST['altImage'],
             'id' => $_POST['id']
         ));
         } else {
         
 
-            $req = $bdd->prepare('UPDATE chapters SET NumberChapter = :NumberChapter, title = :title, content =:content, sentence =:sentence, brouillon= :brouillon ,imageChapter= :imageChapter WHERE id =:id ');
+            $req = $bdd->prepare('UPDATE chapters SET NumberChapter = :NumberChapter, title = :title, content =:content, sentence =:sentence, brouillon= :brouillon ,imageChapter= :imageChapter,altImage = :altImage WHERE id =:id ');
             $req->execute(array(
                 'NumberChapter' => $_POST['NumberChapter'],
                 'title' => $_POST['title'],
                 'content' => $_POST['content'],
                 'sentence' => $_POST['sentence'],
                 'brouillon' => $_POST['brouillon'],
+                'imageChapter' => $imgData,
+                'altImage' => $_POST['altImage'],
                 'id' => $_POST['id'],
-                'imageChapter' => $imgData
             ));
 
             require  'models/frontEnd/imageManager.php';

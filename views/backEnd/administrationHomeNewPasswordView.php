@@ -10,7 +10,7 @@
 
         <h1>Billet simple pour l'Alaska</h1>
         <h2>Formulaire de contact</h2>
-        <div id="paragrapheBillet">
+        <div id="paragrapheBillet" class="col-lg-12">
 
             <form action="index.php?action=administrationConnexionNewPasswordCheck" method='POST'>
                 <p>  <?php echo $_SESSION['pseudo']; ?> , vous avez un mot de passe trop sensible.</p>
@@ -21,6 +21,8 @@
                 <label> Pseudo :</label>
                 <input name="name" type="text" value="<?php echo  $_SESSION['pseudo']; ?> ">
                 <input class="inputNone" name="newPassword" value="1" type="text">
+                <label> email :</label>
+                <input name="email" type="email">
                 <label> Nouveau mot de passe</label>
                 <input name="password1" type="password">
                 <label> Retaper votre nouveau mot de passe</label>

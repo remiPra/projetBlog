@@ -27,15 +27,17 @@ class CommentManagerF
     {
         global $bdd;
 
-        $req = $bdd->prepare('INSERT INTO Comments (pseudo, Comment,numChapter) 
-                VALUES(?, ?, ?)');
+        $req = $bdd->prepare('INSERT INTO Comments (pseudo, Comment,numChapter,valider,signaler) 
+                VALUES(?, ?,?,?, ?)');
         $req->execute(array(
             $_POST['pseudo'],
             $_POST['Comment'],
-            $_POST['numChapter']
+            $_POST['numChapter'],
+            0,0
+            
         ));
 
-        // Passe la variable get avec le num de Chapter
+        // Passe la variable get avec le num de Chapter pour recuperer la page de l'article désiré
         $_GET['id'] =   $_POST['numChapter'];
     }
 }

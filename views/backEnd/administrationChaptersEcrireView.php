@@ -26,18 +26,16 @@
 
         <form enctype="multipart/form-data" action="index.php?action=administrationChapterNouveau" method="POST" id="administrationChapterEcrire">
             <label> Numéro de chapitre déja utilisé </label>
-            <p id="ChapterNumberUse"> Vous avez deja utilisé les chapitres :
-                <?php foreach ($Chapters as $Chapter) : ?>
-
-                    <?php echo 'N°' . $Chapter['NumberChapter'] . ' '; ?>
-
-                <?php endforeach; ?>
-            </p>
-
+            <p id="ChapterNumberUse"> Vous avez deja utilisé les chapitres :<span id="ChapterNumberUseList">
+          
+          <?php foreach($Chapters as $Chapter) :?>
+                  <?php echo '<span>'.$Chapter['NumberChapter'].'</span>;' ?>
+                  <?php endforeach; ?>
+          </p>
             <label for="NumberChapter"> numéro de chapitre :
             </label>
             <input id="numberPossible" type="text" name="NumberChapter">
-            <p id="numberPossibleValidate" style="color:red;"></p>
+            <p id="numberPossibleValidate"></p>
             <label for="title"> Titre du chapitre :</label>
             <input id="Chaptertitle" type="text" name="title">
             <label> Résumé du chapitre :
@@ -64,7 +62,8 @@
                 <p></p>
                 <button type="button">Fermer</button>
             </div> 
-       
+            <label for="altImage"> Description de l'image : </label>
+            <input id="altImage" type="text" name="altImage">
 
             <label for="content"> Contenu du chapitre : </label>
             <textarea id="ChapterContent" name="content" id="" cols="300" rows="10"></textarea>

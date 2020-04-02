@@ -1,4 +1,4 @@
-
+<!-- inclusion de la partie background image qui est une image fixe  -->
 <section id="imageParrallaxBillet">
 <picture>
     <source srcset="images/fog-on-dark-waters-edge.mobile.mobile.jpg" media="(max-width: 480px)">

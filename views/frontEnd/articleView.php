@@ -21,7 +21,7 @@
                 <div class=contenuChapter>
                 <figure class="row">
                     <img class="col-lg-8 col-lg-offset-2 colonne-centree" src="images/'.$article['imageChapter'].' " 
-                    alt="'.$article['imageAlt'].'">
+                    alt="'.$article['altImage'].'">
                 </figure>
                 <div id="tinymce">
                    '.$article['content'].'
