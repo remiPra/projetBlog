@@ -176,14 +176,12 @@ function administrationConnexion()
         //$isPasswordCorrect = password_verify($_POST['password'], $admin['password']);
        $isPasswordCorrect = password_verify($_POST['password'], $admin['password']);
        
-       
-       
         //condition
         if (
             //$_POST['password'] == $admin['password']
             $isPasswordCorrect == true 
             AND $pseudo == $admin['name']) {
-            global $_SESSION;
+            
             $_SESSION['connect'] = true;
             echo $_SESSION['connect'];
             $_SESSION['pseudo'] = $admin['name'];
@@ -956,7 +954,7 @@ function initializePassword()
     $administrationManager = new AdministrationManager();
     $user = $administrationManager->checkUser($name);
     if ($name == $user['name'] AND $link == $user['link']) {
-        global $_SESSION;
+        
         $_SESSION['connect'] = true;
         require 'views/frontEnd/administrationPasswordForgotView.php';
     } else {

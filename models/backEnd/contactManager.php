@@ -12,9 +12,6 @@ class ContactManager
       
     }
     
-    
-    
-    
     //fonction qui affiche les messages non lues
     public function getContactMessages() {
          global $bdd;
