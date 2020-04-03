@@ -223,7 +223,7 @@ function administrationConnexionNewPasswordCheck()
         if ($_POST['password'] == $_POST['password1']) {
             $passwordCrypt = password_hash($_POST['password'], PASSWORD_DEFAULT);
             $pseudo = $_POST['name'];
-            var_dump($pseudo);
+            
             require 'models/backEnd/administrationManager.php';
             $administrationManager = new AdministrationManager();
             $newPassword = $administrationManager->passwordChange($pseudo, $passwordCrypt);
@@ -275,7 +275,7 @@ function administrationHomeNewPassword()
 // Controlleur de redirection en cas d'une Error de connexion
 function administrationConnexionError()
 {
-    $notification = '<p id="Error">Error dans vos identifiants</p>';
+    $notification = '<p id="Error">Erreur dans vos identifiants</p>';
     require 'views/frontEnd/administrationView.php';
 }
 
@@ -351,6 +351,7 @@ function administrationChapters()
     $articles = $allArticles->getArticles();
     $articlesB = $allArticles->getArticlesBrouillon();
 
+    
     //affichage des Chapters dans l'administration
     require 'views/backEnd/administrationChaptersView.php';
 }
@@ -383,13 +384,11 @@ function administrationChaptersModify()
     require 'models/backEnd/contactManager.php';
 
     $contact = new ContactManager();
-    // global $nbMessages;
     $nbMessages = $contact->countMessageNew();
     $Comments = new Comments();
-    //  global $nbComments;
     $nbComments = $Comments->countCommentsNew();
-
     $nbCommentsDanger = $Comments->countCommentsDanger();
+
     //premiere condition pour voir si Id getter est non vide et est un chiffre
     if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {
         // redirection vers header
@@ -434,19 +433,26 @@ function administrationChaptersEnvoiModify()
 
     //condition si le numero de chapitre deja
     //variable notification
-    $notification = '<p> votre article a été envoyé </p>';
+    
+    $notification = '<p> votre article a été modifié</p>';
 
+    
 
     $articleEnv = $allArticles->ModifyArticle();
-
+    
+    
+    
     $articles = $allArticles->getArticles();
     $articlesB = $allArticles->getArticlesBrouillon();
     $articlesS = $allArticles->getArticlesSupprimer();
-
-
-
+    require  'models/frontEnd/imageManager.php';
+    $imagemanager =  new imageManager();
+    $imageUpload = $imagemanager->uploadImage();
+    
     require 'views/backEnd/administrationChaptersView.php';
+    
 }
+
 // Controlleur de la page pour envoyer un nouveau Chapter
 function administrationChapterNouveau()
 {
@@ -458,7 +464,6 @@ function administrationChapterNouveau()
     $nbMessages = $contact->countMessageNew();
     $Comments = new Comments();
     $nbComments = $Comments->countCommentsNew();
-
     $nbCommentsDanger = $Comments->countCommentsDanger();
     //Envoie de l'article fini 
     require  'models/backEnd/articleManager.php';
@@ -470,8 +475,9 @@ function administrationChapterNouveau()
     $imagemanager =  new imageManager();
     $imageUpload = $imagemanager->uploadImage();
 
-
+   
     //variable notification
+    
     $notification = '<p> votre article a été envoyé </p>';
 
     $articles = $allArticles->getArticles();
@@ -659,7 +665,7 @@ function AdministrationCommentsTransformEnCours()
 
 
 
-    $notification = 'le Comment a été placé dans les Comments en cours';
+    $notification = 'le commentaire a été placé dans les Comments en cours';
     $CommentsP = $Comments->getAllComments();
     $CommentsV = $Comments->getAllCommentsValidate();
     $CommentsS = $Comments->getAllCommentsSignaler();
@@ -689,7 +695,7 @@ function AdministrationCommentsTransformSuppression()
     $nbCommentsDanger = $Comments->countCommentsDanger();
 
 
-    $notification = 'le Comment a été supprimé';
+    $notification = 'le commentaire a été supprimé';
     $CommentsP = $Comments->getAllComments();
     $CommentsV = $Comments->getAllCommentsValidate();
     $CommentsS = $Comments->getAllCommentsSignaler();
@@ -718,7 +724,7 @@ function AdministrationCommentsTransformSupprimer()
 
 
 
-    $notification = 'le Comment a été placé dans les Commentares supprimés';
+    $notification = 'le commentaire a été placé dans les Commentares supprimés';
     $CommentsP = $Comments->getAllComments();
     $CommentsV = $Comments->getAllCommentsValidate();
     $CommentsS = $Comments->getAllCommentsSignaler();
@@ -746,7 +752,7 @@ function AdministrationCommentsTransformValider()
 
 
 
-    $notification = 'le Comment a été validé';
+    $notification = 'le commentaire a été validé';
     $CommentsP = $Comments->getAllComments();
     $CommentsV = $Comments->getAllCommentsValidate();
     $CommentsS = $Comments->getAllCommentsSignaler();
@@ -904,6 +910,7 @@ function administrationPasswordForgotCheck()
 
             $to = $user['email'];
             $firstname = $pseudo;
+            //mise en place d'un lien aléatoire
             $v = rand(1, 10);
             $link = password_hash($v, PASSWORD_DEFAULT);
             

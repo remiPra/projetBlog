@@ -18,7 +18,7 @@ class Toggle {
     responsive() {
         //si la fenetre reduit sa largeur
         if (window.innerWidth < 900) {
-            console.log(this.toggle)
+            
             this.toggle.style.display = "block";
             this.ul.style.display = "none";
 
@@ -52,8 +52,6 @@ class Toggle {
 
             if (this.click == 1) {
                 this.ul.style.display = "block";
-                console.log(this.click);
-
             } else
         if (this.click == 2) {
             this.ul.style.display = "none";
@@ -77,9 +75,6 @@ class Toggle {
 
                 this.logo[i].style.color = "white";
             }
-
-
-            console.log("en-dessous");
         } else {
             this.header.style.color = "#061319";
             this.toggle.style.color = "#061319";

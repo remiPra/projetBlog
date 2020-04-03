@@ -43,7 +43,7 @@
                     <th>Id </th>
                     <th>Number Chapter</th>
                     <th>Pseudo</th>
-                    <th>Comment</th>
+                    <th>Commentaire</th>
                     <th>Action</th>
                 </tr>
                 <!-- tableau des Chapters -->

@@ -14,7 +14,7 @@
                          <a href="#conceptBook">
                         Découvrez le projet
                         </a> 
-                        <a href="Book.php">
+                        <a href="index.php?action=Book">
                         Accéder aux Chapitres
                         </a> 
                     </div>

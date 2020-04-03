@@ -15,6 +15,12 @@
         <h2>Administration </h2>
         <div id="paragrapheBillet">
             <p>Voici votre chapitre a modifié</p>
+            <p>
+                <?php if (isset($Error)) {
+                    echo $Error;
+                } ?>
+            </p>
+
 
 
         </div>
@@ -28,13 +34,14 @@
         <form enctype="multipart/form-data" action="index.php?action=administrationChapterModifyEnvoi" method="POST" id="administrationChapterEcrire">
             <?php echo '
                <label> Numéro de chapitre déja utilisé </label> ' ?>
-           
+
             </p>
             <p id="ChapterNumberUse"> Vous avez deja utilisé les chapitres :<span id="ChapterNumberUseList">
-          
-            <?php foreach($Chapters as $Chapter) :
-                if($Chapter['NumberChapter'] != $article['NumberChapter']  ) 
-                    { echo '<span>'.$Chapter['NumberChapter'].'</span>;'; }
+
+                    <?php foreach ($Chapters as $Chapter) :
+                        if ($Chapter['NumberChapter'] != $article['NumberChapter']) {
+                            echo '<span>' . $Chapter['NumberChapter'] . '</span>;';
+                        }
                     endforeach; ?>
             </p>
             <p class="success">Reecrivez svp le numero de chapitre en cours ou un autre numéro de chapitre possible</p>
@@ -52,9 +59,9 @@
             <input id="sentence"type="text" name="sentence" value="' . $article['sentence'] . '">
             <input type="text" class="inputNone" name="id" value="' . $article['id'] . '">
             <label for="texteeditor"> Contenu du chapitre  : </label>
-            <label for="texteeditor"> Contenu du Chapter  : </label>
            
-            <textarea name="content" class="tinymce" id="texteditor" cols="300" rows="10" >  <div> '.$article['content'].'</div></textarea>
+           
+            <textarea name="content" class="tinymce" id="texteditor" cols="300" rows="10" >  <div> ' . $article['content'] . '</div></textarea>
 
             <img id="imgSource" src="images/' . $article['imageChapter'] . ' " >
 
@@ -62,8 +69,8 @@
            
 
             <label>Uploader le fichier image:</label>
-            <input name="avatar" type="file" /> '?> 
-             <p id="listImages">
+            <input name="avatar" type="file" /> ' ?>
+            <p id="listImages">
                 <?php foreach ($images as $image) : ?>
                     <?php echo $image['imageChapter']; ?>
                 <?php endforeach; ?>
@@ -72,24 +79,22 @@
             <div id="imagePossibleValidate">
                 <p></p>
                 <button type="button">Fermer</button>
-            </div> 
+            </div>
+
+            <?php echo '        
             
-            <?php '        
-            <label for="texteeditor"> Contenu du Cchapitre  : </label>
            
-            <textarea name="content" class="tinymce" id="texteditor" cols="300" rows="10" >  <div> ' . $article['content'] . '</div></textarea>
-           
-            '?>
-             <label for="altImage"> Description de l'image : </label>
-            <input id="altImage" type="text" name="altImage">
+            <label for="altImage"> Description de l\'image : </label>
+            <input id="altImage" type="text" name="altImage" value="' . $article['altImage'] . '">
+            ' ?>
             <label for="brouillon" id="brouillonForm"> Que voulez vous faire pour ce chapitre : </label>
-                <select id="brouillon" name="brouillon">
-                    <option value="0">Ce chapitre peut être publié</option>
-                    <option value="1">Garder en brouillon</option>
-                </select>
+            <select id="brouillon" name="brouillon">
+                <option value="0">Ce chapitre peut être publié</option>
+                <option value="1">Garder en brouillon</option>
+            </select>
             <div id=blocValidate>
                 <p id="validationPhrase"> Vous n'avez remplis tous les champs </p>
-                
+
                 <button type="button" id="prepareSend"> Envoyer </button>
             </div>
             <div id=confirmValidate>
@@ -99,7 +104,7 @@
                     <input id="ChapterValidationBtn" class="formButton" type="button" value="oui" name="btnAdministrationEcrire">
                     <button type="button" id="returnChapter">Non</button>
                 </div>
-   
+
             </div>
             <div class="inputNone" id="textEditor"> <?php echo $article['content'] ?> </div>
         </form>

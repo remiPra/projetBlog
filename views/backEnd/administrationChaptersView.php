@@ -14,6 +14,7 @@
             <p>Voici la liste des chapitres </p>
             
             <p><?php if(isset($notification)) echo $notification ;?></p>
+            <p><?php if(isset($imageUpload)) echo $imageUpload ;?></p>
  
         </div>
     </div>

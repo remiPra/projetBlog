@@ -8,7 +8,7 @@
         <h1 class="ghost">Billet simple pour l'Alaska</h1>
         <h2>Liste des chapitres </h2>
         <div id="paragrapheBillet">
-            <p>Retrouvez la liste des chapitres écrites par Jean Forteroche sur les différentes vignettes </p>
+            <p>Retrouvez la liste des chapitres écrits par Jean Forteroche sur les différentes vignettes </p>
 
         </div>
     </div>
@@ -23,12 +23,8 @@
                 <div class="infoChapter" >
                     <h3 class="titreChapter">' . $article['title'] . '</h3>
                     <h4 class="NumberChapter"> Chapitre : ' . $article['NumberChapter'] . '</h4>
-                    <h5 class="Publication">Publié le : ' ?>
-               <?php 
-                //méthode pour retoruner la date dans un bon format
-             //  $newFormatDate = $allArticles->dateformat($article['date']);
-             //  echo($newFormatDate); ?>
-           
+                    <h5 class="Publication">Publié le : '.$article['date'].'' ?>
+                          
                 <?php echo '       
                     </h5>
                 </div>

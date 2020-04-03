@@ -21,11 +21,8 @@ class AdministrationManager
             'name' => $pseudo,
 
         ));
-        var_dump($pseudo);
-        var_dump($passwordCrypt);  
-        var_dump($pseudo); 
     }
-
+    // reinitialisation du password
     public function alertPassword($link,$firstname) {
         global $bdd;
         $req = $bdd->prepare('UPDATE administrateurs SET newPassword = :newPassword, date=:date ,link=:link WHERE name =:name');
@@ -37,6 +34,7 @@ class AdministrationManager
         ));
     }
 
+    // verification du nom avant l'ajout du password
     public function checkUser($name) {
         global $bdd;
         $req = $bdd->prepare('SELECT * from administrateurs WHERE name=:name' );

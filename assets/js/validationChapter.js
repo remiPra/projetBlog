@@ -56,22 +56,19 @@ class ValidationFormulaire {
     // methode de la validation de l'image
     validationImage(){
         let imagesValue =  this.listImages.innerHTML;
-        console.log(imagesValue);
+     
         let text = document.querySelector('input[type="file"]').value;
         let res = text.slice(12,300);
         let pos = imagesValue.indexOf(res);
-        console.log(res);
-        console.log(pos);
-      //!!! v'est juste une recommandation pas une obligation d'avoir la meme image
+       
+      //!!! c'est juste une recommandation pas une obligation d'avoir la meme image
         if (pos < 0) {
             this.imagePossibleValidate.style.display = "block";
-            alert("oui");
             this.imagePossibleValidateP.innerHTML = "Cette image n'a jamais été utilisé, c'est parfait"
             this.imagePossibleValidateButton.style.display = "block";
             this.imageValidate = true;
         } else {
             this.imagePossibleValidate.style.display = "block";
-            alert("non");
             this.imagePossibleValidateP.innerHTML = " cette image a deja été utilsé , faites attention"
             this.imagePossibleValidateButton.style.display = "block";
             this.imageValidate = true;
@@ -85,29 +82,21 @@ class ValidationFormulaire {
         for(let i=0;i<str.length;i++) {
             str1.push(str[i].innerHTML); 
             };
-        console.log(str1);
         // recuperation de la valeur dans l'input
         let textid = this.numberPossible.value;
-        console.log(textid);
-        console.log(Number.isInteger(textid));
         // verification si le numero n'est pas deja utilisé
         let v = str1.includes(textid);
-        console.log(v);
-
-
 
         let Error = "<p id='Error'>vous ne pouvez pas choisir ce Chapter</p>";
         let valider = "<p class='success'>vous pouvez choisir ce Chapter</p>";
         if (v) {
             document.getElementById("numberPossibleValidate").innerHTML = Error;
-           console.log("dejaPris");
             document.getElementById("validationPhrase").style.display = "block";
             document.getElementById("ChapterValidationBtn").style.display = "none";
             this.prepareSend.style.display="none";
             this.ChapterValidate = false;
 
         } else {
-            console.log("succes");
             document.getElementById("numberPossibleValidate").innerHTML = valider;
             this.prepareSend.style.display="block";
             this.ChapterValidate = true;
@@ -118,12 +107,11 @@ class ValidationFormulaire {
     // affichage des boutons de validations
     submitDone() {
         if( this.imageValidate == true && this.ChapterValidate == true) {
-            console.log("success");
             document.getElementById("confirmValidate").style.display = "block";
             this.ChapterValidationBtn.style.display = "block";
             // changement du type de bouton a submit
             this.ChapterValidationBtn.type = "submit";
-            
+        
             document.querySelector("#confirmValidate p").innerHTML = "Etes vous sur de vos saisies?";
             this.closeConfirmValidate.style.display = "none";
             this.returnChapter.style.display = "block";

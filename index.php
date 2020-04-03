@@ -31,11 +31,12 @@ if ($_SESSION == false AND isset($_GET['action'])) {
         case 'article':
             if (($_GET['id']) > 0) {
                 post();
-            break;
+           
             } else {
                 index();
-            break;
-            }
+          
+            };
+        break;
         case 'initializeNewPassword':
                 initializePassword();
                 break;
@@ -66,7 +67,7 @@ if ($_SESSION == false AND isset($_GET['action'])) {
         case 'administrationChapters':
         case 'administrationChaptersEcrire':
         case 'administrationChaptersModify':
-        case 'administrationChapterModifyEnvoi':
+        
         case 'administrationChapterNouveau':
         case 'administrationChaptersSupprimer':
         case 'administrationChapterTransformBrouillon':

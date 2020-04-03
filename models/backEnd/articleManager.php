@@ -70,22 +70,20 @@ class ArticlesManager{
          global $bdd;
       
         $imgData = basename($_FILES['avatar']['name']);
-            var_dump($imgData);
+            
              global $bdd;
             $req = $bdd->prepare('INSERT INTO chapters (NumberChapter,title,sentence,content,imageChapter,brouillon,supprimer,altImage) VALUES(?, ?, ?, ?,?,?,?,?)');
             $req->execute(array($_POST['NumberChapter'], $_POST['title'],  $_POST['sentence'],$_POST['content'],$imgData,$_POST['brouillon'], 0,$_POST['altImage']));
-            var_dump($req);
+            
     }
-
+// // fonction pour modifier un article
     public function ModifyArticle()
     {
-        
-        
-        // traitement de l'image
+        // on recupere le nom de l'image
          global $bdd;
         $imgData = basename($_FILES['avatar']['name']);
         
-
+        // si on a pas uloader d'image on a $imgData == null
         if ($imgData == null) {
       
         $req = $bdd->prepare('UPDATE chapters SET NumberChapter = :NumberChapter, title = :title, content =:content, sentence =:sentence, brouillon= :brouillon,altImage = :altImage WHERE id =:id ');
@@ -99,8 +97,6 @@ class ArticlesManager{
             'id' => $_POST['id']
         ));
         } else {
-        
-
             $req = $bdd->prepare('UPDATE chapters SET NumberChapter = :NumberChapter, title = :title, content =:content, sentence =:sentence, brouillon= :brouillon ,imageChapter= :imageChapter,altImage = :altImage WHERE id =:id ');
             $req->execute(array(
                 'NumberChapter' => $_POST['NumberChapter'],
@@ -112,13 +108,7 @@ class ArticlesManager{
                 'altImage' => $_POST['altImage'],
                 'id' => $_POST['id'],
             ));
-
-            require  'models/frontEnd/imageManager.php';
-
         } 
-
-
-
     }
 
     //fonction pour passer le Chapter en liste supprimer 
